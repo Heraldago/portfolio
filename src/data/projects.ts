@@ -330,10 +330,7 @@ export const projectsData: CaseStudy[] = [
         { title: "Redesigned IA Structure (After)", src: "/assets/IA-after.png" }
       ]
     },
-    designSystem: {
-      colorsImage: "/assets/sydbank-cover-header.png",
-      componentsImage: "/assets/sydbank-logo-display.png"
-    },
+
     highFiScreens: [
       { label: "Enterprise Spotlight Search (Cmd+K)", desc: "Global command palette for instant table and schema discovery across Sydbank's enterprise data warehouse.", img: "/assets/Homeafter.png" },
       { label: "Structured Information Architecture", desc: "Reorganized data schemas, column descriptions, and owner tags into intuitive tabbed cards.", img: "/assets/IA-after.png" },
