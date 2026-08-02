@@ -53,7 +53,7 @@ export interface CaseStudy {
   sydbankBlocks?: {
     blockNum: string;
     title: string;
-    subtitle: string;
+    subtitle?: string;
     beforeImg: string;
     beforeDesc: string;
     afterImg: string;
