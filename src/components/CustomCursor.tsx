@@ -2,39 +2,47 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
-interface TrailPoint {
+interface Bubble {
+  id: number;
   x: number;
   y: number;
-  id: number;
+  size: number;
+  vx: number;
+  vy: number;
 }
 
 export default function CustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: -100, y: -100 });
-  const [trail, setTrail] = useState<TrailPoint[]>([]);
+  const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const [bubbles, setBubbles] = useState<Bubble[]>([]);
   const [isHovered, setIsHovered] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
-    // Only enable custom cursor on non-touch desktop devices
+    // Only enable on desktop pointer devices
     if (typeof window === "undefined" || window.matchMedia("(pointer: coarse)").matches) {
       return;
     }
 
-    setIsVisible(true);
+    setIsDesktop(true);
+    document.body.classList.add("custom-cursor-active");
 
-    let counter = 0;
+    let bubbleId = 0;
     const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      const x = e.clientX;
+      const y = e.clientY;
+      setMousePos({ x, y });
 
-      counter++;
-      if (counter % 2 === 0) {
-        setTrail((prev) => [
-          ...prev.slice(-12),
-          { x: e.clientX, y: e.clientY, id: Date.now() + Math.random() },
-        ]);
-      }
+      // Spawn floating bubbles along movement trajectory
+      const randomSize = Math.floor(Math.random() * 10) + 6; // 6px to 16px bubbles
+      const vx = (Math.random() - 0.5) * 1.5;
+      const vy = -Math.random() * 1.8 - 0.5; // slight upward drift
+
+      setBubbles((prev) => [
+        ...prev.slice(-20), // keep last 20 bubbles
+        { id: bubbleId++, x, y, size: randomSize, vx, vy },
+      ]);
     };
 
     const handleMouseOver = (e: MouseEvent) => {
@@ -58,56 +66,62 @@ export default function CustomCursor() {
     window.addEventListener("mouseover", handleMouseOver);
 
     return () => {
+      document.body.classList.remove("custom-cursor-active");
       window.removeEventListener("mousemove", handleMouseMove);
       window.removeEventListener("mouseover", handleMouseOver);
     };
   }, []);
 
-  if (!isVisible) return null;
+  if (!isDesktop) return null;
 
   return (
     <div className="pointer-events-none fixed inset-0 z-[9998] overflow-hidden select-none">
-      {/* Glowing Trail Particles */}
-      {trail.map((point, index) => {
-        const opacity = (index + 1) / trail.length;
-        const scale = ((index + 1) / trail.length) * 0.8;
-        return (
+      {/* Floating Bubbles Motion Trail */}
+      <AnimatePresence>
+        {bubbles.map((b) => (
           <motion.div
-            key={point.id}
-            initial={{ opacity: opacity * 0.6, scale }}
-            animate={{ opacity: 0, scale: scale * 0.3 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            style={{
-              left: point.x,
-              top: point.y,
+            key={b.id}
+            initial={{
+              x: b.x - b.size / 2,
+              y: b.y - b.size / 2,
+              opacity: 0.85,
+              scale: 1,
             }}
-            className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-lime/40 blur-[3px]"
+            animate={{
+              x: b.x + b.vx * 15 - b.size / 2,
+              y: b.y + b.vy * 18 - b.size / 2,
+              opacity: 0,
+              scale: 0.2,
+            }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+            style={{ width: b.size, height: b.size }}
+            className="absolute rounded-full border border-white/60 bg-lime/30 backdrop-blur-[1px] shadow-[0_0_8px_rgba(35,95,230,0.5)]"
           />
-        );
-      })}
+        ))}
+      </AnimatePresence>
 
-      {/* Main Cursor Follower — Logo Arrow Icon */}
+      {/* Main Cursor: Compact Logo with White Border */}
       <motion.div
         animate={{
-          x: mousePosition.x - 16,
-          y: mousePosition.y - 16,
-          scale: isHovered ? 1.35 : 1,
-          rotate: isHovered ? 15 : 0,
+          x: mousePos.x - 12,
+          y: mousePos.y - 12,
+          scale: isHovered ? 1.3 : 1,
+          rotate: isHovered ? 12 : 0,
         }}
         transition={{
           type: "spring",
-          damping: 28,
-          stiffness: 400,
-          mass: 0.3,
+          damping: 30,
+          stiffness: 450,
+          mass: 0.2,
         }}
-        className="absolute h-8 w-8 drop-shadow-[0_0_12px_rgba(35,95,230,0.5)]"
+        className="absolute flex h-6 w-6 items-center justify-center rounded-lg border-[1.5px] border-white bg-[#235fe6] p-1 shadow-[0_0_12px_rgba(35,95,230,0.6)]"
       >
         <Image
           src="/herald-ago-icon.svg"
-          alt="Herald Ago Cursor"
-          width={32}
-          height={32}
-          className="h-full w-full object-contain"
+          alt="Herald Ago Logo Pointer"
+          width={18}
+          height={18}
+          className="h-full w-full object-contain filter brightness-200"
         />
       </motion.div>
     </div>
