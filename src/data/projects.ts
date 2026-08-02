@@ -331,12 +331,7 @@ export const projectsData: CaseStudy[] = [
       ]
     },
 
-    highFiScreens: [
-      { label: "Enterprise Spotlight Search (Cmd+K)", desc: "Global command palette for instant table and schema discovery across Sydbank's enterprise data warehouse.", img: "/assets/Homeafter.png" },
-      { label: "Structured Information Architecture", desc: "Reorganized data schemas, column descriptions, and owner tags into intuitive tabbed cards.", img: "/assets/IA-after.png" },
-      { label: "Legacy Search View (Before)", desc: "Cluttered list view requiring deep navigation and manual filter configuration.", img: "/assets/Homebefore.jpg" },
-      { label: "Legacy IA Structure (Before)", desc: "Fragmented metadata structure leading to a 4.5-minute average query time.", img: "/assets/IA-before.jpg" }
-    ],
+
     keyDecisions: [
       { title: "Instant Command Search Bar (`Cmd+K`)", body: "Implemented global spotlight search for instant table name and schema lookups." },
       { title: "Verified Data Badging", body: "Added visual trust indicators (Certified, Deprecated, Experimental) to eliminate risk analyst confusion." },
