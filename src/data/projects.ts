@@ -16,14 +16,25 @@ export interface CaseStudy {
   solution: string;
   metrics?: { label: string; value: string; description: string }[];
   processPhases: { number: string; phase: string; summary: string }[];
+  interactivePrototype?: {
+    title: string;
+    description: string;
+    steps: {
+      id: string;
+      title: string;
+      subtitle: string;
+      image: string;
+      highlights: string[];
+    }[];
+  };
   researchData?: {
-    userGroups?: { title: string; desc: string; image?: string }[];
+    userGroups?: { title: string; desc: string; image: string }[];
     competitiveAnalysis?: { image: string; summary: string };
     personas?: { title: string; image: string; summary: string }[];
-    statements?: { image: string }[];
-    userFlows?: { image: string };
-    userJourney?: { image: string };
-    storyboards?: { image: string };
+    statements?: { title: string; image: string }[];
+    userFlows?: { title: string; image: string };
+    userJourney?: { title: string; image: string };
+    storyboards?: { title: string; image: string };
   };
   wireframes?: {
     title: string;
@@ -73,13 +84,66 @@ export const projectsData: CaseStudy[] = [
       { number: "04", phase: "Accessible Design Tokens", summary: "Crafted high-contrast UI component tokens in Figma matching official Danish transport branding while exceeding strict contrast guidelines." },
       { number: "05", phase: "Prototyping & Screen Reader Verification", summary: "Built fully interactive responsive prototypes and tested keyboard focus traps, voiceover announcements, and dynamic text resizing." }
     ],
+    interactivePrototype: {
+      title: "Interactive Prototype Simulator",
+      description: "Click through the core steps of the redesigned Ungdomskort student journey below.",
+      steps: [
+        {
+          id: "step-1",
+          title: "Step 1: MitID Authentication",
+          subtitle: "Single Sign-On Verification",
+          image: "/assets/ungscreen-login.png",
+          highlights: ["Automated student status verification", "MitID biometric authentication", "High contrast WCAG 2.2 AA focus indicators"]
+        },
+        {
+          id: "step-2",
+          title: "Step 2: Zone & Route Selector",
+          subtitle: "Automated Tariff Calculation",
+          image: "/assets/ungscreen-search.jpg",
+          highlights: ["Interactive zone map selector", "Instant price calculation", "Visual breakdown of bus/train/metro inclusion"]
+        },
+        {
+          id: "step-3",
+          title: "Step 3: Web Calendar & Renewal",
+          subtitle: "Frictionless Payment Funnel",
+          image: "/assets/ungscreen-web-calendar.png",
+          highlights: ["Visual calendar for pass validity period", "One-click renewal subscription", "Danish MobilePay integration"]
+        },
+        {
+          id: "step-4",
+          title: "Step 4: Active Digital Card Pass",
+          subtitle: "Mobile & Offline Travel Pass",
+          image: "/assets/ungscreen-web-card.png",
+          highlights: ["Live QR code for conductor scanning", "Offline caching capability", "Clear expiration timer badge"]
+        },
+        {
+          id: "step-5",
+          title: "Step 5: Student Notification Hub",
+          subtitle: "Proactive Renewal Alerts",
+          image: "/assets/ungscreen-notifications.jpg",
+          highlights: ["Automated 7-day expiration alert", "Direct action links to renew", "Customizable push & SMS triggers"]
+        }
+      ]
+    },
+    researchData: {
+      competitiveAnalysis: {
+        image: "/assets/ungcompetitive-analysis.jpg",
+        summary: "Evaluated Danish regional transport portals (Rejsekort, DSB, DOT) to benchmark accessibility, zone selectors, and checkout flows."
+      },
+      personas: [
+        { title: "Persona 1 — Commuting University Student", image: "/assets/ungpersona-1.jpg", summary: "Needs instant mobile pass renewal while on the train." },
+        { title: "Persona 2 — High School Student (First-Time User)", image: "/assets/ungpersona-2.jpg", summary: "Needs clear step guidance for MitID verification and zone boundaries." }
+      ],
+      userFlows: { title: "Danish Transport Flow Architecture", image: "/assets/unguser-flow.jpg" },
+      storyboards: { title: "Commuter Journey Storyboards", image: "/assets/ungstoryboards.jpg" }
+    },
     wireframes: {
-      title: "Responsive Progress & Flow Iterations",
-      desc: "From complex nested legacy tables to a clean, card-based step architecture.",
+      title: "Before vs After Layout Transformations",
+      desc: "Comparing the legacy non-responsive website with the redesigned accessible platform.",
       images: [
-        { title: "Original Legacy Portal Step 1", src: "/assets/ung-step1-original-hd.png" },
-        { title: "Redesigned Web Calendar & Zone Selection", src: "/assets/ungscreen-web-calendar.png" },
-        { title: "Redesigned Active Digital Card View", src: "/assets/ungscreen-web-card.png" },
+        { title: "Legacy Step 1 (Cluttered)", src: "/assets/ung-step1-original-hd.png" },
+        { title: "Redesigned Web Calendar & Renewal", src: "/assets/ungscreen-web-calendar.png" },
+        { title: "Redesigned Active Digital Card", src: "/assets/ungscreen-web-card.png" },
         { title: "Redesigned Student Message Center", src: "/assets/ungscreen-web-messages.png" }
       ]
     },
@@ -132,6 +196,54 @@ export const projectsData: CaseStudy[] = [
       { number: "04", phase: "Prototype", summary: "Created digital wireframes and a high-fidelity prototype in Figma. Built a coherent visual language and complete user flow from discovery to ticket access." },
       { number: "05", phase: "Test & Iterate", summary: "Tested prototype through moderated usability sessions to identify friction points. Iterations improved clarity in the booking flow and strengthened accessibility." }
     ],
+    interactivePrototype: {
+      title: "X-Bit Interactive Screen Flow",
+      description: "Explore the end-to-end mobile user journey step-by-step.",
+      steps: [
+        {
+          id: "xbit-1",
+          title: "1. Onboarding & Auth",
+          subtitle: "Welcome Splash",
+          image: "/assets/xbit-screen-1-onboarding.png",
+          highlights: ["Social single sign-on", "Customizable interest tags", "Accessible sign up validation"]
+        },
+        {
+          id: "xbit-2",
+          title: "2. Exhibition Discovery",
+          subtitle: "Card Grid & Category Pills",
+          image: "/assets/xbit-screen-2-home.png",
+          highlights: ["Filter by Baroque, Realism, Spatial Audio", "Upcoming exhibition previews", "Quick ticket CTA"]
+        },
+        {
+          id: "xbit-3",
+          title: "3. Exhibition Detail",
+          subtitle: "Multisensory Tags",
+          image: "/assets/xbit-screen-3-detail.png",
+          highlights: ["VR/AR sensory badges", "Audio guide preview", "Gallery map locator"]
+        },
+        {
+          id: "xbit-4",
+          title: "4. Unified Checkout",
+          subtitle: "Single-Screen Booking",
+          image: "/assets/xbit-screen-4-checkout.png",
+          highlights: ["Calendar time-slot selector", "Group ticket counter", "Instant price calculation"]
+        },
+        {
+          id: "xbit-5",
+          title: "5. Payment Summary",
+          subtitle: "Apple Pay & Google Pay",
+          image: "/assets/xbit-screen-5-payment.png",
+          highlights: ["One-tap wallet payment", "Order confirmation", "Instant pass generation"]
+        },
+        {
+          id: "xbit-6",
+          title: "6. Digital QR Ticket Pass",
+          subtitle: "Entrance Scanning Pass",
+          image: "/assets/xbit-screen-6-ticket.png",
+          highlights: ["High-contrast QR code", "Active / Expired tabs", "Offline ticket storage"]
+        }
+      ]
+    },
     researchData: {
       competitiveAnalysis: {
         image: "/assets/Competitive%20analysis-BjW1Ysn1.svg",
@@ -142,16 +254,16 @@ export const projectsData: CaseStudy[] = [
         { title: "Persona 2 — Busy Family Planner", image: "/assets/Persona2.pptx-BbnvlDg2.svg", summary: "Needs rapid single-screen checkout with clear group ticket selectors." }
       ],
       statements: [
-        { image: "/assets/Statements%20Persona%201.pptx-B-aJ-5x1.svg" },
-        { image: "/assets/Statements%20Persona%202.pptx-C4ZBcFGP.svg" }
+        { title: "Persona 1 Problem Statement", image: "/assets/Statements%20Persona%201.pptx-B-aJ-5x1.svg" },
+        { title: "Persona 2 Problem Statement", image: "/assets/Statements%20Persona%202.pptx-C4ZBcFGP.svg" }
       ],
-      userFlows: { image: "/assets/UserFlowGoogleStyle.pptx-BBQwMgQV.svg" },
-      userJourney: { image: "/assets/UserJourney.pptx-DX6W4Rh0.svg" },
-      storyboards: { image: "/assets/StoryBoards.pptx-BHE4AUAw.svg" }
+      userFlows: { title: "Google UX Style User Flow", image: "/assets/UserFlowGoogleStyle.pptx-BBQwMgQV.svg" },
+      userJourney: { title: "Visitor Journey Map", image: "/assets/UserJourney.pptx-DX6W4Rh0.svg" },
+      storyboards: { title: "User Experience Storyboards", image: "/assets/StoryBoards.pptx-BHE4AUAw.svg" }
     },
     wireframes: {
       title: "Five Sketches & Digital Lo-Fi Wireframes",
-      desc: "Rapid exploration of layout alternatives before committing to digital high-fidelity fidelity.",
+      desc: "Rapid exploration of layout alternatives before committing to digital high-fidelity.",
       images: [
         { title: "Five Sketches Technique — Homepage Layouts", src: "/assets/_SKetchesHomepage-BFjwLS-y.png" },
         { title: "Digital Lo-Fi Wireframes — User Flow", src: "/assets/Digital%20Lo-Fi%20Wireframes%20-%20User%20Flow-B9rTzF30.svg" }
@@ -303,24 +415,51 @@ export const projectsData: CaseStudy[] = [
       { number: "05", phase: "High-Fidelity Prototypes", summary: "Created digital mockups and interactive prototypes for onboarding, booking flows, search, calendar, and settings. Refined 3D visual assets in Illustrator." },
       { number: "06", phase: "Testing & Iteration", summary: "Integrated accessibility throughout and conducted iterative testing with users to refine the experience according to WCAG guidelines." }
     ],
+    interactivePrototype: {
+      title: "Tutora Interactive Platform Flow",
+      description: "Click through parent & tutor user flows.",
+      steps: [
+        {
+          id: "tutora-1",
+          title: "1. Dual-Role Onboarding",
+          subtitle: "Parent / Tutor Selector",
+          image: "/assets/Display%20Logo-CDzY9bvT.svg",
+          highlights: ["Dual-user entry point", "Personalized subject preferences", "Identity verification"]
+        },
+        {
+          id: "tutora-2",
+          title: "2. Tutor Discovery & Filters",
+          subtitle: "Smart Search",
+          image: "/assets/Mockups-BaHciYgq.png",
+          highlights: ["Filter by hourly rate & subject", "Rating & review badges", "Availability calendar integration"]
+        },
+        {
+          id: "tutora-3",
+          title: "3. Design System Components",
+          subtitle: "Figma Component Library",
+          image: "/assets/Components-DrropsjgC.png",
+          highlights: ["120+ design tokens", "60-30-10 color rule (#4A90E2)", "WCAG AA accessible form states"]
+        }
+      ]
+    },
     researchData: {
       userGroups: [
-        { title: "Parents", desc: "Seek trustworthy, verified tutors with clear availability and progress reporting.", image: "/assets/User-Groups-FADb7ein.png" },
-        { title: "Tutors", desc: "Need simple schedule management and transparent payout tracking.", image: "/assets/User-Groups-FADb7ein.png" }
+        { title: "Parents User Group", desc: "Seek trustworthy, verified tutors with clear availability and progress reporting.", image: "/assets/User-Groups-FADb7ein.png" },
+        { title: "Tutors User Group", desc: "Need simple schedule management and transparent payout tracking.", image: "/assets/User-Groups-FADb7ein.png" }
       ],
       competitiveAnalysis: {
         image: "/assets/Competitive%20audit-DB4sZ-7V.png",
         summary: "Analyzed Preply, Wyzant, and Superprof to uncover navigation friction points."
       },
       personas: [
-        { title: "Parent Persona", image: "/assets/Persona%201-DMeq_qkP.png", summary: "Focuses on safety, qualifications, and easy calendar booking." },
-        { title: "Tutor Persona", image: "/assets/Persona%202-A_ocuvE-.png", summary: "Focuses on hourly rates, schedule flexibility, and client messages." }
+        { title: "Parent Persona (Sarah)", image: "/assets/Persona%201-DMeq_qkP.png", summary: "Focuses on safety, qualifications, and easy calendar booking." },
+        { title: "Tutor Persona (David)", image: "/assets/Persona%202-A_ocuvE-.png", summary: "Focuses on hourly rates, schedule flexibility, and client messages." }
       ],
       statements: [
-        { image: "/assets/ProblemStatement1-BfZ0d99J.png" },
-        { image: "/assets/ProblemStatement2-BpTv_zFN.png" }
+        { title: "Parent Problem Statement", image: "/assets/ProblemStatement1-BfZ0d99J.png" },
+        { title: "Tutor Problem Statement", image: "/assets/ProblemStatement2-BpTv_zFN.png" }
       ],
-      userFlows: { image: "/assets/User%20flows-pVGUkGfo.svg" }
+      userFlows: { title: "Complete Platform User Flows", image: "/assets/User%20flows-pVGUkGfo.svg" }
     },
     wireframes: {
       title: "Paper & Digital Wireframing",
@@ -333,7 +472,7 @@ export const projectsData: CaseStudy[] = [
       colorsImage: "/assets/Colors-CnbriZwi.svg",
       typographyImage: "/assets/Desktop%20Typography-DFjtOaFa.svg",
       iconsGridsImage: "/assets/Icons-Grids-CroLQv6u.png",
-      componentsImage: "/assets/Components-DrrpsjgC.png",
+      componentsImage: "/assets/Components-DrropsjgC.png",
       aiImage: "/assets/AI-image-Creation-BxO3TxUt.png",
       aiDesc: "Used AI generation and Adobe Illustrator vectorization to create custom 3D educational graphics matching the #4A90E2 identity."
     },

@@ -3,8 +3,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles, Layers, BookOpen } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
+import InteractivePrototype from "@/components/InteractivePrototype";
 import { CaseStudy } from "@/data/projects";
 
 interface CaseStudyDetailProps {
@@ -43,7 +44,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
             <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
               {project.title}
             </h1>
-            <p className="text-base sm:text-lg leading-relaxed text-muted-fg max-w-2xl font-normal">
+            <p className="text-base sm:text-lg leading-relaxed text-muted-fg max-w-3xl font-normal">
               {project.subtitle} — {project.shortDescription}
             </p>
           </div>
@@ -100,6 +101,16 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           />
         </section>
 
+        {/* Interactive Prototype Simulator */}
+        {project.interactivePrototype && (
+          <InteractivePrototype
+            title={project.interactivePrototype.title}
+            description={project.interactivePrototype.description}
+            steps={project.interactivePrototype.steps}
+            figmaUrl={project.figmaUrl}
+          />
+        )}
+
         {/* Problem & Solution Breakdown */}
         <section className="rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10 shadow-glass space-y-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
@@ -138,11 +149,85 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           </div>
         </section>
 
+        {/* Research Data & Artifacts Gallery (User Groups, Personas, Competitive Analysis, User Flows) */}
+        {project.researchData && (
+          <section className="space-y-8 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
+            <div className="space-y-1">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">03 — Empirical User Research</span>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold">Research Documentation &amp; Artifacts</h2>
+            </div>
+
+            {/* Competitive Analysis */}
+            {project.researchData.competitiveAnalysis && (
+              <div className="space-y-3 pt-2">
+                <h3 className="font-mono text-xs font-bold uppercase text-lime">Competitive Analysis</h3>
+                <div
+                  onClick={() => setActiveImage({ src: project.researchData!.competitiveAnalysis!.image, alt: "Competitive Analysis" })}
+                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                >
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+                    <Image src={project.researchData.competitiveAnalysis.image} alt="Competitive Analysis Audit" fill sizes="100vw" className="object-contain" />
+                  </div>
+                  <p className="p-3 font-mono text-xs text-muted-fg leading-relaxed text-center">{project.researchData.competitiveAnalysis.summary}</p>
+                </div>
+              </div>
+            )}
+
+            {/* Personas Grid */}
+            {project.researchData.personas && project.researchData.personas.length > 0 && (
+              <div className="space-y-3 pt-2">
+                <h3 className="font-mono text-xs font-bold uppercase text-lime">User Personas</h3>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {project.researchData.personas.map((persona) => (
+                    <div
+                      key={persona.title}
+                      onClick={() => setActiveImage({ src: persona.image, alt: persona.title })}
+                      className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all space-y-2"
+                    >
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+                        <Image src={persona.image} alt={persona.title} fill sizes="50vw" className="object-contain" />
+                      </div>
+                      <p className="p-2 font-mono text-xs font-bold text-foreground text-center">{persona.title}</p>
+                      {persona.summary && <p className="px-2 pb-2 text-xs text-muted-fg text-center">{persona.summary}</p>}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* User Flow & Journey Maps */}
+            <div className="grid gap-5 sm:grid-cols-2 pt-2">
+              {project.researchData.userFlows && (
+                <div
+                  onClick={() => setActiveImage({ src: project.researchData!.userFlows!.image, alt: project.researchData!.userFlows!.title })}
+                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+                    <Image src={project.researchData.userFlows.image} alt={project.researchData.userFlows.title} fill sizes="50vw" className="object-contain" />
+                  </div>
+                  <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{project.researchData.userFlows.title}</p>
+                </div>
+              )}
+              {project.researchData.userJourney && (
+                <div
+                  onClick={() => setActiveImage({ src: project.researchData!.userJourney!.image, alt: project.researchData!.userJourney!.title })}
+                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+                    <Image src={project.researchData.userJourney.image} alt={project.researchData.userJourney.title} fill sizes="50vw" className="object-contain" />
+                  </div>
+                  <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{project.researchData.userJourney.title}</p>
+                </div>
+              )}
+            </div>
+          </section>
+        )}
+
         {/* Wireframes & Visual Evidence */}
         {project.wireframes && (
           <section className="space-y-6">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">03 — Wireframes &amp; Layouts</span>
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">04 — Wireframes &amp; Layout Transformations</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">{project.wireframes.title}</h2>
               <p className="text-muted-fg text-xs sm:text-sm">{project.wireframes.desc}</p>
             </div>
@@ -168,7 +253,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {project.designSystem && (
           <section className="space-y-6 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">04 — Design System &amp; Tokens</span>
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">05 — Design System &amp; Component Tokens</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">Scalable Visual Infrastructure</h2>
             </div>
 
@@ -195,6 +280,28 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
                   <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Typography Hierarchy</p>
                 </div>
               )}
+              {project.designSystem.componentsImage && (
+                <div
+                  onClick={() => setActiveImage({ src: project.designSystem!.componentsImage!, alt: "Figma Component Tokens" })}
+                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                >
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+                    <Image src={project.designSystem.componentsImage} alt="Figma Component Tokens" fill sizes="50vw" className="object-contain" />
+                  </div>
+                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Figma Reusable Component Library</p>
+                </div>
+              )}
+              {project.designSystem.aiImage && (
+                <div
+                  onClick={() => setActiveImage({ src: project.designSystem!.aiImage!, alt: "AI Image Generation Process" })}
+                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                >
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+                    <Image src={project.designSystem.aiImage} alt="AI 3D Visual Creation" fill sizes="50vw" className="object-contain" />
+                  </div>
+                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">AI Asset Generation &amp; Illustrator Vectorization</p>
+                </div>
+              )}
             </div>
           </section>
         )}
@@ -203,8 +310,8 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {project.highFiScreens && project.highFiScreens.length > 0 && (
           <section className="space-y-6">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">05 — High-Fidelity Execution</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">Core Production Screens</h2>
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">06 — High-Fidelity Production Screens</span>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold">Core Screens Breakdown</h2>
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -234,7 +341,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {/* Key Design Decisions */}
         <section className="space-y-6">
           <div className="space-y-1">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">06 — Key Design Decisions</span>
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">07 — Key Design Decisions</span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold">Architectural Rationale</h2>
           </div>
 
@@ -253,7 +360,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
 
         {/* Key Takeaways */}
         <section className="rounded-2xl sm:rounded-3xl border border-border bg-surface/50 p-6 sm:p-10 space-y-4">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">07 — Learnings &amp; Takeaways</span>
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">08 — Learnings &amp; Takeaways</span>
           <h2 className="font-display text-2xl font-bold">What This Project Taught Me</h2>
           <div className="grid gap-5 lg:grid-cols-2">
             {project.takeaways.map((takeaway, idx) => (
