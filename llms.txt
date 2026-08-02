@@ -1,0 +1,17 @@
+# Herald Ago — Digital Product Designer & Design Engineer
+
+> Portfolio of Herald Ago (MSc in IT). Bridging empirical user research, scalable design token systems, and front-end engineering for accessible, WCAG 2.2 compliant software.
+
+## Primary Case Studies
+
+- [Ungdomskort Redesign](https://heraldago.com/ungdomskort/): National Danish student transit pass website and app redesign, WCAG 2.2 AA compliant.
+- [X-Bit Museum Companion App](https://heraldago.com/xbit/): End-to-end mobile app design process completed as part of the Google UX Design Certificate.
+- [I Pupi Siciliani Wine E-Commerce](https://heraldago.com/ipupisiciliani/): End-to-end UX/UI, product photography, and custom WooCommerce build in Odense, Denmark (+187% YoY profit).
+- [Sydbank Enterprise Data Catalog](https://heraldago.com/sydbank/): Empirical 24-person survey and UI redesign reducing task times by 66% at Denmark's 4th largest bank.
+- [Tutora EdTech Platform](https://heraldago.com/tutora/): Tutoring marketplace and design system.
+
+## Navigation & Work
+
+- [Complete Project Archive](https://heraldago.com/work/)
+- [About & Bio](https://heraldago.com/about/)
+- [Homepage](https://heraldago.com/)
