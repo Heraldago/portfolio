@@ -319,12 +319,7 @@ export const projectsData: CaseStudy[] = [
       { number: "03", phase: "Wireframing & Prototype Design", summary: "Designed high-density enterprise dashboard layouts in Figma, prioritizing screen real estate and keyboard navigation." },
       { number: "04", phase: "Validation & Benchmark Testing", summary: "Tested new prototypes against legacy Alation UI in timed task scenarios, verifying a 66% drop in search latency." }
     ],
-    researchData: {
-      competitiveAnalysis: {
-        image: "/assets/sydbank-cover-graphic.png",
-        summary: "Audited Sydbank's legacy Alation data catalog search architecture against enterprise data management standards, discovering a 4.5-minute average query latency across 24 bank data specialists."
-      }
-    },
+
     wireframes: {
       title: "Interface Transformations: Before vs After",
       desc: "Replacing cluttered legacy lists with structured, high-density data cards.",
