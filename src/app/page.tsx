@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import Hero from "@/components/Hero";
 import ProjectCard from "@/components/ProjectCard";
 import Testimonials from "@/components/Testimonials";
@@ -72,9 +73,13 @@ export default function HomePage() {
               <div className="space-y-5">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 border-b border-border/60 pb-5">
                   <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-xl border-2 border-lime/50 shadow-md shrink-0">
-                    <img
+                    <Image
                       src="/assets/profile-pms1FE7T.jpg"
                       alt="Herald Ago Portrait"
+                      width={192}
+                      height={192}
+                      quality={85}
+                      priority
                       className="h-full w-full object-cover object-[center_15%]"
                     />
                   </div>

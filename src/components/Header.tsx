@@ -56,9 +56,9 @@ export default function Header() {
           <Image
             src="/herald-ago-icon.svg"
             alt="Herald Ago Logo"
-            width={32}
-            height={32}
-            className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+            width={28}
+            height={28}
+            className="h-7 w-7 object-contain shrink-0"
             priority
           />
           <span className="font-display font-bold text-base text-foreground tracking-tight flex items-center gap-1.5">

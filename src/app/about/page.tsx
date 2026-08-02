@@ -2,6 +2,7 @@ import ExperienceTimeline from "@/components/ExperienceTimeline";
 import { skillsData, toolboxTags, languagesData, certificationsData } from "@/data/experience";
 import { Sparkles, Award, Globe2, Wrench, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Herald Ago — Product Designer & Design Engineer",
@@ -31,9 +32,13 @@ export default function AboutPage() {
           {/* Profile Card */}
           <div className="rounded-2xl border border-border bg-surface p-6 space-y-5 shadow-glass text-center">
             <div className="relative aspect-square w-36 h-36 sm:w-44 sm:h-44 mx-auto overflow-hidden rounded-xl border-2 border-lime/40 shadow-sm">
-              <img
+              <Image
                 src="/assets/profile-pms1FE7T.jpg"
                 alt="Herald Ago"
+                width={350}
+                height={350}
+                quality={85}
+                priority
                 className="h-full w-full object-cover object-[center_15%]"
               />
             </div>
