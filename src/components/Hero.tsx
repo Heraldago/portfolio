@@ -21,7 +21,7 @@ export default function Hero() {
         {/* Top Tag */}
         <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/90 px-4 py-1.5 backdrop-blur-md shadow-sm">
           <Sparkles className="h-4 w-4 text-lime" />
-          <span className="font-mono text-xs font-semibold uppercase tracking-widest text-muted-fg">
+          <span className="font-mono text-xs font-bold uppercase tracking-widest text-foreground">
             MSc in IT · Product Designer &amp; Design Engineer
           </span>
         </div>
@@ -74,7 +74,7 @@ export default function Hero() {
           <h2 className="font-display text-base sm:text-lg font-semibold text-foreground leading-snug">
             Bridging the gap between business goals, user needs, design, and code.
           </h2>
-          <p className="text-xs sm:text-sm text-muted-fg leading-relaxed font-normal">
+          <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-medium">
             Result-driven, problem solver, curious, and collaborative—with a strong User-Centered Design philosophy.
           </p>
         </div>

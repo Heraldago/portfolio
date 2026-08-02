@@ -88,19 +88,19 @@ export default function HomePage() {
                     <p className="text-xs font-mono text-lime font-bold">
                       MSc in IT · Product Designer &amp; UX Engineer
                     </p>
-                    <p className="text-[11px] font-mono text-muted-fg pt-0.5">
+                    <p className="text-[11px] font-mono text-foreground/90 font-medium pt-0.5">
                       Odense, Denmark &amp; Italy · Open to Global Roles
                     </p>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-muted-fg leading-relaxed">
+                <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed">
                   My practice bridges empirical user research, scalable design token systems, and front-end engineering—building accessible, WCAG 2.2 compliant software built for clarity and global scale.
                 </p>
               </div>
 
               <div className="pt-5 border-t border-border/60 flex items-center justify-between">
-                <span className="font-mono text-[11px] text-muted-fg">MSc in IT (Web Communication Design)</span>
+                <span className="font-mono text-[11px] text-foreground/90 font-medium">MSc in IT (Web Communication Design)</span>
                 <Link
                   href="/about"
                   className="group inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-wider text-lime hover:underline"

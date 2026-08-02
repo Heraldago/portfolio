@@ -58,7 +58,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
                   <h3 className="mt-0.5 font-display text-xl sm:text-2xl font-bold text-foreground leading-snug group-hover:text-lime transition-colors">
                     {project.title}
                   </h3>
-                  <p className="mt-0.5 text-[11px] font-mono font-semibold uppercase tracking-wider text-muted-fg">
+                  <p className="mt-0.5 text-[11px] font-mono font-bold uppercase tracking-wider text-foreground">
                     {project.subtitle}
                   </p>
                 </div>
@@ -67,7 +67,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
                 </div>
               </div>
 
-              <p className="mt-3 text-xs sm:text-sm text-muted-fg leading-relaxed">
+              <p className="mt-3 text-xs sm:text-sm text-foreground/85 leading-relaxed">
                 {project.shortDescription}
               </p>
             </div>
@@ -78,7 +78,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
                 {project.metrics.slice(0, 2).map((m) => (
                   <div key={m.label} className="space-y-0.5">
                     <span className="font-mono text-sm font-bold text-lime">{m.value}</span>
-                    <p className="font-mono text-[10px] uppercase tracking-wider text-muted-fg line-clamp-1">{m.label}</p>
+                    <p className="font-mono text-[10px] uppercase tracking-wider text-foreground/80 font-medium line-clamp-1">{m.label}</p>
                   </div>
                 ))}
               </div>
@@ -89,7 +89,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] font-mono font-medium text-muted-fg group-hover:border-lime/40 group-hover:text-foreground transition-colors"
+                  className="rounded-full border border-border/80 bg-surface px-2.5 py-0.5 text-[10px] font-mono font-bold text-foreground group-hover:border-lime/40 transition-colors shadow-sm"
                 >
                   {tag}
                 </span>
