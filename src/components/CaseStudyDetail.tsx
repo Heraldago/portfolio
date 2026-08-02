@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles, Layers, BookOpen } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
 import InteractivePrototype from "@/components/InteractivePrototype";
 import { CaseStudy } from "@/data/projects";
@@ -41,7 +41,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
             <span className="inline-flex items-center gap-2 rounded-full bg-lime/10 px-3.5 py-1 font-mono text-xs font-bold uppercase tracking-wider text-lime border border-lime/30">
               <Sparkles className="h-3.5 w-3.5" /> {project.badge}
             </span>
-            <h1 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+            <h1 className="font-display text-3xl sm:text-4xl font-bold leading-tight tracking-tight">
               {project.title}
             </h1>
             <p className="text-base sm:text-lg leading-relaxed text-muted-fg max-w-3xl font-normal">
@@ -82,7 +82,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
                   <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-muted-fg">{m.label}</span>
                   <TrendingUp className="h-4 w-4 text-lime" />
                 </div>
-                <p className="font-display text-3xl sm:text-4xl font-extrabold text-lime">{m.value}</p>
+                <p className="font-display text-2xl font-bold text-lime">{m.value}</p>
                 <p className="text-xs text-muted-fg leading-relaxed">{m.description}</p>
               </div>
             ))}
@@ -101,8 +101,8 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           />
         </section>
 
-        {/* Interactive Prototype Simulator */}
-        {project.interactivePrototype && (
+        {/* Interactive Prototype Simulator — ONLY for Ungdomskort */}
+        {project.id === "ungdomskort" && project.interactivePrototype && (
           <InteractivePrototype
             title={project.interactivePrototype.title}
             description={project.interactivePrototype.description}
@@ -138,7 +138,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
             {project.processPhases.map((phase) => (
               <div key={phase.number} className="grid gap-3 py-6 sm:grid-cols-12 sm:gap-6 items-start">
                 <div className="sm:col-span-4 flex items-baseline gap-3">
-                  <span className="font-mono text-3xl sm:text-4xl font-bold text-lime">{phase.number}</span>
+                  <span className="font-mono text-2xl sm:text-3xl font-bold text-lime">{phase.number}</span>
                   <h3 className="font-display text-lg font-bold text-foreground">{phase.phase}</h3>
                 </div>
                 <p className="leading-relaxed text-muted-fg text-xs sm:text-sm sm:col-span-8 sm:pt-1">

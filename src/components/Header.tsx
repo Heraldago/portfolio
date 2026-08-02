@@ -2,19 +2,19 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { ArrowUpRight, Sun, Moon, Menu, X, Sparkles } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Sun, Moon, Menu, X, ArrowUpRight } from "lucide-react";
 
 export default function Header() {
-  const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -24,50 +24,53 @@ export default function Header() {
     const nextTheme = theme === "dark" ? "light" : "dark";
     setTheme(nextTheme);
     if (nextTheme === "light") {
-      document.documentElement.classList.add("light");
       document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
     } else {
-      document.documentElement.classList.add("dark");
       document.documentElement.classList.remove("light");
+      document.documentElement.classList.add("dark");
     }
   };
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/work", label: "Archive & Work" },
-    { href: "/about", label: "About & Bio" },
-    { href: "/resume", label: "Resume" },
+    { href: "/work", label: "Work & Archive" },
+    { href: "/about", label: "About" },
+    { href: "/resume", label: "CV" },
   ];
 
   return (
     <header
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "glass-header border-b border-border py-3 shadow-glass"
-          : "bg-transparent py-5"
+        isScrolled
+          ? "bg-background/90 backdrop-blur-md border-b border-border py-3 shadow-glass"
+          : "bg-transparent py-4 sm:py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-12">
-        {/* Brand Monogram */}
+      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 sm:px-10 lg:px-16">
+        {/* Logo with herald-ago-icon.svg */}
         <Link
           href="/"
-          className="group flex items-center gap-3 font-display text-lg font-bold tracking-tight text-foreground transition-opacity hover:opacity-90"
+          className="group flex items-center gap-3 transition-opacity hover:opacity-90"
         >
-          <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl bg-lime font-display font-extrabold text-lime-fg shadow-sm transition-transform group-hover:scale-105">
-            HA
+          <div className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg border border-lime/40 bg-surface shadow-sm transition-transform group-hover:scale-105">
+            <Image
+              src="/herald-ago-icon.svg"
+              alt="Herald Ago Logo"
+              width={24}
+              height={24}
+              className="h-6 w-6 object-contain"
+            />
           </div>
-          <span className="font-display text-xl font-bold tracking-tight text-foreground flex items-center gap-2">
+          <span className="font-display font-bold text-base text-foreground tracking-tight flex items-center gap-1.5">
             Herald Ago
-            <span className="h-2 w-2 rounded-full bg-lime animate-pulse" aria-hidden="true" />
+            <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
           </span>
         </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
-          <nav
-            aria-label="Main Navigation"
-            className="flex items-center gap-1 rounded-full border border-border bg-surface/80 p-1.5 backdrop-blur-xl"
-          >
+          <nav className="flex items-center gap-1 rounded-full border border-border bg-surface/80 p-1.5 backdrop-blur-xl">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -77,7 +80,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`rounded-full px-5 py-2 text-xs font-mono font-semibold uppercase tracking-wider transition-all ${
+                  className={`rounded-full px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider transition-all ${
                     isActive
                       ? "bg-lime text-lime-fg shadow-sm"
                       : "text-muted-fg hover:text-foreground hover:bg-surface-hover"
@@ -92,8 +95,8 @@ export default function Header() {
           {/* Theme Switcher */}
           <button
             onClick={toggleTheme}
-            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-foreground shadow-sm hover:border-lime transition-colors"
+            aria-label="Toggle theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground shadow-sm hover:border-lime transition-colors"
           >
             {theme === "dark" ? (
               <Sun className="h-4 w-4 text-lime" />
@@ -102,22 +105,22 @@ export default function Header() {
             )}
           </button>
 
-          {/* Talk CTA */}
+          {/* Let's talk CTA */}
           <a
-            href="#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-lime px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg shadow-lime hover:scale-105 transition-all"
+            href="/#contact"
+            className="group inline-flex items-center gap-1.5 rounded-full bg-lime px-5 py-2 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg shadow-lime hover:scale-105 transition-all"
           >
             <span>Let&apos;s talk</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
 
-        {/* Mobile Menu Controls */}
+        {/* Mobile Navigation Controls */}
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground"
           >
             {theme === "dark" ? (
               <Sun className="h-4 w-4 text-lime" />
@@ -127,49 +130,37 @@ export default function Header() {
           </button>
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle navigation menu"
-            aria-expanded={mobileMenuOpen}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-border bg-surface text-foreground"
+            aria-label="Toggle menu"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
-      <AnimatePresence>
-        {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-b border-border bg-surface px-6 py-6"
+      {/* Mobile Drawer */}
+      {mobileMenuOpen && (
+        <div className="md:hidden border-b border-border bg-surface px-6 py-5 space-y-3 font-mono text-xs font-bold uppercase">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMobileMenuOpen(false)}
+              className="block py-2 text-foreground hover:text-lime"
+            >
+              {link.label}
+            </Link>
+          ))}
+          <a
+            href="/#contact"
+            onClick={() => setMobileMenuOpen(false)}
+            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-lime px-5 py-2.5 text-lime-fg"
           >
-            <div className="flex flex-col gap-4 font-mono text-sm font-semibold uppercase">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`py-2 transition-colors ${
-                    pathname === link.href ? "text-lime font-bold" : "text-foreground"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <a
-                href="#contact"
-                onClick={() => setMobileMenuOpen(false)}
-                className="mt-2 inline-flex items-center justify-center gap-2 rounded-full bg-lime px-6 py-3 text-lime-fg"
-              >
-                <span>Let&apos;s talk</span>
-                <ArrowUpRight className="h-4 w-4" />
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            <span>Let&apos;s talk</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
+        </div>
+      )}
     </header>
   );
 }

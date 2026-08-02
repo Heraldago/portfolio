@@ -37,7 +37,7 @@ export default function Hero() {
                   color: "#D4FF00",
                   transition: { duration: 0.2 },
                 }}
-                className="inline-block font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-foreground leading-none drop-shadow-sm transition-colors cursor-pointer"
+                className="inline-block font-display text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-foreground leading-none drop-shadow-sm transition-colors cursor-pointer"
               >
                 {word}
               </motion.span>
@@ -52,7 +52,7 @@ export default function Hero() {
               {line2.map((word) => (
                 <span
                   key={word}
-                  className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-lime leading-none drop-shadow-[0_0_25px_rgba(212,255,0,0.3)]"
+                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-lime leading-none drop-shadow-[0_0_25px_rgba(212,255,0,0.3)]"
                 >
                   {word}
                 </span>
@@ -71,7 +71,7 @@ export default function Hero() {
 
         {/* Subheadline & Statement */}
         <div className="space-y-2 max-w-xl mx-auto">
-          <h2 className="font-display text-base sm:text-xl font-semibold text-foreground leading-snug">
+          <h2 className="font-display text-base sm:text-lg font-semibold text-foreground leading-snug">
             Bridging the gap between business goals, user needs, design, and code.
           </h2>
           <p className="text-xs sm:text-sm text-muted-fg leading-relaxed font-normal">

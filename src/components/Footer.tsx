@@ -1,37 +1,61 @@
 import Link from "next/link";
-import { ArrowUp } from "lucide-react";
+import Image from "next/image";
+import { ArrowUp, Linkedin, Mail, FileText } from "lucide-react";
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
-
   return (
-    <footer className="border-t border-border bg-surface/50 font-mono text-xs text-muted-fg">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-6 px-6 py-10 sm:flex-row sm:px-12">
+    <footer className="border-t border-border bg-surface/80 py-10">
+      <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Brand & Logo */}
         <div className="flex items-center gap-3">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-lime text-lime-fg font-display font-extrabold text-xs">
-            HA
+          <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-lime/40 bg-surface shadow-sm">
+            <Image
+              src="/herald-ago-icon.svg"
+              alt="Herald Ago Logo"
+              width={20}
+              height={20}
+              className="h-5 w-5 object-contain"
+            />
           </div>
-          <span className="font-display font-bold text-sm text-foreground">Herald Ago</span>
-          <span className="text-muted-fg">· Digital Product Designer</span>
+          <div>
+            <span className="font-display text-sm font-bold text-foreground">
+              Herald Ago
+            </span>
+            <p className="font-mono text-[10px] text-muted-fg">
+              © {new Date().getFullYear()} · Digital Product Designer &amp; UX Engineer
+            </p>
+          </div>
         </div>
 
-        <div className="flex items-center gap-6">
-          <Link href="/work" className="hover:text-lime transition-colors">
-            Archive &amp; Work
+        {/* Links & Back to Top */}
+        <div className="flex items-center gap-4 font-mono text-xs text-muted-fg">
+          <a
+            href="https://www.linkedin.com/in/heraldago/"
+            target="_blank"
+            rel="noreferrer"
+            className="hover:text-lime transition-colors flex items-center gap-1"
+          >
+            <Linkedin className="h-3.5 w-3.5" />
+            <span>LinkedIn</span>
+          </a>
+          <a
+            href="mailto:heraldago1@gmail.com"
+            className="hover:text-lime transition-colors flex items-center gap-1"
+          >
+            <Mail className="h-3.5 w-3.5" />
+            <span>Email</span>
+          </a>
+          <Link href="/resume" className="hover:text-lime transition-colors flex items-center gap-1">
+            <FileText className="h-3.5 w-3.5" />
+            <span>CV</span>
           </Link>
-          <Link href="/about" className="hover:text-lime transition-colors">
-            About &amp; Bio
-          </Link>
-          <Link href="/resume" className="hover:text-lime transition-colors">
-            Resume
-          </Link>
-          <a href="#top" aria-label="Back to top of page" className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-surface text-foreground hover:border-lime hover:text-lime transition-colors">
+          <a
+            href="#main-content"
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-foreground hover:border-lime hover:text-lime transition-all"
+            aria-label="Back to top"
+          >
             <ArrowUp className="h-4 w-4" />
           </a>
-        </div>
-
-        <div>
-          <span>© {currentYear} Herald Ago. All rights reserved.</span>
         </div>
       </div>
     </footer>
