@@ -401,7 +401,7 @@ export const projectsData: CaseStudy[] = [
       colorsImage: "/assets/Colors-CnbriZwi.svg",
       typographyImage: "/assets/Desktop%20Typography-DFjtOaFa.svg",
       iconsGridsImage: "/assets/Icons-Grids-CroLQv6u.png",
-      componentsImage: "/assets/Components-DrropsjgC.png",
+      componentsImage: "/assets/Components-DrrpsjgC.png",
       aiImage: "/assets/AI-image-Creation-BxO3TxUt.png",
       aiDesc: "To enhance the visual appeal of the interface, Nano Banana Pro AI was used to generate 3D educational objects aligned with the app aesthetic. These assets were then refined in Adobe Illustrator to ensure they matched the overall design system."
     },
