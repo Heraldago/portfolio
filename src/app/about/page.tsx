@@ -29,8 +29,8 @@ export default function AboutPage() {
         {/* Sidebar Info */}
         <div className="lg:col-span-4 space-y-6">
           {/* Profile Card */}
-          <div className="rounded-2xl border border-border bg-surface p-6 space-y-5 shadow-glass">
-            <div className="relative aspect-square w-full overflow-hidden rounded-xl border-2 border-lime/40">
+          <div className="rounded-2xl border border-border bg-surface p-6 space-y-5 shadow-glass text-center">
+            <div className="relative aspect-square w-36 h-36 sm:w-44 sm:h-44 mx-auto overflow-hidden rounded-xl border-2 border-lime/40 shadow-sm">
               <img
                 src="/assets/profile-pms1FE7T.jpg"
                 alt="Herald Ago"
