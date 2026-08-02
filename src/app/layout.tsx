@@ -3,6 +3,8 @@ import { Syne, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 const syne = Syne({
   subsets: ["latin"],
@@ -99,6 +101,10 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+
+        {/* Vercel Speed Insights & Real-Time Analytics */}
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
