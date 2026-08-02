@@ -109,7 +109,7 @@ export default function ContactSection() {
 
             <form onSubmit={handleSubmit} className="space-y-3 font-mono text-xs">
               <div>
-                <label htmlFor="name" className="block text-muted-fg font-semibold mb-1 uppercase tracking-wider text-[10px]">
+                <label htmlFor="name" className="block text-foreground font-bold mb-1 uppercase tracking-wider text-[10px]">
                   Your Name *
                 </label>
                 <input
@@ -124,7 +124,7 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-muted-fg font-semibold mb-1 uppercase tracking-wider text-[10px]">
+                <label htmlFor="email" className="block text-foreground font-bold mb-1 uppercase tracking-wider text-[10px]">
                   Email Address *
                 </label>
                 <input
@@ -139,7 +139,7 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-muted-fg font-semibold mb-1 uppercase tracking-wider text-[10px]">
+                <label htmlFor="subject" className="block text-foreground font-bold mb-1 uppercase tracking-wider text-[10px]">
                   Subject
                 </label>
                 <input
@@ -153,7 +153,7 @@ export default function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-muted-fg font-semibold mb-1 uppercase tracking-wider text-[10px]">
+                <label htmlFor="message" className="block text-foreground font-bold mb-1 uppercase tracking-wider text-[10px]">
                   Message *
                 </label>
                 <textarea

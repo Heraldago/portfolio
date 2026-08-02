@@ -19,14 +19,14 @@ export default function Footer() {
             <span className="font-display text-sm font-bold text-foreground">
               Herald Ago
             </span>
-            <p className="font-mono text-[10px] text-muted-fg">
+            <p className="font-mono text-[10px] text-foreground/80 font-medium">
               © {new Date().getFullYear()} · Digital Product Designer &amp; UX Engineer
             </p>
           </div>
         </div>
 
         {/* Links & Back to Top */}
-        <div className="flex items-center gap-4 font-mono text-xs text-muted-fg">
+        <div className="flex items-center gap-4 font-mono text-xs text-foreground/90 font-medium">
           <a
             href="https://www.linkedin.com/in/heraldago/"
             target="_blank"
