@@ -3,6 +3,8 @@ import { Syne, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Preloader from "@/components/Preloader";
+import CustomCursor from "@/components/CustomCursor";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -91,6 +93,12 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-lime selection:text-lime-fg`}
       >
+        {/* Entrance Preloader Animation */}
+        <Preloader />
+
+        {/* Custom Mouse Cursor Follower & Trail */}
+        <CustomCursor />
+
         {/* WCAG Skip to Main Content Link */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
