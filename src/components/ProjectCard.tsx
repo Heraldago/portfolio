@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, TrendingUp } from "lucide-react";
@@ -13,13 +12,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.35, ease: "easeOut" }}
-      className="group relative block overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass transition-all duration-300 hover:border-lime hover:shadow-[0_10px_25px_rgba(212,255,0,0.12)]"
-    >
+    <div className="group relative block overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass transition-all duration-300 hover:border-lime hover:shadow-[0_10px_25px_rgba(212,255,0,0.12)]">
       <Link href={project.link} className="block">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
           {/* Visual Preview */}
@@ -105,6 +98,6 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 }

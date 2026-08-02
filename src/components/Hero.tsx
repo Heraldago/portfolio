@@ -8,26 +8,6 @@ export default function Hero() {
   const line1 = ["DIGITAL", "PRODUCT"];
   const line2 = ["DESIGNER"];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.1,
-      },
-    },
-  };
-
-  const wordVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: "easeOut" },
-    },
-  };
-
   return (
     <section className="relative mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 pt-6 sm:pt-10 pb-10 sm:pb-16 overflow-hidden select-none">
       {/* Ambient background glows */}
@@ -39,36 +19,25 @@ export default function Hero() {
 
       <div className="space-y-6 sm:space-y-8 text-center">
         {/* Top Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/90 px-4 py-1.5 backdrop-blur-md shadow-sm"
-        >
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/90 px-4 py-1.5 backdrop-blur-md shadow-sm">
           <Sparkles className="h-4 w-4 text-lime" />
           <span className="font-mono text-xs font-semibold uppercase tracking-widest text-muted-fg">
             MSc in IT · Product Designer &amp; Design Engineer
           </span>
-        </motion.div>
+        </div>
 
-        {/* Scaled-down Refined Display Typography */}
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-          className="relative space-y-2 sm:space-y-3"
-        >
+        {/* Display Typography */}
+        <div className="relative space-y-2 sm:space-y-3">
           <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-6 w-full">
             {line1.map((word) => (
               <motion.span
                 key={word}
-                variants={wordVariants}
                 whileHover={{
                   scale: 1.04,
-                  color: "var(--lime)",
+                  color: "#D4FF00",
                   transition: { duration: 0.2 },
                 }}
-                className="inline-block font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-foreground leading-none drop-shadow-sm transition-colors cursor-pointer"
+                className="inline-block font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-foreground leading-none drop-shadow-sm transition-colors cursor-pointer"
               >
                 {word}
               </motion.span>
@@ -77,14 +46,13 @@ export default function Hero() {
 
           <div className="flex items-center justify-center w-full pt-1">
             <motion.div
-              variants={wordVariants}
               whileHover={{ scale: 1.03 }}
               className="inline-flex items-center justify-center gap-3 cursor-pointer"
             >
               {line2.map((word) => (
                 <span
                   key={word}
-                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-lime leading-none drop-shadow-[0_0_25px_rgba(212,255,0,0.3)]"
+                  className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-lime leading-none drop-shadow-[0_0_25px_rgba(212,255,0,0.3)]"
                 >
                   {word}
                 </span>
@@ -99,30 +67,20 @@ export default function Hero() {
               </motion.div>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
 
         {/* Subheadline & Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.25 }}
-          className="space-y-2 max-w-xl mx-auto"
-        >
+        <div className="space-y-2 max-w-xl mx-auto">
           <h2 className="font-display text-base sm:text-xl font-semibold text-foreground leading-snug">
             Bridging the gap between business goals, user needs, design, and code.
           </h2>
           <p className="text-xs sm:text-sm text-muted-fg leading-relaxed font-normal">
             Result-driven, problem solver, curious, and collaborative—with a strong User-Centered Design philosophy.
           </p>
-        </motion.div>
+        </div>
 
         {/* Expertise Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.35 }}
-          className="space-y-5 max-w-xl mx-auto"
-        >
+        <div className="space-y-5 max-w-xl mx-auto">
           <div className="rounded-xl border border-border bg-surface/90 px-5 py-2.5 shadow-sm backdrop-blur-md cursor-default">
             <p className="font-mono text-xs font-semibold text-foreground leading-relaxed">
               <span className="text-lime font-bold uppercase tracking-wider mr-1.5">
@@ -154,7 +112,7 @@ export default function Hero() {
               </Link>
             </motion.div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

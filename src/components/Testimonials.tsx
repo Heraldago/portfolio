@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { Quote, Sparkles, Building2 } from "lucide-react";
 import { testimonialsData } from "@/data/testimonials";
@@ -22,13 +21,9 @@ export default function Testimonials() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
-          {testimonialsData.map((t, idx) => (
-            <motion.div
+          {testimonialsData.map((t) => (
+            <div
               key={t.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.35, delay: idx * 0.12 }}
               className="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-8 shadow-glass hover:border-lime transition-all space-y-6"
             >
               <div className="space-y-4">
@@ -71,7 +66,7 @@ export default function Testimonials() {
                   <Building2 className="h-4 w-4 text-lime" />
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
