@@ -3,7 +3,6 @@ import { Syne, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Preloader from "@/components/Preloader";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -60,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "Herald Ago Portfolio",
     title: "Herald Ago — Digital Product Designer & Design Engineer",
     description:
-      "Digital Product Designer & UX Engineer with an MSc in IT. Bridging empirical user research, scalable design systems, and front-end engineering for WCAG 2.2 compliant software.",
+      "Digital Product Designer & UX Engineer with an MSc in IT. Bridging empirical user research, scalable design systems, and front-end engineering for WCAG-compliant software.",
     images: [
       {
         url: "https://www.heraldago.com/metacard.png",
@@ -99,9 +98,6 @@ export default function RootLayout({
       <body
         className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-lime selection:text-lime-fg antialiased text-rendering-optimize`}
       >
-        {/* Entrance Preloader Animation */}
-        <Preloader />
-
         {/* WCAG Skip to Main Content Link */}
         <a href="#main-content" className="skip-to-content">
           Skip to main content
