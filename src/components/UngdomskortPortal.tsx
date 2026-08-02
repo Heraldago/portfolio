@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import {
   Bell,
   Globe,
-  Settings,
   Plus,
   Download,
   CreditCard,
@@ -75,15 +75,20 @@ export default function UngdomskortPortal() {
       <div className="rounded-2xl border border-border bg-white dark:bg-[#090A0C] shadow-lg overflow-hidden font-sans">
         {/* Header Nav */}
         <header className="sticky top-0 z-20 border-b border-border/70 bg-white/90 dark:bg-[#111318]/90 backdrop-blur-md px-4 sm:px-6 py-3 flex items-center justify-between gap-3">
-          {/* Logo */}
+          {/* Logo directly using ung-logodisplay.svg */}
           <button
             onClick={() => setActiveTab("dashboard")}
-            className="flex items-center gap-2 font-display text-base font-bold text-[#1B6FC8] hover:opacity-90"
+            className="flex items-center gap-2 hover:opacity-90 transition-opacity"
+            aria-label="Ungdomskort Dashboard"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#1B6FC8] text-white font-mono font-bold text-xs">
-              UK
-            </div>
-            <span className="hidden sm:inline">Ungdomskort</span>
+            <Image
+              src="/assets/ung-logodisplay.svg"
+              alt="Ungdomskort Logo"
+              width={140}
+              height={36}
+              className="h-8 w-auto object-contain"
+              priority
+            />
           </button>
 
           {/* Navigation Pills */}
