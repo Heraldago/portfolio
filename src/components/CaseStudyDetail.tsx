@@ -3,11 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
 import InteractivePrototype from "@/components/InteractivePrototype";
 import IPhoneMockup from "@/components/iPhoneMockup";
-import { CaseStudy } from "@/data/projects";
+import { CaseStudy, projectsData } from "@/data/projects";
 
 interface CaseStudyDetailProps {
   project: CaseStudy;
@@ -17,6 +17,9 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
 
   const isXBit = project.id === "xbit";
+
+  // Find other related projects to show at the bottom
+  const otherProjects = projectsData.filter((p) => p.id !== project.id).slice(0, 2);
 
   return (
     <article className="min-h-screen bg-background text-foreground pb-20">
@@ -485,6 +488,58 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
             </a>
           </section>
         )}
+
+        {/* Explore Next Projects Section at Bottom of Every Case Study */}
+        <section className="pt-10 border-t border-border/80 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
+            <div>
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">Next Case Studies</span>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold mt-1">Explore Other Projects</h2>
+            </div>
+            <Link
+              href="/work"
+              className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-lime hover:underline"
+            >
+              <span>View All Projects</span>
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2">
+            {otherProjects.map((other) => (
+              <Link
+                key={other.id}
+                href={other.link}
+                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface p-5 shadow-glass transition-all duration-300 hover:border-lime hover:shadow-[0_10px_30px_rgba(35,95,230,0.12)] hover:-translate-y-1 space-y-4"
+              >
+                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-muted">
+                  <Image
+                    src={other.image}
+                    alt={other.title}
+                    fill
+                    sizes="50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="rounded-full bg-lime px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-lime-fg shadow-sm">
+                      {other.badge}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-1.5">
+                  <h3 className="font-display text-lg font-bold text-foreground group-hover:text-lime transition-colors flex items-center justify-between">
+                    <span>{other.title}</span>
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </h3>
+                  <p className="text-xs text-muted-fg leading-relaxed line-clamp-2">
+                    {other.subtitle} — {other.shortDescription}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
       </main>
 
       {/* Lightbox Modal */}
