@@ -36,14 +36,6 @@
   }
 }
 
-/* Hide default cursor when CustomCursor component is active on desktop */
-@media (pointer: fine) {
-  body.custom-cursor-active,
-  body.custom-cursor-active * {
-    cursor: none !important;
-  }
-}
-
 /* Custom Skip Link for WCAG 2.2 AA Compliance */
 .skip-to-content {
   position: absolute;

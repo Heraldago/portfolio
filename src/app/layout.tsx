@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
-import CustomCursor from "@/components/CustomCursor";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
@@ -95,9 +94,6 @@ export default function RootLayout({
       >
         {/* Entrance Preloader Animation */}
         <Preloader />
-
-        {/* Custom Mouse Cursor Follower & Trail */}
-        <CustomCursor />
 
         {/* WCAG Skip to Main Content Link */}
         <a href="#main-content" className="skip-to-content">
