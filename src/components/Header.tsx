@@ -9,7 +9,7 @@ import { Sun, Moon, Menu, X, ArrowUpRight } from "lucide-react";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
   const pathname = usePathname();
 
   useEffect(() => {

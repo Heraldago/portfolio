@@ -9,14 +9,14 @@ import { Analytics } from "@vercel/analytics/react";
 const syne = Syne({
   subsets: ["latin"],
   variable: "--font-syne",
-  weight: ["600", "700", "800"],
+  weight: ["600", "700"],
   display: "swap",
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
   variable: "--font-plus-jakarta",
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090a0c",
+  themeColor: "#FAF7F2",
   width: "device-width",
   initialScale: 1,
 };
@@ -87,7 +87,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="light scroll-smooth">
       <body
         className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-lime selection:text-lime-fg`}
       >

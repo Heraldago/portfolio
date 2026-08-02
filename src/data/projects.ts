@@ -32,6 +32,7 @@ export interface CaseStudy {
     competitiveAnalysis?: { image: string; summary: string };
     personas?: { title: string; image: string; summary: string }[];
     statements?: { title: string; image: string }[];
+    goalStatement?: { title: string; image: string };
     userFlows?: { title: string; image: string };
     userJourney?: { title: string; image: string };
     storyboards?: { title: string; image: string };
@@ -196,54 +197,6 @@ export const projectsData: CaseStudy[] = [
       { number: "04", phase: "Prototype", summary: "Created digital wireframes and a high-fidelity prototype in Figma. Built a coherent visual language and complete user flow from discovery to ticket access." },
       { number: "05", phase: "Test & Iterate", summary: "Tested prototype through moderated usability sessions to identify friction points. Iterations improved clarity in the booking flow and strengthened accessibility." }
     ],
-    interactivePrototype: {
-      title: "X-Bit Interactive Screen Flow",
-      description: "Explore the end-to-end mobile user journey step-by-step.",
-      steps: [
-        {
-          id: "xbit-1",
-          title: "1. Onboarding & Auth",
-          subtitle: "Welcome Splash",
-          image: "/assets/xbit-screen-1-onboarding.png",
-          highlights: ["Social single sign-on", "Customizable interest tags", "Accessible sign up validation"]
-        },
-        {
-          id: "xbit-2",
-          title: "2. Exhibition Discovery",
-          subtitle: "Card Grid & Category Pills",
-          image: "/assets/xbit-screen-2-home.png",
-          highlights: ["Filter by Baroque, Realism, Spatial Audio", "Upcoming exhibition previews", "Quick ticket CTA"]
-        },
-        {
-          id: "xbit-3",
-          title: "3. Exhibition Detail",
-          subtitle: "Multisensory Tags",
-          image: "/assets/xbit-screen-3-detail.png",
-          highlights: ["VR/AR sensory badges", "Audio guide preview", "Gallery map locator"]
-        },
-        {
-          id: "xbit-4",
-          title: "4. Unified Checkout",
-          subtitle: "Single-Screen Booking",
-          image: "/assets/xbit-screen-4-checkout.png",
-          highlights: ["Calendar time-slot selector", "Group ticket counter", "Instant price calculation"]
-        },
-        {
-          id: "xbit-5",
-          title: "5. Payment Summary",
-          subtitle: "Apple Pay & Google Pay",
-          image: "/assets/xbit-screen-5-payment.png",
-          highlights: ["One-tap wallet payment", "Order confirmation", "Instant pass generation"]
-        },
-        {
-          id: "xbit-6",
-          title: "6. Digital QR Ticket Pass",
-          subtitle: "Entrance Scanning Pass",
-          image: "/assets/xbit-screen-6-ticket.png",
-          highlights: ["High-contrast QR code", "Active / Expired tabs", "Offline ticket storage"]
-        }
-      ]
-    },
     researchData: {
       competitiveAnalysis: {
         image: "/assets/Competitive%20analysis-BjW1Ysn1.svg",
@@ -391,7 +344,7 @@ export const projectsData: CaseStudy[] = [
     index: "05",
     title: "Tutora EdTech Platform",
     subtitle: "End-to-End UX/UI & Scalable Figma Design System",
-    shortDescription: "A complete end-to-end UX/UI design for a tutoring platform — from user research and competitive analysis to a scalable design system and interactive Figma prototypes. Completed for Google UX Professional Certificate.",
+    shortDescription: "A complete end-to-end UX/UI design for a tutoring platform — from user research and competitive analysis to a scalable design system and interactive Figma prototypes. Completed for Google UX Professional Certificate on Coursera.",
     badge: "EdTech & Design Systems",
     image: "/assets/Mockups-BaHciYgq.png",
     tags: ["UX Research", "Figma Design System", "EdTech", "60-30-10 Rule"],
@@ -408,64 +361,40 @@ export const projectsData: CaseStudy[] = [
       { label: "Google UX Cert", value: "Completed", description: "Top rating across all 7 Google UX specialization modules." }
     ],
     processPhases: [
-      { number: "01", phase: "User Research", summary: "Conducted user research to identify pain points when searching for tutors online. Identified primary user groups: parents seeking tutors and tutors offering services. Developed personas for each group." },
-      { number: "02", phase: "Define", summary: "Created personas, user stories, and user flows to understand motivations. Defined problem statements for each persona and a goal statement for the product. Conducted competitive analysis of Preply, Wyzant, Superprof." },
-      { number: "03", phase: "Ideate", summary: "Mapped out user flows for parents and tutors on Miro, covering registration to session booking. Created paper wireframes to experiment with layout structures." },
-      { number: "04", phase: "Design System", summary: "Developed a scalable Design System in Figma, defining visual elements, typography hierarchy, 60-30-10 color palette (#4A90E2 bright blue), icons, grids, and components." },
-      { number: "05", phase: "High-Fidelity Prototypes", summary: "Created digital mockups and interactive prototypes for onboarding, booking flows, search, calendar, and settings. Refined 3D visual assets in Illustrator." },
-      { number: "06", phase: "Testing & Iteration", summary: "Integrated accessibility throughout and conducted iterative testing with users to refine the experience according to WCAG guidelines." }
+      { number: "01", phase: "User Research", summary: "Conducted user research to identify common pain points target users encounter when searching for tutors online. Identified primary user groups: parents seeking tutors and tutors offering services. Developed two personas representing each group with their unique needs and frustrations." },
+      { number: "02", phase: "Define", summary: "Created personas (Parent, Tutor), user stories, and user flows to understand user motivations and frustrations. Defined problem statements for each persona and a goal statement for the product. Conducted competitive analysis of platforms like Preply, Wyzant, and Superprof." },
+      { number: "03", phase: "Ideate", summary: "Mapped out user flows for parents and tutors on Miro, covering the complete journey from registration to session booking. Created paper wireframes to visualize layout structures and experiment with different navigation patterns and solutions." },
+      { number: "04", phase: "Design System", summary: "Developed a scalable Design System in Figma, defining core visual elements, typography hierarchy, color palette (using 60-30-10 rule), icons, grids, and reusable components for consistency and efficiency across all screens." },
+      { number: "05", phase: "High-Fidelity Prototypes", summary: "Created digital mockups and interactive prototypes for onboarding, booking flows, search, calendar, and settings screens. Incorporated AI-generated 3D objects refined in Adobe Illustrator to enhance visual appeal and match design aesthetics." },
+      { number: "06", phase: "Testing & Iteration", summary: "Integrated accessibility throughout the design process and conducted iterative testing with users to refine the experience. Refined the interface based on feedback with a strong focus on accessibility (WCAG guidelines) and usability." }
     ],
-    interactivePrototype: {
-      title: "Tutora Interactive Platform Flow",
-      description: "Click through parent & tutor user flows.",
-      steps: [
-        {
-          id: "tutora-1",
-          title: "1. Dual-Role Onboarding",
-          subtitle: "Parent / Tutor Selector",
-          image: "/assets/Display%20Logo-CDzY9bvT.svg",
-          highlights: ["Dual-user entry point", "Personalized subject preferences", "Identity verification"]
-        },
-        {
-          id: "tutora-2",
-          title: "2. Tutor Discovery & Filters",
-          subtitle: "Smart Search",
-          image: "/assets/Mockups-BaHciYgq.png",
-          highlights: ["Filter by hourly rate & subject", "Rating & review badges", "Availability calendar integration"]
-        },
-        {
-          id: "tutora-3",
-          title: "3. Design System Components",
-          subtitle: "Figma Component Library",
-          image: "/assets/Components-DrropsjgC.png",
-          highlights: ["120+ design tokens", "60-30-10 color rule (#4A90E2)", "WCAG AA accessible form states"]
-        }
-      ]
-    },
     researchData: {
       userGroups: [
-        { title: "Parents User Group", desc: "Seek trustworthy, verified tutors with clear availability and progress reporting.", image: "/assets/User-Groups-FADb7ein.png" },
-        { title: "Tutors User Group", desc: "Need simple schedule management and transparent payout tracking.", image: "/assets/User-Groups-FADb7ein.png" }
+        { title: "User Groups — Parents and Tutors", desc: "Parents seeking trustworthy tutors vs Tutors managing schedule & payouts.", image: "/assets/User-Groups-FADb7ein.png" }
       ],
       competitiveAnalysis: {
         image: "/assets/Competitive%20audit-DB4sZ-7V.png",
-        summary: "Analyzed Preply, Wyzant, and Superprof to uncover navigation friction points."
+        summary: "Audited Preply, Wyzant, and Superprof across 14 key UX criteria including search friction and profile transparency."
       },
       personas: [
-        { title: "Parent Persona (Sarah)", image: "/assets/Persona%201-DMeq_qkP.png", summary: "Focuses on safety, qualifications, and easy calendar booking." },
-        { title: "Tutor Persona (David)", image: "/assets/Persona%202-A_ocuvE-.png", summary: "Focuses on hourly rates, schedule flexibility, and client messages." }
+        { title: "Parent Persona (Sarah)", image: "/assets/Persona%201-DMeq_qkP.png", summary: "Focuses on safety, qualifications, transparent reviews, and easy calendar booking." },
+        { title: "Tutor Persona (David)", image: "/assets/Persona%202-A_ocuvE-.png", summary: "Focuses on hourly rates, schedule flexibility, and direct client messaging." }
       ],
       statements: [
         { title: "Parent Problem Statement", image: "/assets/ProblemStatement1-BfZ0d99J.png" },
         { title: "Tutor Problem Statement", image: "/assets/ProblemStatement2-BpTv_zFN.png" }
       ],
-      userFlows: { title: "Complete Platform User Flows", image: "/assets/User%20flows-pVGUkGfo.svg" }
+      goalStatement: {
+        title: "Product Goal Statement",
+        image: "/assets/Goal%20Statement-CqwXkXlK.png"
+      },
+      userFlows: { title: "Complete Parent & Tutor User Flows", image: "/assets/User%20flows-pVGUkGfo.svg" }
     },
     wireframes: {
-      title: "Paper & Digital Wireframing",
-      desc: "Low-fidelity exploration of dual-user layout structures.",
+      title: "From Sketch to Structure — Paper Wireframes",
+      desc: "Low-fidelity exploration of dual-user layout structures and navigation patterns before committing to digital UI.",
       images: [
-        { title: "Paper Wireframes", src: "/assets/Paper%20Wireframes-BcWGzaTU.jpeg" }
+        { title: "Paper Wireframes & Layout Concepts", src: "/assets/Paper%20Wireframes-BcWGzaTU.jpeg" }
       ]
     },
     designSystem: {
@@ -474,25 +403,31 @@ export const projectsData: CaseStudy[] = [
       iconsGridsImage: "/assets/Icons-Grids-CroLQv6u.png",
       componentsImage: "/assets/Components-DrropsjgC.png",
       aiImage: "/assets/AI-image-Creation-BxO3TxUt.png",
-      aiDesc: "Used AI generation and Adobe Illustrator vectorization to create custom 3D educational graphics matching the #4A90E2 identity."
+      aiDesc: "To enhance the visual appeal of the interface, Nano Banana Pro AI was used to generate 3D educational objects aligned with the app aesthetic. These assets were then refined in Adobe Illustrator to ensure they matched the overall design system."
     },
     highFiScreens: [
-      { label: "Onboarding", desc: "Clear and readable type system to establish hierarchy." },
+      { label: "Onboarding Splash", desc: "Clear and readable type system to establish hierarchy and improve content accessibility." },
       { label: "Search Tutors", desc: "Search functionality with filters for subject, availability, and price." },
       { label: "Tutor Profile", desc: "Detailed tutor information, qualifications, reviews, and availability." },
-      { label: "Booking Flow", desc: "Intuitive calendar and time-slot selection for booking." },
-      { label: "Parent Dashboard", desc: "Manage bookings, communication, and view child progress." },
+      { label: "Booking Flow", desc: "Intuitive calendar and time-slot selection for booking a session." },
+      { label: "Parent Dashboard", desc: "Manage bookings, communication, and view child's progress." },
       { label: "Tutor Dashboard", desc: "Manage profile, availability, bookings, and communication." }
     ],
     keyDecisions: [
-      { title: "Dual-User Interface", body: "Separate interfaces for parents and tutors, optimized for discovery vs management." },
-      { title: "Smart Search & Filters", body: "Advanced filtering by subject, price, and ratings reduces cognitive load." },
-      { title: "Integrated Calendar System", body: "Built-in calendar eliminates external coordination back-and-forth." },
-      { title: "Trustworthy Blue Visual Identity", body: "#4A90E2 conveys trust and clarity essential for educational applications." }
+      { title: "Dual-user interface", body: "Separate interfaces for parents and tutors, each optimized for their specific workflow and needs — parents focus on discovery and booking, tutors on availability and management." },
+      { title: "Smart search & filters", body: "Advanced filtering by subject, availability, price, and tutor ratings reduces cognitive load and helps parents find the right tutor quickly." },
+      { title: "Integrated calendar", body: "Built-in calendar system simplifies the booking process and eliminates the need to coordinate availability across platforms." },
+      { title: "Bright blue identity (#4A90E2)", body: "#4A90E2 conveys trust and accessibility — critical for a platform where parents entrust educators with their children's learning." },
+      { title: "Progress tracking", body: "Parents can view session history and progress notes, creating transparency and building confidence in the tutoring relationship." },
+      { title: "Accessibility first", body: "Consistent focus on WCAG guidelines, readable typography, clear color contrast, and intuitive navigation ensure the platform is usable for everyone." }
     ],
     takeaways: [
-      "User research is essential for uncovering real needs and challenging initial design assumptions.",
-      "Establishing design tokens upfront makes scaling multi-role user interfaces rapid and error-free."
-    ]
+      "User research is essential for uncovering real needs and challenging initial assumptions. Direct parent and tutor feedback revealed pain points we hadn't anticipated.",
+      "Iterative design and usability testing significantly improve the overall user experience. Early wireframe testing caught navigation issues before high-fidelity design.",
+      "A well-defined design system supports both consistency and scalability. Establishing tokens and components upfront made iterating on screens fast and efficient.",
+      "Accessibility should be considered from the earliest stages of the design process. Designing for accessibility from the start enriched the experience for everyone.",
+      "Moving from low-fidelity to high-fidelity designs helps refine ideas efficiently. The progression from paper to digital prototypes revealed what really worked."
+    ],
+    figmaUrl: "https://www.figma.com/design/gqi3OCVLLXWmRoJ9tvHS7m/Tutora-App"
   }
 ];

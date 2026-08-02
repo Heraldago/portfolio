@@ -16,6 +16,8 @@ interface CaseStudyDetailProps {
 export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
 
+  const isXBit = project.id === "xbit";
+
   return (
     <article className="min-h-screen bg-background text-foreground pb-20">
       {/* Top Back Navigation Bar */}
@@ -150,13 +152,34 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           </div>
         </section>
 
-        {/* Research Data & Artifacts Gallery (User Groups, Personas, Competitive Analysis, User Flows) */}
+        {/* Research Data & Artifacts Gallery (User Groups, Personas, Competitive Analysis, Statements, User Flows) */}
         {project.researchData && (
           <section className="space-y-8 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
             <div className="space-y-1">
               <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">03 — Empirical User Research</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">Research Documentation &amp; Artifacts</h2>
             </div>
+
+            {/* User Groups if present */}
+            {project.researchData.userGroups && project.researchData.userGroups.length > 0 && (
+              <div className="space-y-3 pt-2">
+                <h3 className="font-mono text-xs font-bold uppercase text-lime">User Groups</h3>
+                <div className="grid gap-5 sm:grid-cols-1">
+                  {project.researchData.userGroups.map((group) => (
+                    <div
+                      key={group.title}
+                      onClick={() => setActiveImage({ src: group.image, alt: group.title })}
+                      className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all space-y-2"
+                    >
+                      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+                        <Image src={group.image} alt={group.title} fill sizes="100vw" className="object-contain" />
+                      </div>
+                      <p className="p-2 font-mono text-xs font-bold text-foreground text-center">{group.title}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Competitive Analysis */}
             {project.researchData.competitiveAnalysis && (
@@ -192,6 +215,43 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
                       {persona.summary && <p className="px-2 pb-2 text-xs text-muted-fg text-center">{persona.summary}</p>}
                     </div>
                   ))}
+                </div>
+              </div>
+            )}
+
+            {/* Problem & Goal Statements */}
+            {project.researchData.statements && project.researchData.statements.length > 0 && (
+              <div className="space-y-3 pt-2">
+                <h3 className="font-mono text-xs font-bold uppercase text-lime">Problem Statements</h3>
+                <div className="grid gap-5 sm:grid-cols-2">
+                  {project.researchData.statements.map((stmt) => (
+                    <div
+                      key={stmt.title}
+                      onClick={() => setActiveImage({ src: stmt.image, alt: stmt.title })}
+                      className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                    >
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+                        <Image src={stmt.image} alt={stmt.title} fill sizes="50vw" className="object-contain" />
+                      </div>
+                      <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{stmt.title}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Goal Statement */}
+            {project.researchData.goalStatement && (
+              <div className="space-y-3 pt-2">
+                <h3 className="font-mono text-xs font-bold uppercase text-lime">Product Goal Statement</h3>
+                <div
+                  onClick={() => setActiveImage({ src: project.researchData!.goalStatement!.image, alt: project.researchData!.goalStatement!.title })}
+                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                >
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+                    <Image src={project.researchData.goalStatement.image} alt={project.researchData.goalStatement.title} fill sizes="100vw" className="object-contain" />
+                  </div>
+                  <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{project.researchData.goalStatement.title}</p>
                 </div>
               </div>
             )}
@@ -281,6 +341,17 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
                   <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Typography Hierarchy</p>
                 </div>
               )}
+              {project.designSystem.iconsGridsImage && (
+                <div
+                  onClick={() => setActiveImage({ src: project.designSystem!.iconsGridsImage!, alt: "Icons & Grids System" })}
+                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
+                >
+                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
+                    <Image src={project.designSystem.iconsGridsImage} alt="Icons and Grids" fill sizes="50vw" className="object-contain" />
+                  </div>
+                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Icons &amp; Grid Alignment System</p>
+                </div>
+              )}
               {project.designSystem.componentsImage && (
                 <div
                   onClick={() => setActiveImage({ src: project.designSystem!.componentsImage!, alt: "Figma Component Tokens" })}
@@ -292,41 +363,74 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
                   <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Figma Reusable Component Library</p>
                 </div>
               )}
-              {project.designSystem.aiImage && (
+            </div>
+
+            {/* AI Image Creation Detail */}
+            {project.designSystem.aiImage && (
+              <div className="pt-4 border-t border-border/60 space-y-3">
+                <h3 className="font-mono text-xs font-bold uppercase text-lime">AI Image Creation &amp; 3D Visual Assets</h3>
+                {project.designSystem.aiDesc && (
+                  <p className="text-xs text-muted-fg leading-relaxed">{project.designSystem.aiDesc}</p>
+                )}
                 <div
                   onClick={() => setActiveImage({ src: project.designSystem!.aiImage!, alt: "AI Image Generation Process" })}
                   className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
                 >
                   <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.designSystem.aiImage} alt="AI 3D Visual Creation" fill sizes="50vw" className="object-contain" />
+                    <Image src={project.designSystem.aiImage} alt="AI 3D Visual Creation" fill sizes="100vw" className="object-contain" />
                   </div>
-                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">AI Asset Generation &amp; Illustrator Vectorization</p>
                 </div>
-              )}
-            </div>
+              </div>
+            )}
           </section>
         )}
 
-        {/* High-Fidelity Screens Gallery — Rendered inside iPhone 14 Pro Device Mockups */}
+        {/* High-Fidelity Screens Gallery — Rendered inside iPhone 14 Pro Device Mockups ONLY for X-Bit */}
         {project.highFiScreens && project.highFiScreens.length > 0 && (
           <section className="space-y-6">
             <div className="space-y-1">
               <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">06 — High-Fidelity Production Screens</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">Mobile Application Experience (iPhone 14 Pro)</h2>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold">
+                {isXBit ? "Mobile Application Experience (iPhone 14 Pro)" : "Core Screens Breakdown"}
+              </h2>
             </div>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
-              {project.highFiScreens.map((screen) => (
-                <IPhoneMockup
-                  key={screen.label}
-                  src={screen.img}
-                  alt={screen.label}
-                  label={screen.label}
-                  desc={screen.desc}
-                  onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
-                />
-              ))}
-            </div>
+            {isXBit ? (
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+                {project.highFiScreens.map((screen) => (
+                  <IPhoneMockup
+                    key={screen.label}
+                    src={screen.img}
+                    alt={screen.label}
+                    label={screen.label}
+                    desc={screen.desc}
+                    onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {project.highFiScreens.map((screen) => (
+                  <div
+                    key={screen.label}
+                    onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
+                    className={`rounded-xl border border-border bg-surface p-5 flex flex-col justify-between space-y-3 ${
+                      screen.img ? "cursor-pointer hover:border-lime transition-all" : ""
+                    }`}
+                  >
+                    {screen.img && (
+                      <div className="relative aspect-[16/10] max-h-[200px] w-full overflow-hidden rounded-lg bg-background">
+                        <Image src={screen.img} alt={screen.label} fill sizes="33vw" className="object-contain" />
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="font-display text-base font-bold text-foreground">{screen.label}</h3>
+                      <p className="mt-1 text-xs text-muted-fg leading-relaxed">{screen.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
         )}
 

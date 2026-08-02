@@ -4,6 +4,19 @@
 
 @layer base {
   :root {
+    --background: #faf7f2;
+    --foreground: #111e25;
+    --surface: #ffffff;
+    --surface-hover: #f3efe6;
+    --border: #e6e0d6;
+    --muted: #f5f0e6;
+    --muted-fg: #6b7780;
+    --lime: #235fe6;
+    --lime-fg: #ffffff;
+    --accent: #235fe6;
+  }
+
+  .dark {
     --background: #090a0c;
     --foreground: #f3f4f6;
     --surface: #111318;
@@ -13,19 +26,6 @@
     --muted-fg: #9ca3af;
     --lime: #d4ff00;
     --lime-fg: #000000;
-    --accent: #235fe6;
-  }
-
-  .light {
-    --background: #f8fafc;
-    --foreground: #0f172a;
-    --surface: #ffffff;
-    --surface-hover: #f1f5f9;
-    --border: #e2e8f0;
-    --muted: #f1f5f9;
-    --muted-fg: #64748b;
-    --lime: #235fe6;
-    --lime-fg: #ffffff;
     --accent: #235fe6;
   }
 
@@ -72,13 +72,13 @@
 
 /* Glassmorphism utility */
 .shadow-glass {
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  box-shadow: 0 8px 32px 0 rgba(17, 30, 37, 0.08);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
 
 .shadow-lime {
-  box-shadow: 0 0 20px rgba(212, 255, 0, 0.3);
+  box-shadow: 0 0 20px rgba(35, 95, 230, 0.25);
 }
 
 /* Micro animations */
