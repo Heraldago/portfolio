@@ -78,18 +78,18 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
 
         {/* Highlighted Business Metrics if present */}
         {project.metrics && project.metrics.length > 0 && (
-          <section className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <section className="grid grid-cols-1 sm:grid-cols-4 gap-4">
             {project.metrics.map((m) => (
               <div
                 key={m.label}
-                className="rounded-2xl border border-border bg-surface p-5 sm:p-6 space-y-1.5 shadow-sm hover:border-lime transition-all"
+                className="rounded-2xl border border-border bg-surface p-5 space-y-1 shadow-sm hover:border-lime transition-all"
               >
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-muted-fg">{m.label}</span>
-                  <TrendingUp className="h-4 w-4 text-lime" />
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-fg">{m.label}</span>
+                  <TrendingUp className="h-3.5 w-3.5 text-lime" />
                 </div>
-                <p className="font-display text-2xl font-bold text-lime">{m.value}</p>
-                <p className="text-xs text-muted-fg leading-relaxed">{m.description}</p>
+                <p className="font-display text-xl font-bold text-lime">{m.value}</p>
+                <p className="text-[11px] text-muted-fg leading-tight">{m.description}</p>
               </div>
             ))}
           </section>
@@ -155,7 +155,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           </div>
         </section>
 
-        {/* Research Data & Artifacts Gallery (User Groups, Personas, Competitive Analysis, Statements, User Flows) */}
+        {/* Research Data & Artifacts Gallery */}
         {project.researchData && (
           <section className="space-y-8 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
             <div className="space-y-1">
@@ -163,7 +163,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
               <h2 className="font-display text-2xl sm:text-3xl font-bold">Research Documentation &amp; Artifacts</h2>
             </div>
 
-            {/* User Groups if present */}
+            {/* User Groups */}
             {project.researchData.userGroups && project.researchData.userGroups.length > 0 && (
               <div className="space-y-3 pt-2">
                 <h3 className="font-mono text-xs font-bold uppercase text-lime">User Groups</h3>
@@ -307,6 +307,51 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
                     <Image src={img.src} alt={img.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
                   </div>
                   <p className="p-2 font-mono text-[11px] font-semibold text-foreground text-center">{img.title}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {/* Sydbank 4 Core UI Redesign Blocks (Before vs After) */}
+        {project.sydbankBlocks && project.sydbankBlocks.length > 0 && (
+          <section className="space-y-8">
+            <div className="space-y-1">
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">05 — The 4 Core UI Redesign Blocks</span>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold">Interface Transformation (Before vs After)</h2>
+            </div>
+
+            <div className="space-y-8">
+              {project.sydbankBlocks.map((block) => (
+                <div key={block.blockNum} className="rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-8 space-y-4 shadow-glass">
+                  <div>
+                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-lime">{block.blockNum}</span>
+                    <h3 className="font-display text-xl font-bold text-foreground mt-1">{block.title}</h3>
+                  </div>
+
+                  <div className="grid gap-6 sm:grid-cols-2">
+                    {/* Before Image */}
+                    <div
+                      onClick={() => setActiveImage({ src: block.beforeImg, alt: `${block.blockNum} Before` })}
+                      className="rounded-xl border border-border bg-background p-3 space-y-2 cursor-pointer hover:border-lime transition-all"
+                    >
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+                        <Image src={block.beforeImg} alt={`${block.blockNum} Before`} fill sizes="50vw" className="object-contain" />
+                      </div>
+                      <p className="font-mono text-[11px] text-muted-fg leading-relaxed">{block.beforeDesc}</p>
+                    </div>
+
+                    {/* After Image */}
+                    <div
+                      onClick={() => setActiveImage({ src: block.afterImg, alt: `${block.blockNum} After` })}
+                      className="rounded-xl border border-lime/40 bg-background p-3 space-y-2 cursor-pointer hover:border-lime transition-all"
+                    >
+                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
+                        <Image src={block.afterImg} alt={`${block.blockNum} After`} fill sizes="50vw" className="object-contain" />
+                      </div>
+                      <p className="font-mono text-[11px] text-lime font-bold leading-relaxed">{block.afterDesc}</p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>

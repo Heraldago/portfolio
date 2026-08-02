@@ -50,6 +50,15 @@ export interface CaseStudy {
     aiImage?: string;
     aiDesc?: string;
   };
+  sydbankBlocks?: {
+    blockNum: string;
+    title: string;
+    subtitle: string;
+    beforeImg: string;
+    beforeDesc: string;
+    afterImg: string;
+    afterDesc: string;
+  }[];
   highFiScreens?: { label: string; desc: string; img?: string }[];
   keyDecisions: { title: string; body: string }[];
   takeaways: string[];
@@ -295,52 +304,82 @@ export const projectsData: CaseStudy[] = [
   {
     id: "sydbank",
     index: "04",
-    title: "Sydbank Enterprise Data Catalog",
-    subtitle: "Empirical UX Research & UI Redesign for Denmark's 4th Largest Bank",
-    shortDescription: "Empirical 24-person research survey, user flow analysis, and enterprise UI redesign reducing data search task times by 66% for Sydbank's analytics teams.",
-    badge: "Enterprise Fintech UX",
+    title: "Sydbank Enterprise Data Catalog Redesign",
+    subtitle: "Denmark's 4th Largest Bank — Enterprise UX Research & 4-Block UI Overhaul",
+    shortDescription: "Enterprise UX research and 4-block UI redesign of Sydbank's internal Alation data catalog software. Driven by an empirical 24-person survey across bank departments, user journey mapping, and ISO 9241-210 human-centered evaluation.",
+    badge: "Enterprise Fintech UX Research",
     image: "/assets/herosydbank-sharp.jpg",
-    tags: ["Enterprise UX", "Fintech", "Data Catalog", "Empirical Research"],
+    tags: ["ISO 9241-210", "Alation Data Catalog", "Empirical Research", "Fintech UX"],
     link: "/sydbank",
-    role: "Lead UX Researcher & Product Designer",
-    projectType: "Enterprise Internal Platform",
-    tools: ["Alation Data Catalog", "Figma", "Empirical Surveys", "User Testing"],
+    role: "Lead Enterprise UX Researcher",
+    projectType: "Sydbank Enterprise Data Infrastructure",
+    tools: ["Alation", "ISO 9241-210", "Norman 3 Levels", "Figma", "Empirical Surveys"],
     duration: "5 Months",
-    problem: "Data engineers, risk analysts, and business intelligence leads at Sydbank (Denmark's 4th largest bank) struggled to find authoritative data tables within their enterprise Alation data catalog. Search workflows were cluttered, metadata was obscure, and task completion times were dangerously slow.",
-    solution: "Executed an empirical study with 24 bank data specialists to identify cognitive bottlenecks. Redesigned the search interface, simplified metadata cards, introduced global keyboard shortcuts (`/`), and created clear data lineage visualization tabs.",
+    problem: "Sydbank relies on the Alation Data Catalog platform to facilitate database-related operations, metadata tracking, and query management across financial departments. However, newly hired employees consistently encountered a steep learning curve and operational friction due to cluttered layouts, ambiguous color-coded status icons, and hidden help resources.",
+    solution: "Conducted an empirical survey with 24 active Alation users across Sydbank departments to capture quantitative Likert scale metrics alongside qualitative feedback. Redesigned the platform into 4 core UI blocks: Homepage Modernization, Centralized Database Navigation, Prominent Tutorial Banner, and Faceted Domain Search.",
     metrics: [
-      { label: "Search Task Time", value: "-66%", description: "Average task completion time reduced from 4.5 minutes to 1.5 minutes." },
-      { label: "Empirical Cohort", value: "24 Pros", description: "In-depth research study with Sydbank data analysts & engineers." },
-      { label: "Metadata Clarity", value: "+84%", description: "Increase in reported confidence regarding data source accuracy." }
+      { label: "Ease of Use Rating", value: "3.5 / 5", description: "Standard Deviation: 0.72 (Moderate usability with high variance between user roles)." },
+      { label: "Visual Appeal Rating", value: "3.21 / 5", description: "Standard Deviation: 0.88 (Split user perception ranging from 'Very Bad' to 'Good')." },
+      { label: "Task Time Reduction", value: "66%", description: "Task resolution reduced from 90 min down to 30 min per data query task." },
+      { label: "Internal Sample Size", value: "24 Users", description: "Cross-departmental feedback from new hires to senior database admins." }
     ],
     processPhases: [
-      { number: "01", phase: "Empirical Research Survey", summary: "Distributed structured quantitative & qualitative surveys to 24 Sydbank data professionals to quantify search frequency, pain points, and failed query rates." },
-      { number: "02", phase: "Information Architecture Overhaul", summary: "Reorganized complex table schemas, column descriptions, and owner tags into intuitive tabbed cards." },
-      { number: "03", phase: "Wireframing & Prototype Design", summary: "Designed high-density enterprise dashboard layouts in Figma, prioritizing screen real estate and keyboard navigation." },
-      { number: "04", phase: "Validation & Benchmark Testing", summary: "Tested new prototypes against legacy Alation UI in timed task scenarios, verifying a 66% drop in search latency." }
+      { number: "01", phase: "Empirical Research Survey", summary: "In collaboration with Sandra Kristholm at Sydbank, an internal questionnaire was distributed to 24 active Alation users across financial departments, capturing quantitative Likert scale metrics alongside qualitative feedback." },
+      { number: "02", phase: "Qualitative Sentiments & Journey Mapping", summary: "Identified core pain points across New Employee and Senior User journeys: interface complexity, onboarding bottlenecks, and documentation gaps." },
+      { number: "03", phase: "Theoretical Framework Application", summary: "Applied ISO 9241-210 & ISO 9126 (Learnability, Operability, Compliance), Norman 3 Processing Levels (Visceral, Behavioral, Reflective), and a continuous feedback loop." },
+      { number: "04", phase: "Stanford d.school Wireframing", summary: "Explored physical paper sketches (Stage 1) and digital low-fidelity information architecture (Stage 2) prior to high-fidelity implementation." }
     ],
-
     wireframes: {
-      title: "Interface Transformations: Before vs After",
-      desc: "Replacing cluttered legacy lists with structured, high-density data cards.",
+      title: "Stanford d.school Framework & Wireframes",
+      desc: "Moving from physical paper exploration to digital low-fidelity information architecture.",
       images: [
-        { title: "Legacy Search View (Before)", src: "/assets/Homebefore.jpg" },
-        { title: "Redesigned Enterprise Search View (After)", src: "/assets/Homeafter.png" },
-        { title: "Legacy IA Structure (Before)", src: "/assets/IA-before.jpg" },
-        { title: "Redesigned IA Structure (After)", src: "/assets/IA-after.png" }
+        { title: "Stage 1 · Physical Wireframe Sketch", src: "/assets/paperwireframe.jpg" },
+        { title: "Stage 2 · Digital Low-Fi Wireframe", src: "/assets/lo-fi-wireframe.png" }
       ]
     },
-
-
+    sydbankBlocks: [
+      {
+        blockNum: "Block 01 · Initial Landing Page",
+        title: "Homepage Modernization & Cognitive Load Reduction",
+        beforeImg: "/assets/Homebefore.jpg",
+        beforeDesc: "BEFORE · Cluttered 3-column layout without tutorial banners or language toggles.",
+        afterImg: "/assets/Homeafter.png",
+        afterDesc: "AFTER · Minimalist layout with quick links, onboarding banner, and language selection."
+      },
+      {
+        blockNum: "Block 02 · Information Architecture",
+        title: "Centralized Database Navigation & Dropdowns",
+        beforeImg: "/assets/IA-before.jpg",
+        beforeDesc: "BEFORE · Placed in unconventional positions without clear database categories.",
+        afterImg: "/assets/IA-after.png",
+        afterDesc: "AFTER · Centralized 4-category navigation bar with icons and structured dropdowns."
+      },
+      {
+        blockNum: "Block 03 · Onboarding & Support",
+        title: "Prominent Tutorial Banner & Guided Video Walkthroughs",
+        beforeImg: "/assets/old-onboarding.jpg",
+        beforeDesc: "BEFORE · Onboarding hidden inside general settings submenus.",
+        afterImg: "/assets/new-tutorial-onboarding.jpg",
+        afterDesc: "AFTER · Embedded video tutorial center directly accessible on the homepage."
+      },
+      {
+        blockNum: "Block 04 · Search & Discovery",
+        title: "Faceted Domain Filters & Integrated Search",
+        beforeImg: "/assets/New-search-bar.png",
+        beforeDesc: "SEARCH FOCUS · Domain filter dropdowns, instant recall, and data owner shortcuts.",
+        afterImg: "/assets/detailed-sb.png",
+        afterDesc: "METADATA CARDS · Structured table metadata, popularity ratings, and assigned experts."
+      }
+    ],
     keyDecisions: [
-      { title: "Instant Command Search Bar (`Cmd+K`)", body: "Implemented global spotlight search for instant table name and schema lookups." },
-      { title: "Verified Data Badging", body: "Added visual trust indicators (Certified, Deprecated, Experimental) to eliminate risk analyst confusion." },
-      { title: "Compact High-Density Data Grids", body: "Maximized visible rows per viewport for multi-monitor financial work environments." },
-      { title: "Empirical Survey Baseline", body: "Conducted timed task audits with 24 Sydbank data engineers to establish quantitative baseline benchmarks." }
+      { title: "ISO 9241-210 Compliance", body: "Human-centered design framework evaluating Learnability, Operability, Attractiveness, and Compliance." },
+      { title: "Norman 3 Processing Levels", body: "Addressing Visceral (first impressions), Behavioral (core usability), and Reflective (long-term satisfaction)." },
+      { title: "Embedded Video Tutorials", body: "Prominent tutorial banners directly on homepage eliminated reliance on external documentation decks." },
+      { title: "Faceted Domain Filters", body: "Faceted search and table owner shortcuts reduced search resolution time from 90 to 30 minutes." }
     ],
     takeaways: [
-      "Enterprise UX is about efficiency, density, and precision — reducing cognitive friction directly translates to operational cost savings.",
-      "Empirical benchmark data is essential when advocating for UX overhauls in risk-averse banking environments."
+      "Empirical Likert scale metrics paired with qualitative user feedback provide bulletproof evidence when redesigning enterprise banking software.",
+      "Structuring complex database catalogs into 4 clear UI blocks reduces cognitive load for both new hires and senior analysts."
     ]
   },
   {
