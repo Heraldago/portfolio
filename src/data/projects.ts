@@ -319,6 +319,12 @@ export const projectsData: CaseStudy[] = [
       { number: "03", phase: "Wireframing & Prototype Design", summary: "Designed high-density enterprise dashboard layouts in Figma, prioritizing screen real estate and keyboard navigation." },
       { number: "04", phase: "Validation & Benchmark Testing", summary: "Tested new prototypes against legacy Alation UI in timed task scenarios, verifying a 66% drop in search latency." }
     ],
+    researchData: {
+      competitiveAnalysis: {
+        image: "/assets/sydbank-cover-graphic.png",
+        summary: "Audited Sydbank's legacy Alation data catalog search architecture against enterprise data management standards, discovering a 4.5-minute average query latency across 24 bank data specialists."
+      }
+    },
     wireframes: {
       title: "Interface Transformations: Before vs After",
       desc: "Replacing cluttered legacy lists with structured, high-density data cards.",
@@ -329,10 +335,21 @@ export const projectsData: CaseStudy[] = [
         { title: "Redesigned IA Structure (After)", src: "/assets/IA-after.png" }
       ]
     },
+    designSystem: {
+      colorsImage: "/assets/sydbank-cover-header.png",
+      componentsImage: "/assets/sydbank-logo-display.png"
+    },
+    highFiScreens: [
+      { label: "Enterprise Spotlight Search (Cmd+K)", desc: "Global command palette for instant table and schema discovery across Sydbank's enterprise data warehouse.", img: "/assets/Homeafter.png" },
+      { label: "Structured Information Architecture", desc: "Reorganized data schemas, column descriptions, and owner tags into intuitive tabbed cards.", img: "/assets/IA-after.png" },
+      { label: "Legacy Search View (Before)", desc: "Cluttered list view requiring deep navigation and manual filter configuration.", img: "/assets/Homebefore.jpg" },
+      { label: "Legacy IA Structure (Before)", desc: "Fragmented metadata structure leading to a 4.5-minute average query time.", img: "/assets/IA-before.jpg" }
+    ],
     keyDecisions: [
       { title: "Instant Command Search Bar (`Cmd+K`)", body: "Implemented global spotlight search for instant table name and schema lookups." },
       { title: "Verified Data Badging", body: "Added visual trust indicators (Certified, Deprecated, Experimental) to eliminate risk analyst confusion." },
-      { title: "Compact High-Density Data Grids", body: "Maximized visible rows per viewport for multi-monitor financial work environments." }
+      { title: "Compact High-Density Data Grids", body: "Maximized visible rows per viewport for multi-monitor financial work environments." },
+      { title: "Empirical Survey Baseline", body: "Conducted timed task audits with 24 Sydbank data engineers to establish quantitative baseline benchmarks." }
     ],
     takeaways: [
       "Enterprise UX is about efficiency, density, and precision — reducing cognitive friction directly translates to operational cost savings.",
