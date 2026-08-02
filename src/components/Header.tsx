@@ -48,7 +48,7 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 sm:px-10 lg:px-16">
-        {/* Direct Logo Image without container box */}
+        {/* Direct Logo Image */}
         <Link
           href="/"
           className="group flex items-center gap-2.5 transition-opacity hover:opacity-90"
@@ -69,7 +69,7 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
-          <nav className="flex items-center gap-1 rounded-full border border-border bg-surface/80 p-1.5 backdrop-blur-xl">
+          <nav className="flex items-center gap-1.5 rounded-full border border-border bg-surface/90 p-1.5 backdrop-blur-xl shadow-sm">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -79,10 +79,10 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`rounded-full px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider transition-all ${
+                  className={`rounded-full px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 ${
                     isActive
-                      ? "bg-lime text-lime-fg shadow-sm"
-                      : "text-muted-fg hover:text-foreground hover:bg-surface-hover"
+                      ? "bg-lime text-lime-fg shadow-sm scale-102"
+                      : "text-muted-fg hover:text-lime hover:bg-lime/15 hover:border-lime/40 border border-transparent hover:scale-105"
                   }`}
                 >
                   {link.label}
@@ -95,7 +95,7 @@ export default function Header() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground shadow-sm hover:border-lime transition-colors"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground shadow-sm hover:border-lime hover:text-lime transition-all duration-200 hover:scale-105"
           >
             {theme === "dark" ? (
               <Sun className="h-4 w-4 text-lime" />

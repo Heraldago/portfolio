@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
 import InteractivePrototype from "@/components/InteractivePrototype";
+import IPhoneMockup from "@/components/iPhoneMockup";
 import { CaseStudy } from "@/data/projects";
 
 interface CaseStudyDetailProps {
@@ -306,33 +307,24 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           </section>
         )}
 
-        {/* High-Fidelity Screens Gallery */}
+        {/* High-Fidelity Screens Gallery — Rendered inside iPhone 14 Pro Device Mockups */}
         {project.highFiScreens && project.highFiScreens.length > 0 && (
           <section className="space-y-6">
             <div className="space-y-1">
               <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">06 — High-Fidelity Production Screens</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">Core Screens Breakdown</h2>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold">Mobile Application Experience (iPhone 14 Pro)</h2>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
               {project.highFiScreens.map((screen) => (
-                <div
+                <IPhoneMockup
                   key={screen.label}
+                  src={screen.img}
+                  alt={screen.label}
+                  label={screen.label}
+                  desc={screen.desc}
                   onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
-                  className={`rounded-xl border border-border bg-surface p-5 flex flex-col justify-between space-y-3 ${
-                    screen.img ? "cursor-pointer hover:border-lime transition-all" : ""
-                  }`}
-                >
-                  {screen.img && (
-                    <div className="relative aspect-[9/16] max-h-[280px] w-full overflow-hidden rounded-lg bg-background">
-                      <Image src={screen.img} alt={screen.label} fill sizes="33vw" className="object-contain" />
-                    </div>
-                  )}
-                  <div>
-                    <h3 className="font-display text-base font-bold text-foreground">{screen.label}</h3>
-                    <p className="mt-1 text-xs text-muted-fg leading-relaxed">{screen.desc}</p>
-                  </div>
-                </div>
+                />
               ))}
             </div>
           </section>
