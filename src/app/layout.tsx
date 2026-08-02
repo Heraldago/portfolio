@@ -12,6 +12,7 @@ const syne = Syne({
   variable: "--font-syne",
   weight: ["600", "700"],
   display: "swap",
+  preload: true,
 });
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -19,6 +20,7 @@ const plusJakartaSans = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  preload: true,
 });
 
 const jetbrainsMono = JetBrains_Mono({
@@ -26,6 +28,7 @@ const jetbrainsMono = JetBrains_Mono({
   variable: "--font-jetbrains",
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -89,8 +92,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="light scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
-        className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-lime selection:text-lime-fg`}
+        className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-lime selection:text-lime-fg antialiased text-rendering-optimize`}
       >
         {/* Entrance Preloader Animation */}
         <Preloader />
