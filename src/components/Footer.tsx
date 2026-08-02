@@ -6,17 +6,15 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-surface/80 py-10">
       <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 flex flex-col sm:flex-row items-center justify-between gap-6">
-        {/* Brand & Logo */}
+        {/* Brand & Direct Logo Image */}
         <div className="flex items-center gap-3">
-          <div className="flex h-7 w-7 items-center justify-center rounded-lg border border-lime/40 bg-surface shadow-sm">
-            <Image
-              src="/herald-ago-icon.svg"
-              alt="Herald Ago Logo"
-              width={20}
-              height={20}
-              className="h-5 w-5 object-contain"
-            />
-          </div>
+          <Image
+            src="/herald-ago-icon.svg"
+            alt="Herald Ago Logo"
+            width={28}
+            height={28}
+            className="h-7 w-auto object-contain"
+          />
           <div>
             <span className="font-display text-sm font-bold text-foreground">
               Herald Ago

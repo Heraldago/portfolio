@@ -48,20 +48,19 @@ export default function Header() {
       }`}
     >
       <div className="mx-auto flex max-w-5xl items-center justify-between px-6 sm:px-10 lg:px-16">
-        {/* Logo with herald-ago-icon.svg */}
+        {/* Direct Logo Image without container box */}
         <Link
           href="/"
-          className="group flex items-center gap-3 transition-opacity hover:opacity-90"
+          className="group flex items-center gap-2.5 transition-opacity hover:opacity-90"
         >
-          <div className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg border border-lime/40 bg-surface shadow-sm transition-transform group-hover:scale-105">
-            <Image
-              src="/herald-ago-icon.svg"
-              alt="Herald Ago Logo"
-              width={24}
-              height={24}
-              className="h-6 w-6 object-contain"
-            />
-          </div>
+          <Image
+            src="/herald-ago-icon.svg"
+            alt="Herald Ago Logo"
+            width={32}
+            height={32}
+            className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+            priority
+          />
           <span className="font-display font-bold text-base text-foreground tracking-tight flex items-center gap-1.5">
             Herald Ago
             <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
