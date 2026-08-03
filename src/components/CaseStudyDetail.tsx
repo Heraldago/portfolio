@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
 import InteractivePrototype from "@/components/InteractivePrototype";
+import UngdomskortPortal from "@/components/UngdomskortPortal";
 import IPhoneMockup from "@/components/iPhoneMockup";
 import { CaseStudy, projectsData } from "@/data/projects";
 
@@ -107,14 +108,11 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           />
         </section>
 
-        {/* Interactive Prototype Simulator — ONLY for Ungdomskort */}
-        {project.id === "ungdomskort" && project.interactivePrototype && (
-          <InteractivePrototype
-            title={project.interactivePrototype.title}
-            description={project.interactivePrototype.description}
-            steps={project.interactivePrototype.steps}
-            figmaUrl={project.figmaUrl}
-          />
+        {/* Live Interactive Ungdomskort Application Prototype — Placed at the BEGINNING of the project story */}
+        {project.id === "ungdomskort" && (
+          <section className="space-y-4">
+            <UngdomskortPortal />
+          </section>
         )}
 
         {/* Problem & Solution Breakdown */}
