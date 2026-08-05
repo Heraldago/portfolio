@@ -309,24 +309,24 @@ export const projectsData: CaseStudy[] = [
     shortDescription: "Enterprise UX research and 4-block UI redesign of Sydbank's internal Alation data catalog software. Driven by an empirical 24-person survey across bank departments, user journey mapping, and ISO 9241-210 human-centered evaluation.",
     badge: "Enterprise Fintech UX Research",
     image: "/assets/herosydbank-sharp.jpg",
-    tags: ["ISO 9241-210", "Alation Data Catalog", "Empirical Research", "Fintech UX"],
+    tags: ["Lead UX Analyst & UI Designer", "ISO 9241-210", "ISO 9126 Framework", "WCAG 2.1 Level A", "Alation Data Catalog", "Multi-Language DA/EN/DE"],
     link: "/sydbank",
-    role: "Lead Enterprise UX Researcher",
+    role: "Lead Enterprise UX Analyst & Front-End UI Designer",
     projectType: "Sydbank Enterprise Data Infrastructure",
-    tools: ["Alation", "ISO 9241-210", "Norman 3 Levels", "Figma", "Empirical Surveys"],
+    tools: ["Alation Data Catalog", "ISO 9241-210", "ISO 9126 Quality Model", "Norman 3 Levels", "Figma", "Empirical Likert Surveys"],
     duration: "5 Months",
-    problem: "Sydbank relies on the Alation Data Catalog platform to facilitate database-related operations, metadata tracking, and query management across financial departments. However, newly hired employees consistently encountered a steep learning curve and operational friction due to cluttered layouts, ambiguous color-coded status icons, and hidden help resources.",
-    solution: "Conducted an empirical survey with 24 active Alation users across Sydbank departments to capture quantitative Likert scale metrics alongside qualitative feedback. Redesigned the platform into 4 core UI blocks: Homepage Modernization, Centralized Database Navigation, Prominent Tutorial Banner, and Faceted Domain Search.",
+    problem: "Sydbank relies on the Alation Data Catalog platform to facilitate database-related operations, metadata tracking, and query management across financial departments. However, newly hired employees consistently encountered a steep learning curve and operational friction due to cluttered layouts, ambiguous color-coded status icons, hardcoded Danish text, and hidden help resources.",
+    solution: "Conducted an empirical survey with 24 active Alation users across Sydbank departments to capture quantitative Likert scale metrics alongside qualitative feedback. Redesigned the platform into 4 core UI blocks: Homepage Modernization, Centralized Database Navigation, Prominent Tutorial Hub, and Faceted Domain Search with integrated recent history.",
     metrics: [
-      { label: "Ease of Use Rating", value: "3.5 / 5", description: "Standard Deviation: 0.72 (Moderate usability with high variance between user roles)." },
-      { label: "Visual Appeal Rating", value: "3.21 / 5", description: "Standard Deviation: 0.88 (Split user perception ranging from 'Very Bad' to 'Good')." },
-      { label: "Task Time Reduction", value: "66%", description: "Task resolution reduced from 90 min down to 30 min per data query task." },
-      { label: "Internal Sample Size", value: "24 Users", description: "Cross-departmental feedback from new hires to senior database admins." }
+      { label: "Empirical Usability (N=24)", value: "3.5 / 5", description: "Standard Deviation: 0.72 (Empirical baseline metrics from 24 active Sydbank employees)." },
+      { label: "Visual Consistency", value: "3.21 / 5", description: "Standard Deviation: 0.88 (Targeted cognitive load reduction & training speedup)." },
+      { label: "Task Time Reduction", value: "-66%", description: "Task resolution duration reduced from 90 min down to 30 min per data query task." },
+      { label: "Cross-Dept Sample", value: "N=24 Users", description: "Cross-departmental sample size ranging from new hires to senior database admins." }
     ],
     processPhases: [
-      { number: "01", phase: "Empirical Research Survey", summary: "In collaboration with Sandra Kristholm at Sydbank, an internal questionnaire was distributed to 24 active Alation users across financial departments, capturing quantitative Likert scale metrics alongside qualitative feedback." },
-      { number: "02", phase: "Qualitative Sentiments & Journey Mapping", summary: "Identified core pain points across New Employee and Senior User journeys: interface complexity, onboarding bottlenecks, and documentation gaps." },
-      { number: "03", phase: "Theoretical Framework Application", summary: "Applied ISO 9241-210 & ISO 9126 (Learnability, Operability, Compliance), Norman 3 Processing Levels (Visceral, Behavioral, Reflective), and a continuous feedback loop." },
+      { number: "01", phase: "Empirical Baseline Survey (N=24)", summary: "Distributed an internal questionnaire to 24 active Alation users across Sydbank financial departments, capturing quantitative Likert scale metrics alongside qualitative friction points." },
+      { number: "02", phase: "Qualitative Sentiments & Journey Mapping", summary: "Mapped core pain points across New Employee and Senior User journeys: interface complexity, onboarding bottlenecks, hardcoded language friction, and documentation gaps." },
+      { number: "03", phase: "ISO 9241-210 & ISO 9126 Frameworks", summary: "Applied ISO 9241-210 (Human-Centered Design) & ISO 9126 (Learnability, Operability, Compliance), Norman's 3 Processing Levels (Visceral, Behavioral, Reflective), and continuous stakeholder feedback loops." },
       { number: "04", phase: "Stanford d.school Wireframing", summary: "Explored physical paper sketches (Stage 1) and digital low-fidelity information architecture (Stage 2) prior to high-fidelity implementation." }
     ],
     wireframes: {
@@ -340,46 +340,47 @@ export const projectsData: CaseStudy[] = [
     sydbankBlocks: [
       {
         blockNum: "Block 01 · Initial Landing Page",
-        title: "Homepage Modernization & Cognitive Load Reduction",
+        title: "Homepage Modernization & Multi-Language Switcher",
         beforeImg: "/assets/Homebefore.jpg",
-        beforeDesc: "BEFORE · Cluttered 3-column layout without tutorial banners or language toggles.",
+        beforeDesc: "BEFORE · Cluttered 3-column legacy layout, hardcoded Danish text, hidden help documentation.",
         afterImg: "/assets/Homeafter.png",
-        afterDesc: "AFTER · Minimalist layout with quick links, onboarding banner, and language selection."
+        afterDesc: "AFTER · Streamlined 3-zone layout with quick links, prominent onboarding hub, and top-level DA/EN/DE language switcher."
       },
       {
         blockNum: "Block 02 · Information Architecture",
-        title: "Centralized Database Navigation & Dropdowns",
+        title: "Centralized Database Navigation & Superuser Directory",
         beforeImg: "/assets/IA-before.jpg",
-        beforeDesc: "BEFORE · Placed in unconventional positions without clear database categories.",
+        beforeDesc: "BEFORE · Disconnected navigation in unconventional positions without clear domain categories.",
         afterImg: "/assets/IA-after.png",
-        afterDesc: "AFTER · Centralized 4-category navigation bar with icons and structured dropdowns."
+        afterDesc: "AFTER · Centralized 4-category navigation bar with icons, structured dropdowns, and superuser contact directory."
       },
       {
         blockNum: "Block 03 · Onboarding & Support",
-        title: "Prominent Tutorial Banner & Guided Video Walkthroughs",
+        title: "Prominent Tutorial Hub & Guided Video Walkthroughs",
         beforeImg: "/assets/old-onboarding.jpg",
-        beforeDesc: "BEFORE · Onboarding hidden inside general settings submenus.",
+        beforeDesc: "BEFORE · Onboarding hidden inside nested admin setting menus.",
         afterImg: "/assets/new-tutorial-onboarding.jpg",
-        afterDesc: "AFTER · Embedded video tutorial center directly accessible on the homepage."
+        afterDesc: "AFTER · Centered action cards ('Write Queries', 'Document Data', 'Explore Data', 'Configure Alation') with direct video modals."
       },
       {
         blockNum: "Block 04 · Search & Discovery",
-        title: "Faceted Domain Filters & Integrated Search",
+        title: "Faceted Search Bar & Integrated Recent History",
         beforeImg: "/assets/New-search-bar.png",
-        beforeDesc: "SEARCH FOCUS · Domain filter dropdowns, instant recall, and data owner shortcuts.",
+        beforeDesc: "BEFORE · Confusing 'All Domains' label and disconnected recent items history.",
         afterImg: "/assets/detailed-sb.png",
-        afterDesc: "METADATA CARDS · Structured table metadata, popularity ratings, and assigned experts."
+        afterDesc: "AFTER · Rebranded dropdown ('Categories'), integrated 'Recently Visited' history directly inside search bar, and faceted domain filters."
       }
     ],
     keyDecisions: [
-      { title: "ISO 9241-210 Compliance", body: "Human-centered design framework evaluating Learnability, Operability, Attractiveness, and Compliance." },
+      { title: "Personal Deliverables Ownership", body: "Direct ownership of Homepage Redesign, Search Bar & Recent History, Onboarding & Video Hub, and N=24 Data Synthesis." },
+      { title: "ISO 9241-210 & ISO 9126 Standards", body: "Human-centered design framework evaluating Learnability, Operability, Attractiveness, and Compliance." },
       { title: "Norman 3 Processing Levels", body: "Addressing Visceral (first impressions), Behavioral (core usability), and Reflective (long-term satisfaction)." },
-      { title: "Embedded Video Tutorials", body: "Prominent tutorial banners directly on homepage eliminated reliance on external documentation decks." },
-      { title: "Faceted Domain Filters", body: "Faceted search and table owner shortcuts reduced search resolution time from 90 to 30 minutes." }
+      { title: "Embedded Video Tutorial Hub", body: "Prominent tutorial banners directly on homepage eliminated reliance on external documentation decks." }
     ],
     takeaways: [
-      "Empirical Likert scale metrics paired with qualitative user feedback provide bulletproof evidence when redesigning enterprise banking software.",
-      "Structuring complex database catalogs into 4 clear UI blocks reduces cognitive load for both new hires and senior analysts."
+      "Empirical N=24 Likert scale metrics paired with qualitative user feedback provide bulletproof evidence when redesigning enterprise banking software.",
+      "Structuring complex database catalogs into 4 clear UI blocks reduces cognitive load for both new hires and senior analysts.",
+      "Multi-language localization (Danish, English, German) is a major UX strategy in international banking environments."
     ]
   },
   {

@@ -75,6 +75,38 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
               <p className="mt-1 font-medium text-foreground text-sm">{project.duration}</p>
             </div>
           </div>
+
+          {/* Personal Deliverables Ownership & Quality Badges */}
+          {project.id === "sydbank" && (
+            <div className="rounded-2xl border border-lime/40 bg-lime/5 p-5 space-y-3 font-mono text-xs">
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-lime/30 pb-3">
+                <span className="font-bold uppercase tracking-wider text-lime flex items-center gap-1.5 text-xs">
+                  <Sparkles className="h-4 w-4" /> Personal Ownership &amp; Core Deliverables
+                </span>
+                <span className="text-[11px] text-foreground font-semibold">Lead UX Analyst &amp; Front-End UI Designer</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div>
+                  <p className="font-bold text-foreground mb-1">Direct Ownership Highlights:</p>
+                  <ul className="list-disc list-inside space-y-1 text-muted-fg text-[11px]">
+                    <li><strong>Homepage Architecture</strong> (3-Zone Layout &amp; Quick Action Cards)</li>
+                    <li><strong>Faceted Search Bar</strong> (Integrated Recent Items &amp; Category Filters)</li>
+                    <li><strong>Onboarding &amp; Support Hub</strong> (Embedded Video Tutorial Modals)</li>
+                    <li><strong>Empirical Research Synthesis</strong> (N=24 Employee Survey Analysis)</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <p className="font-bold text-foreground">Accessibility &amp; Enterprise Badges:</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-lime">WCAG 2.1 Level A</span>
+                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-foreground">ISO 9241-210 (HCD)</span>
+                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-foreground">ISO 9126 Quality Model</span>
+                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-lime">Multi-Language (DA/EN/DE)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </section>
 
         {/* Highlighted Business Metrics if present */}

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Herald Ago — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --lime: #D4FF00;
+      --dark: #060606;
+      --mid: #1A1A1A;
+      --grey: #3A3A3A;
+      --muted: #6B6B6B;
+      --border: #E4E4E4;
+      --white: #FFFFFF;
+      --sidebar-w: 230px;
+    }
+
+    html, body {
+      width: 210mm;
+      min-height: 297mm;
+      background: #E8E8E8;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--white);
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+
+    /* ─── SIDEBAR ─────────────────────────────────────────── */
+    .sidebar {
+      width: var(--sidebar-w);
+      min-height: 297mm;
+      background: var(--dark);
+      padding: 36px 22px 36px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      flex-shrink: 0;
+    }
+
+    .sidebar-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+    }
+
+    .monogram {
+      width: 42px;
+      height: 42px;
+      background: var(--lime);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 16px;
+      color: var(--dark);
+      letter-spacing: -0.5px;
+    }
+
+    .sidebar-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+      letter-spacing: -0.3px;
+    }
+
+    .sidebar-title {
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--lime);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .sidebar-divider {
+      height: 1px;
+      background: #ffffff15;
+    }
+
+    .sidebar-section-label {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--lime);
+      font-family: 'JetBrains Mono', monospace;
+      margin-bottom: 10px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 8px;
+    }
+
+    .contact-label {
+      font-size: 7.5px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .contact-value {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: #D0D0D0;
+      word-break: break-all;
+    }
+
+    .contact-value a {
+      color: #D0D0D0;
+      text-decoration: none;
+    }
+
+    /* Skills */
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .skill-name {
+      font-size: 9px;
+      font-weight: 500;
+      color: #C8C8C8;
+    }
+
+    .skill-bar-bg {
+      height: 2px;
+      background: #ffffff18;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .skill-bar-fill {
+      height: 100%;
+      background: var(--lime);
+      border-radius: 2px;
+    }
+
+    /* Tags */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .tag {
+      font-size: 8px;
+      font-weight: 600;
+      color: var(--dark);
+      background: var(--lime);
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.02em;
+    }
+
+    .tag-outline {
+      font-size: 8px;
+      font-weight: 500;
+      color: #888;
+      border: 1px solid #333;
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Lang */
+    .lang-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .lang-name {
+      font-size: 9.5px;
+      font-weight: 500;
+      color: #C8C8C8;
+    }
+
+    .lang-level {
+      font-size: 7.5px;
+      font-weight: 600;
+      color: var(--lime);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.05em;
+    }
+
+    /* Cert */
+    .cert-item {
+      font-size: 9px;
+      font-weight: 500;
+      color: #C0C0C0;
+      padding-left: 10px;
+      position: relative;
+      line-height: 1.4;
+      margin-bottom: 6px;
+    }
+
+    .cert-item::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 4px;
+      height: 4px;
+      background: var(--lime);
+      border-radius: 50%;
+    }
+
+    /* ─── MAIN CONTENT ────────────────────────────────────── */
+    .main {
+      flex: 1;
+      padding: 34px 30px 34px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .main-header {
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--dark);
+    }
+
+    .main-name {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--dark);
+      letter-spacing: -0.8px;
+      line-height: 1;
+      margin-bottom: 3px;
+    }
+
+    .main-role {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Section */
+    .section {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .section-label {
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Summary */
+    .summary-text {
+      font-size: 9.5px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.65;
+      max-width: 100%;
+    }
+
+    .summary-text strong {
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* Experience */
+    .exp-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .exp-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .exp-role {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.2px;
+    }
+
+    .exp-period {
+      font-size: 8px;
+      font-weight: 500;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      white-space: nowrap;
+      padding-top: 1px;
+    }
+
+    .exp-company-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .exp-company {
+      font-size: 9px;
+      font-weight: 600;
+      color: var(--lime);
+      background: var(--dark);
+      border-radius: 3px;
+      padding: 1px 6px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.04em;
+    }
+
+    .exp-location {
+      font-size: 8.5px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .exp-bullets {
+      list-style: none;
+      margin-top: 4px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .exp-bullets li {
+      font-size: 9px;
+      font-weight: 400;
+      color: #444;
+      line-height: 1.5;
+      padding-left: 12px;
+      position: relative;
+    }
+
+    .exp-bullets li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--lime);
+      font-size: 8px;
+      top: 1px;
+    }
+
+    .exp-bullets li strong {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-bottom: 8px;
+    }
+
+    .edu-degree {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--dark);
+      letter-spacing: -0.1px;
+    }
+
+    .edu-school {
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .edu-period {
+      font-size: 8px;
+      font-weight: 500;
+      color: #AAA;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Footer strip */
+    .footer-strip {
+      margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-url {
+      font-size: 8px;
+      font-weight: 600;
+      color: var(--muted);
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.06em;
+    }
+
+    .footer-note {
+      font-size: 7.5px;
+      color: #CCC;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* PRINT ───────────────────────────────────────────────── */
+    @media print {
+      html, body {
+        width: 210mm;
+        height: 297mm;
+        background: none;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        box-shadow: none;
+        width: 210mm;
+        height: 297mm;
+        overflow: hidden;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ═══ SIDEBAR ═══════════════════════════════════════════ -->
+  <aside class="sidebar">
+
+    <!-- Identity -->
+    <div class="sidebar-logo">
+      <div class="monogram">HA</div>
+      <div style="margin-top:8px">
+        <div class="sidebar-name">Herald Ago</div>
+        <div class="sidebar-title">Digital Product Designer</div>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Contact -->
+    <div>
+      <div class="sidebar-section-label">Contact</div>
+      <div class="contact-item">
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="mailto:heraldago1@gmail.com">heraldago1@gmail.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Portfolio</div>
+        <div class="contact-value"><a href="https://heraldago.com">heraldago.com</a></div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Padova, Italy</div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-label">Availability</div>
+        <div class="contact-value" style="color: #D4FF00;">Open to opportunities</div>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Core Skills -->
+    <div>
+      <div class="sidebar-section-label">Core Skills</div>
+      <div class="skills-list">
+        <div class="skill-item">
+          <div class="skill-name">UX Research & Strategy</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">UI Design & Prototyping</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">Design Systems (Figma)</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">WCAG 2.2 Accessibility</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">HTML, CSS & React</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:82%"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-name">AI-Assisted Workflows</div>
+          <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:88%"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Toolbox -->
+    <div>
+      <div class="sidebar-section-label">Toolbox</div>
+      <div class="tag-cloud">
+        <span class="tag">Figma</span>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag-outline">Tailwind CSS</span>
+        <span class="tag-outline">Framer Motion</span>
+        <span class="tag-outline">Claude AI</span>
+        <span class="tag-outline">Lovable</span>
+        <span class="tag-outline">Usability Testing</span>
+        <span class="tag-outline">ISO 9241-210</span>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Languages -->
+    <div>
+      <div class="sidebar-section-label">Languages</div>
+      <div class="lang-item">
+        <span class="lang-name">Italian</span>
+        <span class="lang-level">Native</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">Albanian</span>
+        <span class="lang-level">Native</span>
+      </div>
+      <div class="lang-item">
+        <span class="lang-name">English</span>
+        <span class="lang-level">C1 · Professional</span>
+      </div>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <!-- Certifications -->
+    <div>
+      <div class="sidebar-section-label">Certifications</div>
+      <div class="cert-item">Google UX Design Professional Certificate</div>
+    </div>
+
+  </aside>
+
+  <!-- ═══ MAIN CONTENT ═══════════════════════════════════════ -->
+  <main class="main">
+
+    <!-- Header -->
+    <div class="main-header">
+      <div class="main-name">Herald Ago</div>
+      <div class="main-role">Digital Product Designer &amp; Design Engineer</div>
+    </div>
+
+    <!-- Summary -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-label">Profile</div>
+        <div class="section-line"></div>
+      </div>
+      <p class="summary-text">
+        Result-driven <strong>Digital Product Designer & UX Engineer</strong> with an MSc in IT (Web Communication Design) 
+        and a track record of shipping human-centred digital products across B2C, public services, and complex enterprise 
+        workflows. Fluent across the full design stack — from <strong>empirical user research and information architecture</strong> 
+        to high-fidelity Figma systems, interactive prototyping, and front-end implementation in React & TypeScript. 
+        Comfortable leading design end-to-end with cross-functional stakeholders and using <strong>AI-assisted tooling</strong> 
+        to dramatically compress time-to-market without sacrificing visual ambition.
+      </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-label">Professional Experience</div>
+        <div class="section-line"></div>
+      </div>
+
+      <!-- Freelance -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">Digital Product Designer</div>
+          <div class="exp-period">Sep 2025 – Present</div>
+        </div>
+        <div class="exp-company-row">
+          <span class="exp-company">Freelance</span>
+          <span class="exp-location">Remote</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Architected end-to-end user journeys, visual brand identities, and complex digital workflows for diverse client portfolios spanning small businesses, student platforms, and public services.</li>
+          <li>Crafted compelling design narratives from initial moodboards to final delivery, guiding cross-functional stakeholders through complex creative and architectural decisions.</li>
+          <li>Leveraged <strong>AI-assisted tooling</strong> (Claude, Lovable) and Figma to rapidly prototype data-dense interfaces, accelerating time-to-market while maintaining visual ambition.</li>
+        </ul>
+      </div>
+
+      <!-- naemt -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">UX/UI Designer</div>
+          <div class="exp-period">Feb 2025 – Sep 2025</div>
+        </div>
+        <div class="exp-company-row">
+          <span class="exp-company">naemt.nu</span>
+          <span class="exp-location">Odense, Denmark</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Spearheaded the <strong>0-to-1 UX/UI design and launch</strong> of a B2C webshop tailored for the Danish market entry.</li>
+          <li>Established a modular Figma design system and visual identity, aligning product managers and strategy teams around a unified design vision that significantly reduced handoff friction.</li>
+          <li>Translated complex business goals and technical constraints into clear information architecture and interactive user flows under strict timeline and budget parameters.</li>
+        </ul>
+      </div>
+
+      <!-- Pupi Siciliani -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">UX/UI Designer</div>
+          <div class="exp-period">Jan 2024 – Jan 2025</div>
+        </div>
+        <div class="exp-company-row">
+          <span class="exp-company">I Pupi Siciliani</span>
+          <span class="exp-location">Odense, Denmark</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Orchestrated the complete digital redesign of the core web platform, translating brand heritage into an intuitive, friction-free web experience.</li>
+          <li>Restructured complex information architecture and user workflows, directly contributing to a <strong>+187% YoY net profit increase</strong> and +31% gross profit growth.</li>
+          <li>Secured a prestigious <strong>"Byens Bedste"</strong> nomination through iterative usability improvements and visual refinements.</li>
+        </ul>
+      </div>
+
+      <!-- Leader Medica -->
+      <div class="exp-item">
+        <div class="exp-top">
+          <div class="exp-role">UX/UI Designer</div>
+          <div class="exp-period">Jan 2023 – Jun 2023</div>
+        </div>
+        <div class="exp-company-row">
+          <span class="exp-company">Leader Medica</span>
+          <span class="exp-location">Padua, Italy</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Designed accessible, scalable UI component libraries and conducted heuristic usability evaluations to enforce visual consistency across all digital touchpoints.</li>
+          <li>Optimized key conversion funnels, contributing directly to a <strong>+32% revenue growth</strong>.</li>
+          <li>Partnered closely with developers to ensure seamless UI execution and high fidelity across responsive web layouts.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <div class="section-header">
+        <div class="section-label">Education</div>
+        <div class="section-line"></div>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="edu-item">
+          <div class="edu-degree">MSc in IT — Web Communication Design</div>
+          <div class="edu-school">University of Southern Denmark (SDU) · Odense, Denmark</div>
+          <div class="edu-period">2023 – 2025 · Taught entirely in English</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">BSc in Communication Sciences &amp; Technologies</div>
+          <div class="edu-school">University of Ferrara (UniFe) · Ferrara, Italy</div>
+          <div class="edu-period">2019 – 2022</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer-strip">
+      <span class="footer-url">heraldago.com</span>
+      <span class="footer-note">Last updated · July 2026</span>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
