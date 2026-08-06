@@ -23,7 +23,7 @@ export default function ProjectCard({ project, priority = false }: ProjectCardPr
               fill
               priority={priority}
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              className={`object-cover ${project.imagePosition || "object-center"} transition-transform duration-500 ease-out group-hover:scale-105`}
             />
             <div className="absolute top-4 left-4 z-20">
               <span className="inline-flex items-center rounded-full bg-lime px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-lime-fg shadow-sm">

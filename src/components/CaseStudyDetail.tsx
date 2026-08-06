@@ -136,7 +136,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
             fill
             priority
             sizes="100vw"
-            className="object-cover hover:scale-102 transition-transform duration-500"
+            className={`object-cover ${project.imagePosition || "object-center"} hover:scale-102 transition-transform duration-500`}
           />
         </section>
 
