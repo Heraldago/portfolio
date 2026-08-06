@@ -129,14 +129,14 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         )}
 
         {/* Hero Showcase Image */}
-        <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass aspect-[16/9] cursor-pointer" onClick={() => setActiveImage({ src: project.image, alt: project.title })}>
+        <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass aspect-[16/9] cursor-pointer" onClick={() => setActiveImage({ src: project.heroImage || project.image, alt: project.title })}>
           <Image
-            src={project.image}
+            src={project.heroImage || project.image}
             alt={project.title}
             fill
             priority
             sizes="100vw"
-            className={`object-cover ${project.imagePosition || "object-center"} hover:scale-102 transition-transform duration-500`}
+            className={`object-cover ${project.heroImage ? "object-top" : (project.imagePosition || "object-center")} hover:scale-102 transition-transform duration-500`}
           />
         </section>
 

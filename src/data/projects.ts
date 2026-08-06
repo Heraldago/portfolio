@@ -6,6 +6,7 @@ export interface CaseStudy {
   shortDescription: string;
   badge: string;
   image: string;
+  heroImage?: string;
   imagePosition?: string;
   tags: string[];
   link: string;
@@ -310,6 +311,7 @@ export const projectsData: CaseStudy[] = [
     shortDescription: "Enterprise UX research and 4-block UI redesign of Sydbank's internal Alation data catalog software. Driven by an empirical 24-person survey across bank departments, user journey mapping, and ISO 9241-210 human-centered evaluation.",
     badge: "Enterprise Fintech UX Research",
     image: "/assets/sydbank-cover-square.png",
+    heroImage: "/assets/herosydbank-sharp.jpg",
     imagePosition: "object-contain bg-white p-4",
     tags: ["Lead UX Analyst & UI Designer", "ISO 9241-210", "ISO 9126 Framework", "WCAG 2.1 Level A", "Alation Data Catalog", "Multi-Language DA/EN/DE"],
     link: "/sydbank",
