@@ -35,6 +35,7 @@ export default function Header() {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/work", label: "Work & Archive" },
+    { href: "/thesis", label: "Thesis" },
     { href: "/about", label: "About" },
     { href: "/resume", label: "CV" },
   ];
