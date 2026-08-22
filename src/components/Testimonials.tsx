@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Quote, Sparkles, Building2 } from "lucide-react";
+import { Quote, Building2 } from "lucide-react";
 import { testimonialsData } from "@/data/testimonials";
 
 export default function Testimonials() {
@@ -10,7 +10,7 @@ export default function Testimonials() {
       <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 space-y-10">
         <div className="space-y-2">
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <Sparkles className="h-4 w-4" /> 03 — Endorsements &amp; Client Feedback
+            <Quote className="h-4 w-4" /> 03 — Endorsements &amp; Client Feedback
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
             Trusted by founders &amp; tech leaders.

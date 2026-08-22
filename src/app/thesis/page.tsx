@@ -303,7 +303,7 @@ export default function ThesisPage() {
       <section className="space-y-6 border-t border-border pt-10">
         <div className="space-y-2">
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <Sparkles className="h-4 w-4" /> 03 — Theoretical Foundations &amp; Literature Gaps
+            <BookOpen className="h-4 w-4" /> 03 — Theoretical Foundations &amp; Literature Gaps
           </span>
           <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
             Academic Theories Grounding the UX Research

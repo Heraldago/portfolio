@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Code, Sparkles } from "lucide-react";
+import { ArrowUpRight, Code, BadgeCheck } from "lucide-react";
 
 export default function Hero() {
   const line1 = ["DIGITAL", "PRODUCT"];
@@ -10,17 +10,17 @@ export default function Hero() {
 
   return (
     <section className="relative mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 pt-6 sm:pt-10 pb-10 sm:pb-16 overflow-hidden select-none">
-      {/* Ambient background glows */}
-      <div className="hidden sm:block absolute top-0 right-1/4 -z-10 h-[22rem] w-[22rem] rounded-full bg-gradient-to-br from-lime/20 to-accent/15 blur-[80px] pointer-events-none animate-ambient" />
+      {/* Ambient background glows (Dark Mode only) */}
+      <div className="hidden dark:sm:block absolute top-0 right-1/4 -z-10 h-[22rem] w-[22rem] rounded-full bg-gradient-to-br from-lime/20 to-accent/15 blur-[80px] pointer-events-none animate-ambient" />
       <div
-        className="hidden sm:block absolute bottom-0 left-10 -z-10 h-[18rem] w-[18rem] rounded-full bg-gradient-to-tr from-accent/20 to-lime/10 blur-[80px] pointer-events-none animate-ambient"
+        className="hidden dark:sm:block absolute bottom-0 left-10 -z-10 h-[18rem] w-[18rem] rounded-full bg-gradient-to-tr from-accent/20 to-lime/10 blur-[80px] pointer-events-none animate-ambient"
         style={{ animationDelay: "4s" }}
       />
 
       <div className="space-y-6 sm:space-y-8 text-center">
         {/* Top Tag */}
         <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/90 px-4 py-1.5 backdrop-blur-md shadow-sm">
-          <Sparkles className="h-4 w-4 text-lime" />
+          <BadgeCheck className="h-4 w-4 text-lime" />
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-foreground">
             MSc in IT · Product Designer &amp; Design Engineer
           </span>
@@ -48,7 +48,7 @@ export default function Hero() {
               {line2.map((word) => (
                 <span
                   key={word}
-                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-lime leading-none drop-shadow-[0_0_25px_rgba(212,255,0,0.3)]"
+                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-lime leading-none dark:drop-shadow-[0_0_25px_rgba(212,255,0,0.3)]"
                 >
                   {word}
                 </span>
@@ -56,7 +56,7 @@ export default function Hero() {
               <motion.div
                 whileHover={{ rotate: 10, scale: 1.15 }}
                 whileTap={{ scale: 0.9 }}
-                className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-lime/60 bg-surface px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider text-lime shadow-[0_0_15px_rgba(212,255,0,0.25)] transition-all"
+                className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-lime/60 bg-surface px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider text-lime shadow-sm dark:shadow-[0_0_15px_rgba(212,255,0,0.25)] transition-all"
               >
                 <Code className="h-3.5 w-3.5 text-lime" />
                 <span>UX &amp; Code</span>

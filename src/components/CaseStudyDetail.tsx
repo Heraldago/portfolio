@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, TrendingUp, Sparkles } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, TrendingUp, BadgeCheck } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
 import InteractivePrototype from "@/components/InteractivePrototype";
 import UngdomskortPortal from "@/components/UngdomskortPortal";
@@ -46,7 +46,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         <section className="space-y-6">
           <div className="space-y-3">
             <span className="inline-flex items-center gap-2 rounded-full bg-lime/10 px-3.5 py-1 font-mono text-xs font-bold uppercase tracking-wider text-lime border border-lime/30">
-              <Sparkles className="h-3.5 w-3.5" /> {project.badge}
+              <BadgeCheck className="h-3.5 w-3.5" /> {project.badge}
             </span>
             <h1 className="font-display text-3xl sm:text-4xl font-bold leading-tight tracking-tight">
               {project.title}
@@ -81,7 +81,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
             <div className="rounded-2xl border border-lime/40 bg-lime/5 p-5 space-y-3 font-mono text-xs">
               <div className="flex flex-wrap items-center justify-between gap-2 border-b border-lime/30 pb-3">
                 <span className="font-bold uppercase tracking-wider text-lime flex items-center gap-1.5 text-xs">
-                  <Sparkles className="h-4 w-4" /> Personal Ownership &amp; Core Deliverables
+                  <BadgeCheck className="h-4 w-4" /> Personal Ownership &amp; Core Deliverables
                 </span>
                 <span className="text-[11px] text-foreground font-semibold">Lead UX Analyst &amp; Front-End UI Designer</span>
               </div>

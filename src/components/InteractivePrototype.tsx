@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Play, ChevronRight, CheckCircle2, Monitor, Smartphone, Sparkles, ExternalLink } from "lucide-react";
+import { Play, ChevronRight, CheckCircle2, Monitor, Smartphone, ExternalLink } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
 
 interface Step {
@@ -36,7 +36,7 @@ export default function InteractivePrototype({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/80 pb-6">
         <div>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <Sparkles className="h-4 w-4" /> Interactive Prototype Simulator
+            <Play className="h-4 w-4" /> Interactive Prototype Simulator
           </span>
           <h2 className="font-display text-2xl sm:text-3xl font-bold text-foreground mt-1">{title}</h2>
           <p className="text-xs sm:text-sm text-muted-fg mt-1">{description}</p>

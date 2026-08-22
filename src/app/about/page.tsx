@@ -1,6 +1,6 @@
 import ExperienceTimeline from "@/components/ExperienceTimeline";
 import { skillsData, toolboxTags, languagesData, certificationsData } from "@/data/experience";
-import { Sparkles, Award, Globe2, Wrench, CheckCircle2 } from "lucide-react";
+import { Compass, Award, Globe2, Wrench, CheckCircle2 } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 
@@ -15,7 +15,7 @@ export default function AboutPage() {
       {/* Header */}
       <div className="space-y-3 border-b border-border pb-6">
         <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-          <Sparkles className="h-4 w-4" /> 02 — Biography &amp; Capabilities
+          <Compass className="h-4 w-4" /> 02 — Biography &amp; Capabilities
         </span>
         <h1 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
           Herald Ago

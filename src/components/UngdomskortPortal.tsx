@@ -60,7 +60,7 @@ export default function UngdomskortPortal() {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-border/80 pb-4">
         <div>
           <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <Sparkles className="h-4 w-4" /> Live Interactive Application Prototype
+            <Smartphone className="h-4 w-4" /> Live Interactive Application Prototype
           </span>
           <h2 className="font-display text-xl sm:text-2xl font-bold mt-1">
             Ungdomskort Redesigned Web Portal

@@ -5,7 +5,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Testimonials from "@/components/Testimonials";
 import ContactSection from "@/components/ContactSection";
 import { projectsData } from "@/data/projects";
-import { ArrowUpRight, Sparkles, BookOpen, Layers, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, BookOpen, Layers, CheckCircle2 } from "lucide-react";
 
 export default function HomePage() {
   const featuredProjects = projectsData.slice(0, 3);
@@ -20,7 +20,7 @@ export default function HomePage() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div>
             <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-              <Sparkles className="h-4 w-4" /> 01 — Selected Case Studies
+              <Layers className="h-4 w-4" /> 01 — Selected Case Studies
             </span>
             <h2 className="mt-1.5 font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
               Featured Flagship Projects

@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export default function ProjectCard({ project, priority = false }: ProjectCardProps) {
   return (
-    <div className="group relative block overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass transition-all duration-300 hover:border-lime hover:shadow-[0_10px_25px_rgba(212,255,0,0.12)]">
+    <div className="group relative block overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass transition-all duration-300 hover:border-lime hover:shadow-xl dark:hover:shadow-[0_10px_25px_rgba(212,255,0,0.12)]">
       <Link href={project.link} className="block">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-0 items-stretch">
           {/* Visual Preview */}

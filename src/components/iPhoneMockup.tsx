@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Sparkles } from "lucide-react";
+import { Smartphone } from "lucide-react";
 
 interface iPhoneMockupProps {
   src?: string;
@@ -22,7 +22,7 @@ export default function IPhoneMockup({
     <div
       onClick={onClick}
       className={`group flex flex-col items-center space-y-4 p-4 rounded-3xl border border-border bg-surface/80 backdrop-blur-md transition-all duration-300 ${
-        src ? "cursor-pointer hover:border-lime hover:shadow-[0_15px_35px_rgba(212,255,0,0.12)] hover:-translate-y-1" : ""
+        src ? "cursor-pointer hover:border-lime hover:shadow-xl dark:hover:shadow-[0_15px_35px_rgba(212,255,0,0.12)] hover:-translate-y-1" : ""
       }`}
     >
       {/* Realistic Curved iPhone 14 Pro Chassis */}
@@ -50,7 +50,7 @@ export default function IPhoneMockup({
             </div>
           ) : (
             <div className="flex h-full w-full flex-col items-center justify-center p-4 text-center space-y-2 bg-gradient-to-b from-[#111318] to-[#090A0C] rounded-[32px]">
-              <Sparkles className="h-6 w-6 text-lime animate-pulse" />
+              <Smartphone className="h-6 w-6 text-lime" />
               <p className="font-mono text-xs font-bold text-foreground">{label}</p>
               <p className="text-[10px] text-muted-fg leading-tight">{desc}</p>
             </div>
