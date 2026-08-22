@@ -16,7 +16,7 @@ import {
   ChevronLeft,
   ChevronRight,
   User,
-  Sparkles,
+  Smartphone,
   AlertCircle
 } from "lucide-react";
 
