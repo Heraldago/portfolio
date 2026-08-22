@@ -75,7 +75,7 @@ export const projectsData: CaseStudy[] = [
     subtitle: "National Danish Student Travel Pass Overhaul",
     shortDescription: "Website and mobile app redesign for Denmark’s national student transit service, solving payment complexity, mobile responsiveness, and enforcing strict WCAG 2.2 AA compliance.",
     badge: "Public Transit UX & Accessibility",
-    image: "/assets/case-3-DEv2TI_Y.png",
+    image: "/assets/case-3-DEv2TI_Y.jpg",
     tags: ["Mobile-First", "WCAG 2.2 AA", "Danish Public Transit", "Heuristic Evaluation"],
     link: "/ungdomskort",
     role: "Lead Product Designer & Accessibility Engineer",
