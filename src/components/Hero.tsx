@@ -32,12 +32,8 @@ export default function Hero() {
             {line1.map((word) => (
               <motion.span
                 key={word}
-                whileHover={{
-                  scale: 1.04,
-                  color: "#D4FF00",
-                  transition: { duration: 0.2 },
-                }}
-                className="inline-block font-display text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-foreground leading-none drop-shadow-sm transition-colors cursor-pointer"
+                whileHover={{ scale: 1.04 }}
+                className="inline-block font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-white hover:text-lime transition-colors duration-200 cursor-pointer"
               >
                 {word}
               </motion.span>
