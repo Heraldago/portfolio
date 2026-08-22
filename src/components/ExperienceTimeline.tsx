@@ -34,7 +34,7 @@ export default function ExperienceTimeline() {
                     {exp.role}
                   </h4>
                   <p className="font-mono text-xs text-lime font-bold">
-                    {exp.company} <span className="text-muted-fg font-normal">· {exp.location}</span>
+                    {exp.company} {exp.employmentType && <span className="text-foreground/70 font-normal">({exp.employmentType})</span>} <span className="text-muted-fg font-normal">· {exp.location}</span>
                   </p>
                 </div>
                 <span className="font-mono text-xs font-semibold text-muted-fg bg-surface px-3 py-1 rounded-full border border-border w-fit">

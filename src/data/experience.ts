@@ -3,6 +3,7 @@ export interface ExperienceItem {
   role: string;
   period: string;
   company: string;
+  employmentType?: string;
   location: string;
   highlights: string[];
 }
@@ -24,49 +25,50 @@ export const experienceData: ExperienceItem[] = [
   {
     id: "freelance",
     role: "Digital Product Designer",
-    period: "Sep 2025 – Present",
+    period: "Oct 2025 – Present",
     company: "Freelance",
-    location: "Remote",
+    employmentType: "Freelance",
+    location: "European Economic Area · Remote",
     highlights: [
-      "Architected end-to-end user journeys, visual brand identities, and complex digital workflows for diverse client portfolios spanning small businesses, student platforms, and public services.",
-      "Crafted compelling design narratives from initial moodboards to final delivery, guiding cross-functional stakeholders through complex creative and architectural decisions.",
-      "Leveraged AI-assisted tooling (Claude, Lovable) and Figma to rapidly prototype data-dense interfaces, accelerating time-to-market while maintaining high visual ambition."
+      "Designed end-to-end digital platforms with strong UX/UI focus, created/maintained Figma design systems, redesigned websites and created a logo for a student organization ensuring their brand identity.",
+      "Designed and developed personal portfolio website from 0 to 1 respecting WCAG 2.2 AA accessibility standards and achieving 100/100 Google PageSpeed scores on Performance, Accessibility, Best Practices, SEO and 3/3 on Agentic browsing."
     ]
   },
   {
     id: "naemt",
     role: "UX/UI Designer",
     period: "Feb 2025 – Sep 2025",
-    company: "naemt.nu",
-    location: "Odense, Denmark",
+    company: "næmt.nu",
+    employmentType: "Internship",
+    location: "Odense Kommune, Region of Southern Denmark · Hybrid",
     highlights: [
-      "Spearheaded the 0-to-1 UX/UI design and launch of a B2C webshop tailored for the Danish market entry.",
-      "Established a modular Figma design system and visual identity, aligning product managers and strategy teams around a unified design vision that significantly reduced handoff friction.",
-      "Translated complex business goals and technical constraints into clear information architecture and interactive user flows under strict timeline and budget parameters."
+      "Designed an end-to-end e-commerce platform for a client creating user flows, wireframes, and high-fidelity interfaces in Figma, developed it 0 to 1 within WordPress.",
+      "Led cross-functional alignment and stakeholder reviews for 30+ products, translating user research, business & technical constraints into elegant designs with a rigorous eye for typography and layouts."
     ]
   },
   {
     id: "ipupisiciliani",
-    role: "UX/UI Designer",
+    role: "User Experience Designer",
     period: "Jan 2024 – Jan 2025",
     company: "I Pupi Siciliani",
-    location: "Odense, Denmark",
+    employmentType: "Contract",
+    location: "Odense Kommune · Hybrid",
     highlights: [
-      "Orchestrated the complete digital redesign of the core web platform, translating brand heritage into an intuitive, friction-free web experience.",
-      "Restructured complex information architecture and user workflows, directly contributing to a +187% YoY net profit increase and +31% gross profit growth.",
-      "Secured a prestigious 'Byens Bedste' nomination through iterative usability improvements and visual refinements."
+      "Led a website redesign that contributed to a +31% increase in gross profit and a +187% increase in net profit year-over-year (verified via Danish CVR financial reports).",
+      "Used user research to identify booking pain points, redesign the reservation experience, and improve information architecture based on customer feedback around menu clarity and multilingual usability.",
+      "Enhanced pre-dining customer satisfaction, culminating in the business being nominated for 'Byens Bedste' (Best of the City) by Ugeavisen Odense, by translating qualitative user feedback regarding daily menu ambiguity into an intuitive, dynamic information architecture layout."
     ]
   },
   {
     id: "leadermedica",
-    role: "UX/UI Designer",
-    period: "Jan 2023 – Jun 2023",
-    company: "Leader Medica",
-    location: "Padua, Italy",
+    role: "Digital Designer",
+    period: "Mar 2023 – Jun 2023",
+    company: "LEADER MEDICA SRL",
+    employmentType: "Full-time",
+    location: "Padua · On-site",
     highlights: [
-      "Designed accessible, scalable UI component libraries and conducted heuristic usability evaluations to enforce visual consistency across all digital touchpoints.",
-      "Optimized key conversion funnels, contributing directly to a +32% revenue growth.",
-      "Partnered closely with developers to ensure seamless UI execution and high fidelity across responsive web layouts."
+      "Created branded digital assets using Adobe InDesign and Photoshop, maintained the company website, and supported accurate, consistent, and up-to-date visual communication across print and digital touchpoints.",
+      "Contributed to the company's broader digital presence during a period in which revenue increased by 32%."
     ]
   }
 ];

@@ -90,7 +90,7 @@ export default function ResumePage() {
               <div key={job.role + job.company} className="pt-4 first:pt-0 space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
                   <h3 className="font-display text-base font-bold text-foreground">
-                    {job.role} — <span className="text-lime">{job.company}</span>
+                    {job.role} — <span className="text-lime">{job.company}</span> {job.employmentType && <span className="text-foreground/60 font-normal text-xs">({job.employmentType})</span>}
                   </h3>
                   <span className="font-mono text-xs text-foreground/70 font-medium">{job.period} · {job.location}</span>
                 </div>
