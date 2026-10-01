@@ -25,7 +25,7 @@ export default function Hero() {
 
         {/* Human Bio */}
         <p className="text-lg sm:text-xl text-foreground/90 font-normal leading-relaxed">
-          I design digital products that simplify people&apos;s everyday lives. Currently working on mobile onboarding flows and paywalls for an app with 1M+ users at GoCoCo. MSc in IT from the University of Southern Denmark.
+          I design digital products that simplify people&apos;s everyday lives. Currently working on mobile onboarding flows and paywalls for an app with 1M+ users at GoCoCo.
         </p>
 
         {/* Direct CTAs */}
