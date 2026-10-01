@@ -11,7 +11,7 @@ export interface TestimonialItem {
 export const testimonialsData: TestimonialItem[] = [
   {
     id: "antonio",
-    quote: "Herald transformed our physical brand into a seamless digital e-commerce experience. His attention to detail, UX craft, and technical execution exceeded all our expectations.",
+    quote: "Herald turned our physical brand into an online store that customers love using. His attention to detail, craft, and execution exceeded our expectations.",
     author: "Antonio",
     role: "Founder",
     company: "I Pupi Siciliani",
@@ -20,7 +20,7 @@ export const testimonialsData: TestimonialItem[] = [
   },
   {
     id: "sebastian",
-    quote: "Working with Herald on complex digital product architectures was smooth and remarkably fast. He bridges user research with engineering precision unlike anyone else.",
+    quote: "Working with Herald was fast and clear. He pairs deep user research with real engineering craft unlike anyone else.",
     author: "Sebastian",
     role: "CEO",
     company: "naemt.nu",

@@ -52,7 +52,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
               {project.title}
             </h1>
             <p className="text-base sm:text-lg leading-relaxed text-muted-fg max-w-3xl font-normal">
-              {project.subtitle} — {project.shortDescription}
+              {project.subtitle}. {project.shortDescription}
             </p>
           </div>
 
@@ -140,7 +140,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           />
         </section>
 
-        {/* Live Interactive Ungdomskort Application Prototype — Placed at the BEGINNING of the project story */}
+        {/* Live Interactive Ungdomskort Application Prototype: Placed at the BEGINNING of the project story */}
         {project.id === "ungdomskort" && (
           <section className="space-y-4">
             <UngdomskortPortal />
@@ -151,12 +151,12 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         <section className="rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10 shadow-glass space-y-6">
           <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
             <div className="space-y-3">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">The Problem</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">The Problem</span>
               <h2 className="font-display text-xl font-bold text-foreground">User Friction &amp; Bottlenecks</h2>
               <p className="leading-relaxed text-muted-fg text-xs sm:text-sm">{project.problem}</p>
             </div>
             <div className="space-y-3">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">The Solution</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">The Solution</span>
               <h2 className="font-display text-xl font-bold text-foreground">Strategic Product Architecture</h2>
               <p className="leading-relaxed text-muted-fg text-xs sm:text-sm">{project.solution}</p>
             </div>
@@ -166,7 +166,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {/* Process Phases */}
         <section className="space-y-6">
           <div className="space-y-1">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">02 — Design Process</span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Design Process</span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold">Structured Methodology</h2>
           </div>
 
@@ -189,7 +189,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {project.researchData && (
           <section className="space-y-8 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">03 — Empirical User Research</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">User Research</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">Research Documentation &amp; Artifacts</h2>
             </div>
 
@@ -321,7 +321,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {project.wireframes && (
           <section className="space-y-6">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">04 — Wireframes &amp; Layout Transformations</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Wireframes &amp; Layout</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">{project.wireframes.title}</h2>
               <p className="text-muted-fg text-xs sm:text-sm">{project.wireframes.desc}</p>
             </div>
@@ -347,7 +347,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {project.sydbankBlocks && project.sydbankBlocks.length > 0 && (
           <section className="space-y-8">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">05 — The 4 Core UI Redesign Blocks</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Core UI Redesign</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">Interface Transformation (Before vs After)</h2>
             </div>
 
@@ -392,7 +392,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {project.designSystem && (
           <section className="space-y-6 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">05 — Design System &amp; Component Tokens</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Design System &amp; Tokens</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">Scalable Visual Infrastructure</h2>
             </div>
 
@@ -463,11 +463,11 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
           </section>
         )}
 
-        {/* High-Fidelity Screens Gallery — Rendered inside iPhone 14 Pro Device Mockups ONLY for X-Bit */}
+        {/* High-Fidelity Screens Gallery: Rendered inside iPhone 14 Pro Device Mockups ONLY for X-Bit */}
         {project.highFiScreens && project.highFiScreens.length > 0 && (
           <section className="space-y-6">
             <div className="space-y-1">
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">06 — High-Fidelity Production Screens</span>
+              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Production Screens</span>
               <h2 className="font-display text-2xl sm:text-3xl font-bold">
                 {isXBit ? "Mobile Application Experience (iPhone 14 Pro)" : "Core Screens Breakdown"}
               </h2>
@@ -515,7 +515,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
         {/* Key Design Decisions */}
         <section className="space-y-6">
           <div className="space-y-1">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">07 — Key Design Decisions</span>
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Design Decisions</span>
             <h2 className="font-display text-2xl sm:text-3xl font-bold">Architectural Rationale</h2>
           </div>
 
@@ -534,7 +534,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
 
         {/* Key Takeaways */}
         <section className="rounded-2xl sm:rounded-3xl border border-border bg-surface/50 p-6 sm:p-10 space-y-4">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">08 — Learnings &amp; Takeaways</span>
+          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Key Takeaways</span>
           <h2 className="font-display text-2xl font-bold">What This Project Taught Me</h2>
           <div className="grid gap-5 lg:grid-cols-2">
             {project.takeaways.map((takeaway, idx) => (
@@ -608,7 +608,7 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </h3>
                   <p className="text-xs text-muted-fg leading-relaxed line-clamp-2">
-                    {other.subtitle} — {other.shortDescription}
+                    {other.subtitle}. {other.shortDescription}
                   </p>
                 </div>
               </Link>

@@ -9,14 +9,14 @@ export default function Testimonials() {
     <section className="py-16 sm:py-24 border-t border-border bg-surface/30">
       <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 space-y-10">
         <div className="space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <Quote className="h-4 w-4" /> 03 — Endorsements &amp; Client Feedback
+          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
+            <Quote className="h-4 w-4" /> Recommendations
           </span>
           <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
-            Trusted by founders &amp; tech leaders.
+            What colleagues and clients say
           </h2>
           <p className="text-xs sm:text-sm text-muted-fg leading-relaxed max-w-xl">
-            Direct feedback from client partners and agency CEOs on product design quality, speed, and engineering collaboration.
+            Feedback from team leaders and clients on design quality, speed, and collaboration.
           </p>
         </div>
 

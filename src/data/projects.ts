@@ -92,7 +92,7 @@ export const projectsData: CaseStudy[] = [
     processPhases: [
       { number: "01", phase: "Heuristic Evaluation & Audit", summary: "Audited existing Ungdomskort portal against Nielsen Norman Group heuristics and WCAG 2.2 standards. Identified 14 critical usability blockers including broken contrast ratios and hidden tab focus indicators." },
       { number: "02", phase: "Empirical User Research", summary: "Conducted contextual inquiries and user interviews with Danish university students. Discovered that 78% attempted pass renewals on smartphones while commuting." },
-      { number: "03", phase: "IA & Flow Simplification", summary: "Streamlined the complex 7-stage approval funnel (MitID identity verification, zone selection, payment, delivery) into an integrated 3-stage visual progress tracker." },
+      { number: "03", phase: "IA & Flow Simplification", summary: "Rebuilt the 7-stage approval funnel (MitID identity verification, zone selection, payment, delivery) into a clear 3-stage visual progress tracker." },
       { number: "04", phase: "Accessible Design Tokens", summary: "Crafted high-contrast UI component tokens in Figma matching official Danish transport branding while exceeding strict contrast guidelines." },
       { number: "05", phase: "Prototyping & Screen Reader Verification", summary: "Built fully interactive responsive prototypes and tested keyboard focus traps, voiceover announcements, and dynamic text resizing." }
     ],
@@ -143,8 +143,8 @@ export const projectsData: CaseStudy[] = [
         summary: "Evaluated Danish regional transport portals (Rejsekort, DSB, DOT) to benchmark accessibility, zone selectors, and checkout flows."
       },
       personas: [
-        { title: "Persona 1 — Commuting University Student", image: "/assets/ungpersona-1.jpg", summary: "Needs instant mobile pass renewal while on the train." },
-        { title: "Persona 2 — High School Student (First-Time User)", image: "/assets/ungpersona-2.jpg", summary: "Needs clear step guidance for MitID verification and zone boundaries." }
+        { title: "Persona 1: Commuting University Student", image: "/assets/ungpersona-1.jpg", summary: "Needs instant mobile pass renewal while on the train." },
+        { title: "Persona 2: High School Student (First-Time User)", image: "/assets/ungpersona-2.jpg", summary: "Needs clear step guidance for MitID verification and zone boundaries." }
       ],
       userFlows: { title: "Danish Transport Flow Architecture", image: "/assets/unguser-flow.jpg" },
       storyboards: { title: "Commuter Journey Storyboards", image: "/assets/ungstoryboards.jpg" }
@@ -194,8 +194,8 @@ export const projectsData: CaseStudy[] = [
     projectType: "Mobile Application (iOS & Android)",
     tools: ["Figma", "Miro", "Google UX Framework", "Paper & Pencil"],
     duration: "6 Months",
-    problem: "Museum visitors struggled to browse exhibitions and book tickets in a unified experience. Existing solutions were fragmented — browsing happened on one platform, booking on another, and digital tickets were nowhere to be found. This created friction at every step of the visit journey.",
-    solution: "XBit is a museum companion app that unifies the full visitor experience: discover current and upcoming exhibitions, book tickets with an integrated calendar and payment flow, and store digital QR-code tickets — all in one coherent, accessible interface.",
+    problem: "Museum visitors struggled to browse exhibitions and book tickets in a unified experience. Existing solutions were fragmented: browsing happened on one platform, booking on another, and digital tickets were often missing. This created friction at every step of the visit.",
+    solution: "XBit is a museum companion app that unifies the visitor experience: discover current and upcoming exhibitions, book tickets with an integrated calendar and payment flow, and store digital QR tickets in one accessible interface.",
     metrics: [
       { label: "User Task Completion", value: "95%", description: "Success rate achieved during final moderated usability testing rounds." },
       { label: "Booking Speed", value: "<60s", description: "Average time required from exhibition discovery to QR ticket generation." },
@@ -214,8 +214,8 @@ export const projectsData: CaseStudy[] = [
         summary: "Audited key competitor apps (MoMA, Louvre, Eventbrite) to evaluate exhibition discovery, checkout speed, and digital ticketing."
       },
       personas: [
-        { title: "Persona 1 — Culture Enthusiast", image: "/assets/Persona1.pptx-B7yV1B8R.svg", summary: "Needs detailed exhibition context and multisensory tag information." },
-        { title: "Persona 2 — Busy Family Planner", image: "/assets/Persona2.pptx-BbnvlDg2.svg", summary: "Needs rapid single-screen checkout with clear group ticket selectors." }
+        { title: "Persona 1: Culture Enthusiast", image: "/assets/Persona1.pptx-B7yV1B8R.svg", summary: "Needs detailed exhibition context and multisensory tag information." },
+        { title: "Persona 2: Busy Family Planner", image: "/assets/Persona2.pptx-BbnvlDg2.svg", summary: "Needs rapid single-screen checkout with clear group ticket selectors." }
       ],
       statements: [
         { title: "Persona 1 Problem Statement", image: "/assets/Statements%20Persona%201.pptx-B-aJ-5x1.svg" },
@@ -229,8 +229,8 @@ export const projectsData: CaseStudy[] = [
       title: "Five Sketches & Digital Lo-Fi Wireframes",
       desc: "Rapid exploration of layout alternatives before committing to digital high-fidelity.",
       images: [
-        { title: "Five Sketches Technique — Homepage Layouts", src: "/assets/_SKetchesHomepage-BFjwLS-y.png" },
-        { title: "Digital Lo-Fi Wireframes — User Flow", src: "/assets/Digital%20Lo-Fi%20Wireframes%20-%20User%20Flow-B9rTzF30.svg" }
+        { title: "Five Sketches Technique: Homepage Layouts", src: "/assets/_SKetchesHomepage-BFjwLS-y.png" },
+        { title: "Digital Lo-Fi Wireframes: User Flow", src: "/assets/Digital%20Lo-Fi%20Wireframes%20-%20User%20Flow-B9rTzF30.svg" }
       ]
     },
     designSystem: {
@@ -307,7 +307,7 @@ export const projectsData: CaseStudy[] = [
     id: "sydbank",
     index: "04",
     title: "Sydbank Enterprise Data Catalog Redesign",
-    subtitle: "Denmark's 4th Largest Bank — Enterprise UX Research & 4-Block UI Overhaul",
+    subtitle: "Enterprise UX Research and UI Overhaul at Denmark's 4th Largest Bank",
     shortDescription: "Enterprise UX research and 4-block UI redesign of Sydbank's internal Alation data catalog software. Driven by an empirical 24-person survey across bank departments, user journey mapping, and ISO 9241-210 human-centered evaluation.",
     badge: "Enterprise Fintech UX Research",
     image: "/assets/sydbank-cover-square.png",
@@ -348,7 +348,7 @@ export const projectsData: CaseStudy[] = [
         beforeImg: "/assets/Homebefore.jpg",
         beforeDesc: "BEFORE · Cluttered 3-column legacy layout, hardcoded Danish text, hidden help documentation.",
         afterImg: "/assets/Homeafter.png",
-        afterDesc: "AFTER · Streamlined 3-zone layout with quick links, prominent onboarding hub, and top-level DA/EN/DE language switcher."
+        afterDesc: "AFTER · Clear 3-zone layout with quick links, prominent onboarding hub, and top-level DA/EN/DE language switcher."
       },
       {
         blockNum: "Block 02 · Information Architecture",
@@ -392,7 +392,7 @@ export const projectsData: CaseStudy[] = [
     index: "05",
     title: "Tutora EdTech Platform",
     subtitle: "End-to-End UX/UI & Scalable Figma Design System",
-    shortDescription: "A complete end-to-end UX/UI design for a tutoring platform — from user research and competitive analysis to a scalable design system and interactive Figma prototypes. Completed for Google UX Professional Certificate on Coursera.",
+    shortDescription: "A complete UX/UI design for a tutoring platform, from user research and competitive analysis to a scalable design system and interactive Figma prototypes. Completed for Google UX Professional Certificate on Coursera.",
     badge: "EdTech & Design Systems",
     image: "/assets/Mockups-BaHciYgq.png",
     tags: ["UX Research", "Figma Design System", "EdTech", "60-30-10 Rule"],
@@ -418,7 +418,7 @@ export const projectsData: CaseStudy[] = [
     ],
     researchData: {
       userGroups: [
-        { title: "User Groups — Parents and Tutors", desc: "Parents seeking trustworthy tutors vs Tutors managing schedule & payouts.", image: "/assets/User-Groups-FADb7ein.png" }
+        { title: "User Groups: Parents and Tutors", desc: "Parents seeking trustworthy tutors vs Tutors managing schedule & payouts.", image: "/assets/User-Groups-FADb7ein.png" }
       ],
       competitiveAnalysis: {
         image: "/assets/Competitive%20audit-DB4sZ-7V.png",
@@ -439,7 +439,7 @@ export const projectsData: CaseStudy[] = [
       userFlows: { title: "Complete Parent & Tutor User Flows", image: "/assets/User%20flows-pVGUkGfo.svg" }
     },
     wireframes: {
-      title: "From Sketch to Structure — Paper Wireframes",
+      title: "From Sketch to Structure: Paper Wireframes",
       desc: "Low-fidelity exploration of dual-user layout structures and navigation patterns before committing to digital UI.",
       images: [
         { title: "Paper Wireframes & Layout Concepts", src: "/assets/Paper%20Wireframes-BcWGzaTU.jpeg" }
@@ -462,10 +462,10 @@ export const projectsData: CaseStudy[] = [
       { label: "Tutor Dashboard", desc: "Manage profile, availability, bookings, and communication." }
     ],
     keyDecisions: [
-      { title: "Dual-user interface", body: "Separate interfaces for parents and tutors, each optimized for their specific workflow and needs — parents focus on discovery and booking, tutors on availability and management." },
+      { title: "Dual-user interface", body: "Separate interfaces for parents and tutors, each optimized for their specific workflow: parents focus on discovery and booking, tutors on availability and management." },
       { title: "Smart search & filters", body: "Advanced filtering by subject, availability, price, and tutor ratings reduces cognitive load and helps parents find the right tutor quickly." },
       { title: "Integrated calendar", body: "Built-in calendar system simplifies the booking process and eliminates the need to coordinate availability across platforms." },
-      { title: "Bright blue identity (#4A90E2)", body: "#4A90E2 conveys trust and accessibility — critical for a platform where parents entrust educators with their children's learning." },
+      { title: "Bright blue identity (#4A90E2)", body: "#4A90E2 conveys trust and accessibility, critical for a platform where parents entrust educators with their children's learning." },
       { title: "Progress tracking", body: "Parents can view session history and progress notes, creating transparency and building confidence in the tutoring relationship." },
       { title: "Accessibility first", body: "Consistent focus on WCAG guidelines, readable typography, clear color contrast, and intuitive navigation ensure the platform is usable for everyone." }
     ],

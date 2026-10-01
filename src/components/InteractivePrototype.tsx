@@ -95,7 +95,7 @@ export default function InteractivePrototype({
               <div className="flex h-3 w-3 rounded-full bg-yellow-500/80" />
               <div className="flex h-3 w-3 rounded-full bg-green-500/80" />
               <span className="ml-2 font-mono text-[11px] text-muted-fg">
-                {activeStep.title} — {activeStep.subtitle}
+                {activeStep.title}: {activeStep.subtitle}
               </span>
             </div>
             <span className="font-mono text-[10px] uppercase tracking-wider text-lime bg-lime/10 px-2.5 py-0.5 rounded-full border border-lime/30">

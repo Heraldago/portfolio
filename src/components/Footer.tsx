@@ -21,7 +21,7 @@ export default function Footer() {
                 Herald Ago
               </span>
               <p className="font-mono text-[10px] text-foreground/80 font-medium">
-                © {new Date().getFullYear()} · Digital Product Designer &amp; Design Engineer
+                © {new Date().getFullYear()} · Digital Product Designer
               </p>
             </div>
           </div>
@@ -38,7 +38,7 @@ export default function Footer() {
               <span>LinkedIn</span>
             </a>
             <a
-              href="mailto:heraldago1@gmail.com"
+              href="mailto:heraldago@gmail.com"
               className="hover:text-lime transition-colors flex items-center gap-1"
             >
               <Mail className="h-3.5 w-3.5" />
@@ -61,7 +61,7 @@ export default function Footer() {
         {/* Signature & Tech Stack Badge Line */}
         <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-[11px] font-mono text-muted-fg">
           <p>
-            Designed &amp; Engineered 0 to 1 by <strong className="text-foreground font-semibold">Herald Ago</strong>
+            Designed and built by <strong className="text-foreground font-semibold">Herald Ago</strong>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-2">
             <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] text-foreground/80 font-medium shadow-sm">

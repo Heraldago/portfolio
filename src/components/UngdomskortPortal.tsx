@@ -433,7 +433,7 @@ export default function UngdomskortPortal() {
                     <strong className="text-foreground text-xs font-bold">Renewal Reminder</strong>
                     <span className="text-muted-fg text-[10px]">1 week ago</span>
                   </div>
-                  <p className="font-bold text-foreground text-sm">Period #5 expires in 14 days — renew now</p>
+                  <p className="font-bold text-foreground text-sm">Period #5 expires in 14 days (renew now)</p>
                   <p className="text-muted-fg text-xs">Your current period ends 13-11-2024. Add a new period to avoid any gap in travel coverage.</p>
                 </div>
               </div>
@@ -475,7 +475,7 @@ export default function UngdomskortPortal() {
               </div>
               <div className="rounded-xl border border-border bg-surface p-4 space-y-1">
                 <span className="text-[10px] text-muted-fg uppercase font-bold">Card Number</span>
-                <p className="font-bold text-foreground text-sm">XXXX — XXXX — 0981</p>
+                <p className="font-bold text-foreground text-sm">•••• •••• •••• 0981</p>
               </div>
               <div className="rounded-xl border border-border bg-surface p-4 space-y-1">
                 <span className="text-[10px] text-muted-fg uppercase font-bold">Commute Route</span>

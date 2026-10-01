@@ -32,22 +32,19 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.heraldago.com"),
-  title: "Herald Ago — Digital Product Designer & Design Engineer",
+  title: "Herald Ago | Digital Product Designer",
   description:
-    "Digital Product Designer & UX Engineer with an MSc in IT. Bridging empirical user research, scalable design systems, and front-end engineering for WCAG-compliant software.",
+    "Digital Product Designer based in Barcelona. MSc in IT from the University of Southern Denmark. Designing mobile onboarding, paywalls, and scalable design systems.",
   authors: [{ name: "Herald Ago", url: "https://www.heraldago.com" }],
   keywords: [
     "Herald Ago",
     "Digital Product Designer",
     "UX UI Designer",
-    "UX Engineer",
+    "Product Design",
     "Design Systems",
-    "WCAG 2.2 AA Accessibility",
-    "Front-End Developer",
-    "Next.js",
-    "Framer Motion",
+    "Mobile Design",
     "Figma",
-    "Denmark UX Designer",
+    "Superwall",
   ],
   icons: {
     icon: "/herald-ago-icon.svg",
@@ -56,24 +53,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.heraldago.com",
-    siteName: "Herald Ago Portfolio",
-    title: "Herald Ago — Digital Product Designer & Design Engineer",
+    siteName: "Herald Ago",
+    title: "Herald Ago | Digital Product Designer",
     description:
-      "Digital Product Designer & UX Engineer with an MSc in IT. Bridging empirical user research, scalable design systems, and front-end engineering for WCAG-compliant software.",
+      "Digital Product Designer based in Barcelona. MSc in IT from the University of Southern Denmark. Designing mobile onboarding, paywalls, and scalable design systems.",
     images: [
       {
         url: "https://www.heraldago.com/metacard.png",
         width: 1200,
         height: 630,
-        alt: "Herald Ago — Digital Product Designer Official Card",
+        alt: "Herald Ago Portfolio Card",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Herald Ago — Digital Product Designer & Design Engineer",
+    title: "Herald Ago | Digital Product Designer",
     description:
-      "Digital Product Designer & UX Engineer (MSc in IT). Bridging empirical user research, scalable design token systems, and front-end engineering.",
+      "Digital Product Designer based in Barcelona. MSc in IT from the University of Southern Denmark. Designing mobile onboarding, paywalls, and scalable design systems.",
     images: ["https://www.heraldago.com/metacard.png"],
   },
 };

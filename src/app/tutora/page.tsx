@@ -4,8 +4,8 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tutora EdTech Platform — Herald Ago Case Study",
-  description: "Complete 6-phase UX design process, dual-persona system, and Figma design system built for Google UX Certificate.",
+  title: "Tutora EdTech Platform: Herald Ago Case Study",
+  description: "Six-phase UX design process, dual-persona system, and Figma design system built for Google UX Certificate.",
 };
 
 export default function TutoraPage() {

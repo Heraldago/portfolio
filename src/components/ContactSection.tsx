@@ -36,14 +36,14 @@ export default function ContactSection() {
         <div className="grid items-start gap-10 lg:grid-cols-12">
           {/* Left info column */}
           <div className="lg:col-span-6 space-y-5">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">
-              04 — Contact &amp; Collaboration
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">
+              Get in touch
             </span>
             <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
-              Let&apos;s build something exceptional.
+              Let&apos;s start a conversation
             </h2>
             <p className="text-xs sm:text-sm text-muted-fg leading-relaxed">
-              Open for full-time Product Design &amp; Design Engineering roles, high-impact freelance projects, and design system consulting.
+              Open for full-time product design roles and select freelance projects. Based in Barcelona, working worldwide.
             </p>
 
             {/* Quick Copy Email Pill */}

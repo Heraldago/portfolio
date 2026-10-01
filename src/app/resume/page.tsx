@@ -1,12 +1,12 @@
 import { ArrowLeft, Download, Mail, Linkedin, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { experienceData, educationData, skillsData, languagesData, certificationsData } from "@/data/experience";
+import { experienceData, educationData, toolboxTags, languagesData, certificationsData } from "@/data/experience";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Resume & Curriculum Vitae — Herald Ago",
-  description: "Printable and interactive resume of Herald Ago. MSc in IT from SDU Denmark, Digital Product Designer & UX Engineer.",
+  title: "Resume, Herald Ago",
+  description: "Product designer based in Barcelona. Experience, education, and tools.",
 };
 
 export default function ResumePage() {
@@ -17,7 +17,7 @@ export default function ResumePage() {
         <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-6">
           <Link
             href="/"
-            className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-foreground/80 transition-colors hover:text-lime"
+            className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-foreground/80 transition-colors hover:text-blue-600"
           >
             <ArrowLeft className="h-4 w-4" />
             <span>Back to home</span>
@@ -27,7 +27,7 @@ export default function ResumePage() {
             href="/cv-herald-ago.pdf"
             target="_blank"
             download
-            className="inline-flex items-center gap-1.5 rounded-full bg-lime px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg shadow-lime hover:scale-105 transition-all"
+            className="inline-flex items-center gap-1.5 rounded-full bg-blue-600 px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider text-white hover:bg-blue-700 transition-colors shadow-sm"
           >
             <Download className="h-3.5 w-3.5" />
             <span>Download PDF</span>
@@ -38,10 +38,10 @@ export default function ResumePage() {
       {/* Main Resume Sheet */}
       <main className="mx-auto max-w-4xl px-6 pt-8 space-y-10">
         {/* Header Block */}
-        <section className="rounded-2xl border border-border bg-surface p-6 sm:p-8 shadow-glass space-y-6">
+        <section className="rounded-2xl border border-border bg-surface p-6 sm:p-8 shadow-sm space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-border pb-6">
             <div className="flex items-center gap-4">
-              <div className="relative h-12 w-12 shrink-0 p-1.5 rounded-xl border border-lime/40 bg-background shadow-sm">
+              <div className="relative h-12 w-12 shrink-0 p-1.5 rounded-xl border border-border bg-background shadow-sm">
                 <Image
                   src="/herald-ago-icon.svg"
                   alt="Herald Ago Logo"
@@ -53,46 +53,46 @@ export default function ResumePage() {
               </div>
               <div>
                 <h1 className="font-display text-2xl sm:text-3xl font-bold text-foreground">Herald Ago</h1>
-                <p className="font-mono text-xs text-lime font-bold">
-                  MSc in IT · Digital Product Designer &amp; UX Engineer
+                <p className="font-mono text-xs text-blue-600 dark:text-blue-400 font-bold mt-0.5">
+                  Product Designer
                 </p>
               </div>
             </div>
 
             <div className="space-y-1 font-mono text-xs text-foreground/80 font-medium">
               <p className="flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 text-lime" /> Odense, Denmark &amp; Padova, Italy
+                <MapPin className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" /> Barcelona, Spain
               </p>
               <p className="flex items-center gap-1.5">
-                <Mail className="h-3.5 w-3.5 text-lime" /> heraldago1@gmail.com
+                <Mail className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" /> heraldago@gmail.com
               </p>
               <p className="flex items-center gap-1.5">
-                <Linkedin className="h-3.5 w-3.5 text-lime" /> linkedin.com/in/heraldago
+                <Linkedin className="h-3.5 w-3.5 text-blue-600 dark:text-blue-400" /> linkedin.com/in/heraldago
               </p>
             </div>
           </div>
 
           <div className="space-y-2">
-            <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-lime">Executive Summary</h2>
-            <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed">
-              Result-driven Product Designer &amp; Design Engineer with an MSc in IT from the University of Southern Denmark (SDU). Proven expertise in empirical user research, scalable Figma design systems, WCAG 2.2 AA accessibility engineering, and modern front-end application development (React/Next.js).
+            <h2 className="font-mono text-xs font-bold uppercase tracking-wider text-muted-fg">Summary</h2>
+            <p className="text-sm text-foreground/85 leading-relaxed">
+              Product designer based in Barcelona. Currently interning at GoCoCo, where I design mobile onboarding flows and paywalls in Figma and Superwall for an app with 1M+ users. Master of Science in IT (Web Communication Design) from the University of Southern Denmark.
             </p>
           </div>
         </section>
 
         {/* Experience Timeline */}
-        <section className="rounded-2xl border border-border bg-surface p-6 sm:p-8 space-y-6">
+        <section className="rounded-2xl border border-border bg-surface p-6 sm:p-8 space-y-6 shadow-sm">
           <h2 className="font-display text-xl font-bold text-foreground border-b border-border pb-3">
-            Professional Experience
+            Experience
           </h2>
           <div className="space-y-6 divide-y divide-border/60">
             {experienceData.map((job) => (
               <div key={job.role + job.company} className="pt-4 first:pt-0 space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
                   <h3 className="font-display text-base font-bold text-foreground">
-                    {job.role} — <span className="text-lime">{job.company}</span> {job.employmentType && <span className="text-foreground/60 font-normal text-xs">({job.employmentType})</span>}
+                    {job.role}, <span className="text-blue-600 dark:text-blue-400">{job.company}</span> {job.employmentType && <span className="text-muted-fg font-normal text-xs">({job.employmentType})</span>}
                   </h3>
-                  <span className="font-mono text-xs text-foreground/70 font-medium">{job.period} · {job.location}</span>
+                  <span className="font-mono text-xs text-muted-fg">{job.period} · {job.location}</span>
                 </div>
                 <ul className="list-disc list-inside space-y-1 text-xs text-foreground/80 leading-relaxed">
                   {job.highlights.map((h, i) => (
@@ -105,18 +105,18 @@ export default function ResumePage() {
         </section>
 
         {/* Education Timeline */}
-        <section className="rounded-2xl border border-border bg-surface p-6 sm:p-8 space-y-6">
+        <section className="rounded-2xl border border-border bg-surface p-6 sm:p-8 space-y-6 shadow-sm">
           <h2 className="font-display text-xl font-bold text-foreground border-b border-border pb-3">
-            Academic Background
+            Education
           </h2>
           <div className="space-y-6 divide-y divide-border/60">
             {educationData.map((edu) => (
               <div key={edu.degree} className="pt-4 first:pt-0 space-y-2">
                 <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1">
                   <h3 className="font-display text-base font-bold text-foreground">
-                    {edu.degree} — <span className="text-lime">{edu.institution}</span>
+                    {edu.degree}, <span className="text-blue-600 dark:text-blue-400">{edu.institution}</span>
                   </h3>
-                  <span className="font-mono text-xs text-foreground/70 font-medium">{edu.period} · {edu.location}</span>
+                  <span className="font-mono text-xs text-muted-fg">{edu.period} · {edu.location}</span>
                 </div>
                 {edu.details && <p className="text-xs text-foreground/80 leading-relaxed">{edu.details}</p>}
               </div>
@@ -126,35 +126,37 @@ export default function ResumePage() {
 
         {/* Skills & Certifications */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <section className="rounded-2xl border border-border bg-surface p-6 space-y-4">
+          <section className="rounded-2xl border border-border bg-surface p-6 space-y-4 shadow-sm">
             <h2 className="font-display text-base font-bold text-foreground border-b border-border pb-2">
-              Skills &amp; Competencies
+              Tools and methods
             </h2>
-            <div className="space-y-3 font-mono text-xs">
-              {skillsData.map((s) => (
-                <div key={s.name} className="flex justify-between border-b border-border/40 pb-1">
-                  <span className="text-foreground">{s.name}</span>
-                  <span className="text-lime font-bold">{s.levelPercentage}%</span>
-                </div>
+            <div className="flex flex-wrap gap-1.5 pt-1">
+              {toolboxTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-lg border border-border bg-background px-2.5 py-1 font-mono text-xs text-foreground"
+                >
+                  {tag}
+                </span>
               ))}
             </div>
           </section>
 
-          <section className="rounded-2xl border border-border bg-surface p-6 space-y-4">
+          <section className="rounded-2xl border border-border bg-surface p-6 space-y-4 shadow-sm">
             <h2 className="font-display text-base font-bold text-foreground border-b border-border pb-2">
-              Languages &amp; Certifications
+              Languages and certifications
             </h2>
             <div className="space-y-3 font-mono text-xs">
               {languagesData.map((l) => (
                 <div key={l.name} className="flex justify-between border-b border-border/40 pb-1">
                   <span className="text-foreground">{l.name}</span>
-                  <span className="text-lime font-bold">{l.level}</span>
+                  <span className="text-muted-fg">{l.level}</span>
                 </div>
               ))}
               {certificationsData.map((c) => (
                 <div key={c.name} className="pt-1">
                   <p className="font-bold text-foreground text-xs">{c.name}</p>
-                  <p className="text-[10px] text-foreground/70">{c.issuer}</p>
+                  <p className="text-[10px] text-muted-fg">{c.issuer}</p>
                 </div>
               ))}
             </div>

@@ -175,8 +175,8 @@ export default function ThesisPage() {
       {/* Key Empirical Metrics */}
       <section className="space-y-4">
         <div className="flex items-center justify-between">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <BarChart3 className="h-4 w-4" /> 01 — Empirical Research Highlights
+          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
+            <BarChart3 className="h-4 w-4" /> Research Highlights
           </span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -199,17 +199,17 @@ export default function ThesisPage() {
       <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border-t border-border pt-10">
         <div className="lg:col-span-6 space-y-4 flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 sm:p-8 shadow-glass">
           <div className="space-y-3">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-              <Brain className="h-4 w-4" /> Executive Abstract
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
+              <Brain className="h-4 w-4" /> Abstract
             </span>
             <h2 className="font-display text-xl font-bold text-foreground">
-              Bridging the Theory-to-Practice Gap in Tech Education
+              Connecting Theory to Practice in Tech Education
             </h2>
             <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed font-medium">
-              Traditional university pedagogy in programming often relies on passive lectures and rote syntax memorization, creating a severe disconnect when novice students attempt to build practical web applications.
+              Traditional university pedagogy in programming often relies on passive lectures and rote syntax memorization, creating a disconnect when students attempt to build practical web applications.
             </p>
             <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed font-medium">
-              This thesis evaluates how disaggregated game mechanics—such as instant feedback loops, visual progress tracking, daily streaks, and structured challenge quests—impact intrinsic motivation, self-efficacy, and code execution speed.
+              This thesis evaluates how disaggregated game mechanics (such as instant feedback loops, visual progress tracking, daily streaks, and structured challenge quests) impact intrinsic motivation, self-efficacy, and code execution speed.
             </p>
           </div>
           <div className="pt-4 border-t border-border/60 flex items-center gap-2 text-[11px] font-mono text-lime font-bold">
@@ -262,11 +262,11 @@ export default function ThesisPage() {
       {/* Marczewski Player Typologies & Findings */}
       <section className="space-y-6 border-t border-border pt-10">
         <div className="space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <Gamepad2 className="h-4 w-4" /> 02 — Marczewski Player Types &amp; Empirical Findings
+          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
+            <Gamepad2 className="h-4 w-4" /> Player Types &amp; Findings
           </span>
           <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-            How Different Gamification Mechanics Impact Learner Profiles
+            How Gamification Mechanics Impact Learner Profiles
           </h2>
         </div>
 
@@ -302,8 +302,8 @@ export default function ThesisPage() {
       {/* Theoretical Frameworks */}
       <section className="space-y-6 border-t border-border pt-10">
         <div className="space-y-2">
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-            <BookOpen className="h-4 w-4" /> 03 — Theoretical Foundations &amp; Literature Gaps
+          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
+            <BookOpen className="h-4 w-4" /> Theoretical Foundations
           </span>
           <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
             Academic Theories Grounding the UX Research
@@ -333,8 +333,8 @@ export default function ThesisPage() {
       <section id="pdf-viewer" className="space-y-6 border-t border-border pt-10">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div className="space-y-1">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-              <BookOpen className="h-4 w-4" /> 04 — Interactive PDF Reader
+            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
+              <BookOpen className="h-4 w-4" /> Thesis Document
             </span>
             <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
               Read Master&apos;s Thesis Document Online

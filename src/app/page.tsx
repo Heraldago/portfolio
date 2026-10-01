@@ -5,29 +5,29 @@ import ProjectCard from "@/components/ProjectCard";
 import Testimonials from "@/components/Testimonials";
 import ContactSection from "@/components/ContactSection";
 import { projectsData } from "@/data/projects";
-import { ArrowUpRight, BookOpen, Layers, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 export default function HomePage() {
   const featuredProjects = projectsData.slice(0, 3);
 
   return (
-    <div className="space-y-14 sm:space-y-20">
+    <div className="space-y-16 sm:space-y-24">
       {/* Hero Section */}
       <Hero />
 
-      {/* Flagship Case Studies */}
-      <section id="work" className="relative mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 py-10 sm:py-16 border-t border-border">
+      {/* Selected Work */}
+      <section id="work" className="relative mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 py-8 sm:py-12 border-t border-border">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div>
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-              <Layers className="h-4 w-4" /> 01 — Selected Case Studies
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+              Work
             </span>
-            <h2 className="mt-1.5 font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
-              Featured Flagship Projects
+            <h2 className="mt-1 font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
+              Selected work
             </h2>
           </div>
           <p className="max-w-md text-xs sm:text-sm text-muted-fg leading-relaxed">
-            Highlighting empirical research, design system engineering, high-impact business metrics, and production-ready execution.
+            Recent projects in mobile onboarding, design systems, and public digital platforms.
           </p>
         </div>
 
@@ -37,139 +37,91 @@ export default function HomePage() {
           ))}
         </div>
 
-        {/* Link to all projects & enterprise archive */}
-        <div className="mt-10 sm:mt-14 flex flex-col items-center justify-center text-center p-6 sm:p-10 rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass">
+        {/* Link to archive */}
+        <div className="mt-12 sm:mt-16 flex flex-col items-center justify-center text-center p-6 sm:p-10 rounded-2xl border border-border bg-surface shadow-sm">
           <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
-            Looking for all case studies &amp; enterprise research?
+            Looking for earlier work?
           </h3>
           <p className="mt-1.5 text-xs sm:text-sm text-muted-fg max-w-lg">
-            Explore the complete project archive including Sydbank Enterprise Alation Data Catalog, Tutora EdTech platform, and UX documentation.
+            Browse the full archive including the Sydbank data catalog, Tutora, and UX documentation.
           </p>
           <Link
             href="/work"
-            className="mt-5 group inline-flex items-center gap-2 rounded-full bg-lime px-7 py-3 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg transition-all shadow-lime hover:scale-105"
+            className="mt-5 inline-flex items-center gap-2 rounded-full bg-blue-600 dark:bg-blue-500 px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-white hover:bg-blue-700 transition-colors shadow-sm"
           >
-            <span>Explore All Projects &amp; Archive</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+            <span>View project archive</span>
+            <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
       </section>
 
-      {/* Research & Production Philosophy */}
-      <section id="about" className="border-y border-border bg-surface/50 py-16 sm:py-24">
+      {/* About */}
+      <section id="about" className="border-t border-border bg-surface/50 py-16 sm:py-24">
         <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 space-y-10">
-          <div className="space-y-2">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-              <BookOpen className="h-4 w-4" /> 02 — About Herald Ago
+          <div>
+            <span className="font-mono text-xs font-bold uppercase tracking-widest text-blue-600 dark:text-blue-400">
+              Background
             </span>
-            <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
-              Research-led, production-ready.
+            <h2 className="mt-1 font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground">
+              About me
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
-            {/* Card 1: Bio & SDU MSc */}
-            <div className="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-8 shadow-glass hover:border-lime transition-all space-y-6">
-              <div className="space-y-5">
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 border-b border-border/60 pb-5">
-                  <div className="relative h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-xl border-2 border-lime/50 shadow-md shrink-0">
-                    <Image
-                      src="/assets/profile-pms1FE7T.jpg"
-                      alt="Herald Ago Portrait"
-                      width={192}
-                      height={192}
-                      quality={85}
-                      priority
-                      className="h-full w-full object-cover object-[center_15%]"
-                    />
-                  </div>
-                  <div className="space-y-0.5">
-                    <h3 className="font-display text-xl font-bold text-foreground">Herald Ago</h3>
-                    <p className="text-xs font-mono text-lime font-bold">
-                      MSc in IT · Product Designer &amp; UX Engineer
-                    </p>
-                    <p className="text-[11px] font-mono text-foreground/90 font-medium pt-0.5">
-                      Odense, Denmark &amp; Italy · Open to Global Roles
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed">
-                  My practice bridges empirical user research, scalable design token systems, and front-end engineering—building accessible, WCAG 2.2 compliant software built for clarity and global scale.
-                </p>
-              </div>
-
-              <div className="pt-5 border-t border-border/60 flex items-center justify-between">
-                <span className="font-mono text-[11px] text-foreground/90 font-medium">MSc in IT (Web Communication Design)</span>
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-1 font-mono text-xs font-bold uppercase tracking-wider text-lime hover:underline"
-                >
-                  <span>Full Bio &amp; Capabilities</span>
-                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </Link>
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div className="md:col-span-4">
+              <div className="relative h-44 w-44 sm:h-52 sm:w-52 overflow-hidden rounded-2xl border border-border shadow-sm">
+                <Image
+                  src="/assets/profile-pms1FE7T.jpg"
+                  alt="Herald Ago"
+                  width={288}
+                  height={288}
+                  quality={90}
+                  className="h-full w-full object-cover object-[center_15%]"
+                />
               </div>
             </div>
 
-            {/* Card 2: Academic & Skillsets */}
-            <div className="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-8 shadow-glass hover:border-lime transition-all space-y-6">
-              <div className="space-y-5">
-                <div className="space-y-3 border-b border-border/60 pb-5">
-                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-                    <Layers className="h-4 w-4" /> Academic Degrees
-                  </span>
-                  <div className="space-y-2.5">
-                    <div>
-                      <h4 className="font-display text-sm sm:text-base font-bold text-foreground leading-snug">
-                        Master of Science (MSc) in IT — Web Communication Design
-                      </h4>
-                      <p className="text-[11px] font-mono text-muted-fg">
-                        University of Southern Denmark (SDU) · Odense, Denmark
-                      </p>
-                    </div>
-                    <div className="pt-2 border-t border-border/40">
-                      <h4 className="font-display text-sm sm:text-base font-bold text-foreground leading-snug">
-                        Bachelor’s Degree in Communication Sciences &amp; Technologies
-                      </h4>
-                      <p className="text-[11px] font-mono text-muted-fg">
-                        University of Ferrara (UniFe) · Ferrara, Italy
-                      </p>
-                    </div>
-                  </div>
-                </div>
+            <div className="md:col-span-8 space-y-4">
+              <p className="text-base text-foreground/90 leading-relaxed">
+                I am a product designer based in Barcelona. Currently interning at GoCoCo, where I design and test mobile onboarding flows and paywalls in Figma and Superwall for a health app with over 1M users.
+              </p>
+              <p className="text-base text-foreground/90 leading-relaxed">
+                Before GoCoCo, I earned a Master of Science in IT (Web Communication Design) at the University of Southern Denmark in Odense, and a bachelor&apos;s degree in communication sciences at the University of Ferrara in Italy.
+              </p>
 
-                <div className="space-y-2.5">
-                  <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime block">
-                    Core Skillset &amp; Standards
-                  </span>
-                  <div className="flex flex-wrap gap-1.5 text-xs font-mono">
-                    {[
-                      "User Research",
-                      "Design Systems",
-                      "WCAG 2.2 AA",
-                      "Figma Tokens",
-                      "Interaction Design",
-                      "Prototyping",
-                      "HTML & CSS",
-                      "React & Next.js",
-                      "Tailwind CSS",
-                      "Framer Motion",
-                    ].map((skill) => (
-                      <span
-                        key={skill}
-                        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] text-foreground font-semibold shadow-sm"
-                      >
-                        <CheckCircle2 className="h-3 w-3 text-lime shrink-0" />
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
+              <div className="pt-3">
+                <p className="font-mono text-xs font-bold uppercase tracking-wider text-muted-fg mb-2">
+                  Tools and methods
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs font-mono">
+                  {[
+                    "Figma",
+                    "Superwall",
+                    "Microsoft Clarity",
+                    "Dovetail",
+                    "User research",
+                    "Design systems",
+                    "A/B testing",
+                    "HTML, CSS, React",
+                  ].map((tool) => (
+                    <span
+                      key={tool}
+                      className="rounded-full border border-border bg-surface px-3 py-1 text-foreground shadow-sm"
+                    >
+                      {tool}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <div className="pt-5 border-t border-border/60 flex items-center justify-between text-[11px] font-mono text-muted-fg">
-                <span>Standard: <strong className="text-lime font-semibold">WCAG 2.2 AA</strong></span>
-                <span>Campuses: <strong className="text-foreground">SDU &amp; UniFe</strong></span>
+              <div className="pt-4">
+                <Link
+                  href="/resume"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  <span>View full resume</span>
+                  <ArrowUpRight className="h-3.5 w-3.5" />
+                </Link>
               </div>
             </div>
           </div>

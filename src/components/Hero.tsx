@@ -1,113 +1,57 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowUpRight, Code, BadgeCheck } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
-  const line1 = ["DIGITAL", "PRODUCT"];
-  const line2 = ["DESIGNER"];
-
   return (
-    <section className="relative mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 pt-6 sm:pt-10 pb-10 sm:pb-16 overflow-hidden select-none">
-      {/* Ambient background glows (Dark Mode only) */}
-      <div className="hidden dark:sm:block absolute top-0 right-1/4 -z-10 h-[22rem] w-[22rem] rounded-full bg-gradient-to-br from-lime/20 to-accent/15 blur-[80px] pointer-events-none animate-ambient" />
-      <div
-        className="hidden dark:sm:block absolute bottom-0 left-10 -z-10 h-[18rem] w-[18rem] rounded-full bg-gradient-to-tr from-accent/20 to-lime/10 blur-[80px] pointer-events-none animate-ambient"
-        style={{ animationDelay: "4s" }}
-      />
-
-      <div className="space-y-6 sm:space-y-8 text-center">
-        {/* Top Tag */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/90 px-4 py-1.5 backdrop-blur-md shadow-sm">
-          <BadgeCheck className="h-4 w-4 text-lime" />
-          <span className="font-mono text-xs font-bold uppercase tracking-widest text-foreground">
-            MSc in IT · Product Designer &amp; Design Engineer
-          </span>
+    <section className="relative mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 pt-10 sm:pt-16 pb-12 sm:pb-20 select-none">
+      <div className="space-y-8 max-w-3xl">
+        {/* Status */}
+        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1 text-xs font-mono text-foreground/80 shadow-sm">
+          <span className="h-2 w-2 rounded-full bg-blue-600 animate-pulse" />
+          <span>Product Design Intern at GoCoCo, Barcelona</span>
         </div>
 
-        {/* Display Typography */}
-        <div className="relative space-y-2 sm:space-y-3">
-          <div className="flex flex-wrap items-center justify-center gap-x-3 sm:gap-x-6 w-full">
-            {line1.map((word) => (
-              <motion.span
-                key={word}
-                whileHover={{ scale: 1.04 }}
-                className="inline-block font-display text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase tracking-tight text-slate-900 dark:text-white hover:text-lime transition-colors duration-200 cursor-pointer"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </div>
-
-          <div className="flex items-center justify-center w-full pt-1">
-            <motion.div
-              whileHover={{ scale: 1.03 }}
-              className="inline-flex items-center justify-center gap-3 cursor-pointer"
-            >
-              {line2.map((word) => (
-                <span
-                  key={word}
-                  className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-tight text-lime leading-none dark:drop-shadow-[0_0_25px_rgba(212,255,0,0.3)]"
-                >
-                  {word}
-                </span>
-              ))}
-              <motion.div
-                whileHover={{ rotate: 10, scale: 1.15 }}
-                whileTap={{ scale: 0.9 }}
-                className="hidden sm:inline-flex items-center gap-1.5 rounded-full border border-lime/60 bg-surface px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider text-lime shadow-sm dark:shadow-[0_0_15px_rgba(212,255,0,0.25)] transition-all"
-              >
-                <Code className="h-3.5 w-3.5 text-lime" />
-                <span>UX &amp; Code</span>
-              </motion.div>
-            </motion.div>
-          </div>
-        </div>
-
-        {/* Subheadline & Statement */}
-        <div className="space-y-2 max-w-xl mx-auto">
-          <h2 className="font-display text-base sm:text-lg font-semibold text-foreground leading-snug">
-            Bridging the gap between business goals, user needs, design, and code.
-          </h2>
-          <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed font-medium">
-            Result-driven, problem solver, curious, and collaborative—with a strong User-Centered Design philosophy.
+        {/* Title */}
+        <div className="space-y-2">
+          <h1 className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold uppercase tracking-tight text-foreground">
+            Herald Ago
+          </h1>
+          <p className="font-display text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400">
+            Digital product designer
           </p>
         </div>
 
-        {/* Expertise Badges */}
-        <div className="space-y-5 max-w-xl mx-auto">
-          <div className="rounded-xl border border-border bg-surface/90 px-5 py-2.5 shadow-sm backdrop-blur-md cursor-default">
-            <p className="font-mono text-xs font-semibold text-foreground leading-relaxed">
-              <span className="text-lime font-bold uppercase tracking-wider mr-1.5">
-                Expertise:
-              </span>
-              Business &amp; User Research <span className="text-lime mx-1">•</span> UX/UI Design{" "}
-              <span className="text-lime mx-1">•</span> UX Engineering{" "}
-              <span className="text-lime mx-1">•</span> Development
-            </p>
-          </div>
+        {/* Human Bio */}
+        <p className="text-lg sm:text-xl text-foreground/90 font-normal leading-relaxed">
+          I design digital products that simplify people&apos;s everyday lives. Currently working on mobile onboarding flows and paywalls for an app with 1M+ users at GoCoCo. MSc in IT from the University of Southern Denmark.
+        </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-1">
-            <motion.a
-              href="#work"
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.96 }}
-              className="group inline-flex items-center gap-2 rounded-full bg-lime px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg transition-all shadow-lime"
-            >
-              <span>Explore Selected Work</span>
-              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </motion.a>
+        {/* Direct CTAs */}
+        <div className="flex flex-wrap items-center gap-3 pt-2">
+          <a
+            href="#work"
+            className="inline-flex items-center gap-2 rounded-full bg-blue-600 dark:bg-blue-500 px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-white hover:bg-blue-700 transition-colors shadow-sm"
+          >
+            <span>Selected work</span>
+            <ArrowDown className="h-3.5 w-3.5" />
+          </a>
 
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.96 }}>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-foreground hover:border-lime hover:text-lime transition-all"
-              >
-                <span>Full Bio &amp; Capabilities</span>
-              </Link>
-            </motion.div>
-          </div>
+          <Link
+            href="/resume"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-foreground hover:border-blue-600 hover:text-blue-600 transition-colors"
+          >
+            <span>Resume</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </Link>
+
+          <a
+            href="mailto:heraldago@gmail.com"
+            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-foreground hover:border-blue-600 hover:text-blue-600 transition-colors"
+          >
+            <span>Contact</span>
+          </a>
         </div>
       </div>
     </section>
