@@ -2,50 +2,53 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
 import { CaseStudy } from "@/data/projects";
 
 interface ProjectCardProps {
   project: CaseStudy;
   priority?: boolean;
+  reverse?: boolean;
 }
 
-export default function ProjectCard({ project, priority = false }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  priority = false,
+  reverse = false,
+}: ProjectCardProps) {
   return (
-    <article className="group rounded-2xl sm:rounded-3xl border border-border bg-surface transition-all duration-300 hover:border-foreground/30 hover:shadow-sm overflow-hidden">
-      <Link href={project.link} className="block p-4 sm:p-6">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
-          {/* Visual Preview */}
-          <div className="md:col-span-7 relative aspect-[16/10] overflow-hidden rounded-xl bg-muted border border-border/40">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              priority={priority}
-              sizes="(max-width: 768px) 100vw, 55vw"
-              className={`object-cover ${project.imagePosition || "object-center"} transition-transform duration-500 ease-out group-hover:scale-[1.02]`}
-            />
-          </div>
-
-          {/* Minimal Editorial Content */}
-          <div className="md:col-span-5 space-y-3">
-            <div className="flex items-center gap-2 font-mono text-xs text-muted-fg">
-              <span>{project.badge}</span>
-              <span>·</span>
-              <span>{project.duration}</span>
-            </div>
-
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-tight">
+    <article className="group transition-[opacity,filter] duration-200">
+      <Link href={project.link} className="block focus:outline-none">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-start">
+          {/* Text Column */}
+          <div
+            className={`md:col-span-5 space-y-5 ${
+              reverse ? "md:order-2" : "md:order-1"
+            }`}
+          >
+            <h3 className="font-sans text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-foreground leading-[1.12] group-hover:underline underline-offset-4 decoration-2">
               {project.title}
             </h3>
 
-            <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed">
+            <p className="text-base sm:text-lg text-foreground/85 leading-relaxed">
               {project.shortDescription}
             </p>
+          </div>
 
-            <div className="pt-2 flex items-center gap-1.5 font-mono text-xs font-semibold text-blue-600 dark:text-blue-400">
-              <span>View case study</span>
-              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          {/* Visual Preview Column */}
+          <div
+            className={`md:col-span-7 ${
+              reverse ? "md:order-1" : "md:order-2"
+            }`}
+          >
+            <div className="relative aspect-[16/10] min-h-[280px] sm:min-h-[400px] lg:min-h-[460px] w-full overflow-hidden rounded-3xl border border-border/80 dark:border-white/15 bg-white shadow-md transition-all duration-300 group-hover:border-foreground/30 group-hover:shadow-xl group-focus-visible:border-blue-600 group-active:border-foreground/50">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                priority={priority}
+                sizes="(max-width: 768px) 100vw, 60vw"
+                className={`object-cover ${project.imagePosition || "object-center"} transition-transform duration-500 ease-out group-hover:scale-[1.02]`}
+              />
             </div>
           </div>
         </div>

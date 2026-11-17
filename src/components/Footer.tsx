@@ -1,84 +1,61 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUp, Linkedin, Mail, FileText, Code2 } from "lucide-react";
 
 export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="border-t border-border bg-surface/80 py-10">
-      <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 space-y-6">
+    <footer className="py-10 sm:py-12">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-          {/* Brand & Direct Logo Image */}
-          <div className="flex items-center gap-3">
-            <Image
-              src="/herald-ago-icon.svg"
-              alt="Herald Ago Logo"
-              width={28}
-              height={28}
-              className="h-7 w-auto object-contain"
-            />
-            <div>
-              <span className="font-display text-sm font-bold text-foreground">
-                Herald Ago
-              </span>
-              <p className="font-mono text-[10px] text-foreground/80 font-medium">
-                © {new Date().getFullYear()} · Digital Product Designer
-              </p>
+          <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-xs sm:text-sm text-muted-fg">
+            <div className="flex items-center gap-2">
+              <span>Designed and coded by</span>
+              <Image
+                src="/herald-ago-icon.svg"
+                alt="HA"
+                width={20}
+                height={20}
+                className="h-5 w-5 object-contain inline-block"
+              />
+              <span className="font-sans font-bold text-foreground">Herald Ago</span>
+              <span>- {new Date().getFullYear()}</span>
             </div>
+            <span className="hidden sm:inline text-border">|</span>
+            <span className="text-xs text-muted-fg">
+              Next.js, React, TypeScript, Tailwind CSS
+            </span>
           </div>
 
-          {/* Links & Back to Top */}
-          <div className="flex items-center gap-4 font-mono text-xs text-foreground/90 font-medium">
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-muted-fg">
             <a
               href="https://www.linkedin.com/in/heraldago/"
               target="_blank"
               rel="noreferrer"
-              className="hover:text-lime transition-colors flex items-center gap-1"
+              className="hover:text-foreground transition-colors"
             >
-              <Linkedin className="h-3.5 w-3.5" />
-              <span>LinkedIn</span>
+              LinkedIn
             </a>
             <a
-              href="mailto:heraldago@gmail.com"
-              className="hover:text-lime transition-colors flex items-center gap-1"
+              href="mailto:heraldago1@gmail.com"
+              className="hover:text-foreground transition-colors"
             >
-              <Mail className="h-3.5 w-3.5" />
-              <span>Email</span>
+              Email
             </a>
-            <Link href="/resume" className="hover:text-lime transition-colors flex items-center gap-1">
-              <FileText className="h-3.5 w-3.5" />
-              <span>CV</span>
+            <Link href="/about" className="hover:text-foreground transition-colors">
+              About
             </Link>
-            <a
-              href="#main-content"
-              className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-foreground hover:border-lime hover:text-lime transition-all"
-              aria-label="Back to top"
+            <button
+              type="button"
+              onClick={scrollToTop}
+              className="rounded-full border border-border bg-white dark:bg-surface px-4 py-1.5 text-xs font-medium text-foreground hover:border-foreground/30 transition-colors"
             >
-              <ArrowUp className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-
-        {/* Signature & Tech Stack Badge Line */}
-        <div className="pt-4 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left text-[11px] font-mono text-muted-fg">
-          <p>
-            Designed and built by <strong className="text-foreground font-semibold">Herald Ago</strong>
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] text-foreground/80 font-medium shadow-sm">
-              <Code2 className="h-3 w-3 text-lime" /> Next.js 15
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] text-foreground/80 font-medium shadow-sm">
-              React 19
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] text-foreground/80 font-medium shadow-sm">
-              TypeScript
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] text-foreground/80 font-medium shadow-sm">
-              Tailwind CSS
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-border bg-background px-2.5 py-0.5 text-[10px] text-foreground/80 font-medium shadow-sm">
-              WCAG 2.2 AA
-            </span>
+              Back to top
+            </button>
           </div>
         </div>
       </div>

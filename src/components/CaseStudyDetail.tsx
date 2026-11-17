@@ -3,11 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2, TrendingUp, BadgeCheck } from "lucide-react";
 import Lightbox from "@/components/Lightbox";
-import InteractivePrototype from "@/components/InteractivePrototype";
 import UngdomskortPortal from "@/components/UngdomskortPortal";
 import IPhoneMockup from "@/components/iPhoneMockup";
+import ProjectsList from "@/components/ProjectsList";
 import { CaseStudy, projectsData } from "@/data/projects";
 
 interface CaseStudyDetailProps {
@@ -18,604 +17,507 @@ export default function CaseStudyDetail({ project }: CaseStudyDetailProps) {
   const [activeImage, setActiveImage] = useState<{ src: string; alt: string } | null>(null);
 
   const isXBit = project.id === "xbit";
-
-  // Find other related projects to show at the bottom
   const otherProjects = projectsData.filter((p) => p.id !== project.id).slice(0, 2);
 
   return (
-    <article className="min-h-screen bg-background text-foreground pb-20">
-      {/* Top Back Navigation Bar */}
-      <header className="sticky top-[65px] z-40 border-b border-border/80 bg-background/80 backdrop-blur-md">
-        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-          <Link
-            href="/work"
-            className="flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-muted-fg transition-colors hover:text-lime"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            <span>Back to all projects</span>
-          </Link>
-          <span className="font-display text-sm font-bold text-foreground">
-            {project.title}
-          </span>
-        </div>
-      </header>
-
-      {/* Main Container */}
-      <main className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 pt-8 space-y-12 sm:space-y-14">
-        {/* Case Study Header & Meta */}
-        <section className="space-y-6">
-          <div className="space-y-3">
-            <span className="inline-flex items-center gap-2 rounded-full bg-lime/10 px-3.5 py-1 font-mono text-xs font-bold uppercase tracking-wider text-lime border border-lime/30">
-              <BadgeCheck className="h-3.5 w-3.5" /> {project.badge}
-            </span>
-            <h1 className="font-display text-3xl sm:text-4xl font-bold leading-tight tracking-tight">
+    <article className="text-foreground">
+      {/* Hero Section (White surface with rounded bottom border) */}
+      <section className="w-full bg-white dark:bg-surface rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-12 sm:py-16 space-y-10">
+          <div className="space-y-4">
+            <Link
+              href="/work"
+              className="inline-block text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline underline-offset-4"
+            >
+              All projects
+            </Link>
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.08]">
               {project.title}
             </h1>
-            <p className="text-base sm:text-lg leading-relaxed text-muted-fg max-w-3xl font-normal">
+            <p className="text-lg sm:text-xl leading-relaxed text-foreground/85 max-w-3xl">
               {project.subtitle}. {project.shortDescription}
             </p>
           </div>
 
           {/* Project Meta Details */}
-          <div className="grid grid-cols-2 gap-4 border-y border-border py-6 sm:grid-cols-4 font-mono text-xs">
+          <div className="grid grid-cols-2 gap-6 border-y border-border/60 py-6 sm:grid-cols-4 text-sm">
             <div>
-              <p className="uppercase tracking-widest text-lime font-bold">Role</p>
-              <p className="mt-1 font-medium text-foreground text-sm">{project.role}</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Role</p>
+              <p className="mt-1 font-medium text-foreground">{project.role}</p>
             </div>
             <div>
-              <p className="uppercase tracking-widest text-lime font-bold">Project Type</p>
-              <p className="mt-1 font-medium text-foreground text-sm">{project.projectType}</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Project Type</p>
+              <p className="mt-1 font-medium text-foreground">{project.projectType}</p>
             </div>
             <div>
-              <p className="uppercase tracking-widest text-lime font-bold">Tools Used</p>
-              <p className="mt-1 font-medium text-foreground text-sm">{project.tools.join(", ")}</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Tools</p>
+              <p className="mt-1 font-medium text-foreground">{project.tools.join(", ")}</p>
             </div>
             <div>
-              <p className="uppercase tracking-widest text-lime font-bold">Duration</p>
-              <p className="mt-1 font-medium text-foreground text-sm">{project.duration}</p>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Duration</p>
+              <p className="mt-1 font-medium text-foreground">{project.duration}</p>
             </div>
           </div>
 
-          {/* Personal Deliverables Ownership & Quality Badges */}
-          {project.id === "sydbank" && (
-            <div className="rounded-2xl border border-lime/40 bg-lime/5 p-5 space-y-3 font-mono text-xs">
-              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-lime/30 pb-3">
-                <span className="font-bold uppercase tracking-wider text-lime flex items-center gap-1.5 text-xs">
-                  <BadgeCheck className="h-4 w-4" /> Personal Ownership &amp; Core Deliverables
-                </span>
-                <span className="text-[11px] text-foreground font-semibold">Lead UX Analyst &amp; Front-End UI Designer</span>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
-                <div>
-                  <p className="font-bold text-foreground mb-1">Direct Ownership Highlights:</p>
-                  <ul className="list-disc list-inside space-y-1 text-muted-fg text-[11px]">
-                    <li><strong>Homepage Architecture</strong> (3-Zone Layout &amp; Quick Action Cards)</li>
-                    <li><strong>Faceted Search Bar</strong> (Integrated Recent Items &amp; Category Filters)</li>
-                    <li><strong>Onboarding &amp; Support Hub</strong> (Embedded Video Tutorial Modals)</li>
-                    <li><strong>Empirical Research Synthesis</strong> (N=24 Employee Survey Analysis)</li>
-                  </ul>
+          {/* Highlighted Business Metrics if present */}
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-5">
+              {project.metrics.map((m) => (
+                <div
+                  key={m.label}
+                  className="rounded-3xl border border-border/70 bg-background p-6 space-y-1"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-wider text-muted-fg">{m.label}</span>
+                  <p className="font-sans text-2xl sm:text-3xl font-bold text-blue-600 dark:text-blue-400">{m.value}</p>
+                  <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed pt-1">{m.description}</p>
                 </div>
-                <div className="space-y-2">
-                  <p className="font-bold text-foreground">Accessibility &amp; Enterprise Badges:</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-lime">WCAG 2.1 Level A</span>
-                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-foreground">ISO 9241-210 (HCD)</span>
-                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-foreground">ISO 9126 Quality Model</span>
-                    <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-bold text-lime">Multi-Language (DA/EN/DE)</span>
+              ))}
+            </div>
+          )}
+
+          {/* Hero Showcase Image */}
+          <div
+            className="relative overflow-hidden rounded-3xl border border-border/80 dark:border-white/15 bg-white shadow-md aspect-[16/9] cursor-pointer"
+            onClick={() => setActiveImage({ src: project.heroImage || project.image, alt: project.title })}
+          >
+            <Image
+              src={project.heroImage || project.image}
+              alt={project.title}
+              fill
+              priority
+              sizes="100vw"
+              className={`object-cover ${project.heroImage ? "object-top" : (project.imagePosition || "object-center")} hover:scale-[1.01] transition-transform duration-500`}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Main Content Body (#f8fafc99 background with rounded bottom border) */}
+      <section className="w-full rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-16 sm:space-y-20">
+          {/* Live Interactive Ungdomskort Application Prototype */}
+          {project.id === "ungdomskort" && (
+            <div>
+              <UngdomskortPortal />
+            </div>
+          )}
+
+          {/* Problem & Solution Breakdown */}
+          <div className="rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-10">
+            <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">The Problem</p>
+                <h2 className="font-sans text-2xl font-bold text-foreground">User Friction &amp; Bottlenecks</h2>
+                <p className="leading-relaxed text-foreground/85 text-sm sm:text-base">{project.problem}</p>
+              </div>
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">The Solution</p>
+                <h2 className="font-sans text-2xl font-bold text-foreground">Product Architecture</h2>
+                <p className="leading-relaxed text-foreground/85 text-sm sm:text-base">{project.solution}</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Process Phases */}
+          <div className="space-y-6">
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              Design Process
+            </h2>
+
+            <div className="divide-y divide-border/70 border-y border-border/70">
+              {project.processPhases.map((phase) => (
+                <div key={phase.number} className="grid gap-3 py-6 sm:grid-cols-12 sm:gap-6 items-start">
+                  <div className="sm:col-span-4 flex items-baseline gap-3">
+                    <span className="font-sans text-xl sm:text-2xl font-bold text-blue-600 dark:text-blue-400">{phase.number}</span>
+                    <h3 className="font-sans text-lg sm:text-xl font-bold text-foreground">{phase.phase}</h3>
+                  </div>
+                  <p className="leading-relaxed text-foreground/85 text-sm sm:text-base sm:col-span-8">
+                    {phase.summary}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Research Data & Artifacts Gallery */}
+          {project.researchData && (
+            <div className="space-y-8 rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-10">
+              <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                Research &amp; Artifacts
+              </h2>
+
+              {project.researchData.userGroups && project.researchData.userGroups.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-fg">User Groups</h3>
+                  <div className="grid gap-5 sm:grid-cols-1">
+                    {project.researchData.userGroups.map((group) => (
+                      <div
+                        key={group.title}
+                        onClick={() => setActiveImage({ src: group.image, alt: group.title })}
+                        className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors space-y-2"
+                      >
+                        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                          <Image src={group.image} alt={group.title} fill sizes="100vw" className="object-contain" />
+                        </div>
+                        <p className="p-1 text-xs font-semibold text-foreground text-center">{group.title}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
+              )}
+
+              {project.researchData.competitiveAnalysis && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Competitive Analysis</h3>
+                  <div
+                    onClick={() => setActiveImage({ src: project.researchData!.competitiveAnalysis!.image, alt: "Competitive Analysis" })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.researchData.competitiveAnalysis.image} alt="Competitive Analysis Audit" fill sizes="100vw" className="object-contain" />
+                    </div>
+                    <p className="p-3 text-xs sm:text-sm text-foreground/80 leading-relaxed text-center">{project.researchData.competitiveAnalysis.summary}</p>
+                  </div>
+                </div>
+              )}
+
+              {project.researchData.personas && project.researchData.personas.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-fg">User Personas</h3>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    {project.researchData.personas.map((persona) => (
+                      <div
+                        key={persona.title}
+                        onClick={() => setActiveImage({ src: persona.image, alt: persona.title })}
+                        className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors space-y-2"
+                      >
+                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-white">
+                          <Image src={persona.image} alt={persona.title} fill sizes="50vw" className="object-contain" />
+                        </div>
+                        <p className="p-1 text-xs font-semibold text-foreground text-center">{persona.title}</p>
+                        {persona.summary && <p className="px-2 pb-2 text-xs text-foreground/75 text-center">{persona.summary}</p>}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {project.researchData.statements && project.researchData.statements.length > 0 && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Problem Statements</h3>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    {project.researchData.statements.map((stmt) => (
+                      <div
+                        key={stmt.title}
+                        onClick={() => setActiveImage({ src: stmt.image, alt: stmt.title })}
+                        className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                      >
+                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-white">
+                          <Image src={stmt.image} alt={stmt.title} fill sizes="50vw" className="object-contain" />
+                        </div>
+                        <p className="p-2 text-xs font-semibold text-center text-foreground/80">{stmt.title}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {project.researchData.goalStatement && (
+                <div className="space-y-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Product Goal Statement</h3>
+                  <div
+                    onClick={() => setActiveImage({ src: project.researchData!.goalStatement!.image, alt: project.researchData!.goalStatement!.title })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.researchData.goalStatement.image} alt={project.researchData.goalStatement.title} fill sizes="100vw" className="object-contain" />
+                    </div>
+                    <p className="p-2 text-xs font-semibold text-center text-foreground/80">{project.researchData.goalStatement.title}</p>
+                  </div>
+                </div>
+              )}
+
+              <div className="grid gap-5 sm:grid-cols-2">
+                {project.researchData.userFlows && (
+                  <div
+                    onClick={() => setActiveImage({ src: project.researchData!.userFlows!.image, alt: project.researchData!.userFlows!.title })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.researchData.userFlows.image} alt={project.researchData.userFlows.title} fill sizes="50vw" className="object-contain" />
+                    </div>
+                    <p className="p-2 text-xs font-semibold text-center text-foreground/80">{project.researchData.userFlows.title}</p>
+                  </div>
+                )}
+                {project.researchData.userJourney && (
+                  <div
+                    onClick={() => setActiveImage({ src: project.researchData!.userJourney!.image, alt: project.researchData!.userJourney!.title })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.researchData.userJourney.image} alt={project.researchData.userJourney.title} fill sizes="50vw" className="object-contain" />
+                    </div>
+                    <p className="p-2 text-xs font-semibold text-center text-foreground/80">{project.researchData.userJourney.title}</p>
+                  </div>
+                )}
               </div>
             </div>
           )}
-        </section>
 
-        {/* Highlighted Business Metrics if present */}
-        {project.metrics && project.metrics.length > 0 && (
-          <section className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-            {project.metrics.map((m) => (
-              <div
-                key={m.label}
-                className="rounded-2xl border border-border bg-surface p-5 space-y-1 shadow-sm hover:border-lime transition-all"
-              >
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-muted-fg">{m.label}</span>
-                  <TrendingUp className="h-3.5 w-3.5 text-lime" />
-                </div>
-                <p className="font-display text-xl font-bold text-lime">{m.value}</p>
-                <p className="text-[11px] text-muted-fg leading-tight">{m.description}</p>
+          {/* Wireframes & Visual Evidence */}
+          {project.wireframes && (
+            <div className="space-y-6">
+              <div className="space-y-1">
+                <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">{project.wireframes.title}</h2>
+                <p className="text-foreground/80 text-sm sm:text-base">{project.wireframes.desc}</p>
               </div>
-            ))}
-          </section>
-        )}
 
-        {/* Hero Showcase Image */}
-        <section className="relative overflow-hidden rounded-2xl sm:rounded-3xl border border-border bg-surface shadow-glass aspect-[16/9] cursor-pointer" onClick={() => setActiveImage({ src: project.heroImage || project.image, alt: project.title })}>
-          <Image
-            src={project.heroImage || project.image}
-            alt={project.title}
-            fill
-            priority
-            sizes="100vw"
-            className={`object-cover ${project.heroImage ? "object-top" : (project.imagePosition || "object-center")} hover:scale-102 transition-transform duration-500`}
-          />
-        </section>
-
-        {/* Live Interactive Ungdomskort Application Prototype: Placed at the BEGINNING of the project story */}
-        {project.id === "ungdomskort" && (
-          <section className="space-y-4">
-            <UngdomskortPortal />
-          </section>
-        )}
-
-        {/* Problem & Solution Breakdown */}
-        <section className="rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10 shadow-glass space-y-6">
-          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
-            <div className="space-y-3">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">The Problem</span>
-              <h2 className="font-display text-xl font-bold text-foreground">User Friction &amp; Bottlenecks</h2>
-              <p className="leading-relaxed text-muted-fg text-xs sm:text-sm">{project.problem}</p>
-            </div>
-            <div className="space-y-3">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">The Solution</span>
-              <h2 className="font-display text-xl font-bold text-foreground">Strategic Product Architecture</h2>
-              <p className="leading-relaxed text-muted-fg text-xs sm:text-sm">{project.solution}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Process Phases */}
-        <section className="space-y-6">
-          <div className="space-y-1">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Design Process</span>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold">Structured Methodology</h2>
-          </div>
-
-          <div className="divide-y divide-border border-y border-border">
-            {project.processPhases.map((phase) => (
-              <div key={phase.number} className="grid gap-3 py-6 sm:grid-cols-12 sm:gap-6 items-start">
-                <div className="sm:col-span-4 flex items-baseline gap-3">
-                  <span className="font-mono text-2xl sm:text-3xl font-bold text-lime">{phase.number}</span>
-                  <h3 className="font-display text-lg font-bold text-foreground">{phase.phase}</h3>
-                </div>
-                <p className="leading-relaxed text-muted-fg text-xs sm:text-sm sm:col-span-8 sm:pt-1">
-                  {phase.summary}
-                </p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Research Data & Artifacts Gallery */}
-        {project.researchData && (
-          <section className="space-y-8 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
-            <div className="space-y-1">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">User Research</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">Research Documentation &amp; Artifacts</h2>
-            </div>
-
-            {/* User Groups */}
-            {project.researchData.userGroups && project.researchData.userGroups.length > 0 && (
-              <div className="space-y-3 pt-2">
-                <h3 className="font-mono text-xs font-bold uppercase text-lime">User Groups</h3>
-                <div className="grid gap-5 sm:grid-cols-1">
-                  {project.researchData.userGroups.map((group) => (
-                    <div
-                      key={group.title}
-                      onClick={() => setActiveImage({ src: group.image, alt: group.title })}
-                      className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all space-y-2"
-                    >
-                      <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                        <Image src={group.image} alt={group.title} fill sizes="100vw" className="object-contain" />
-                      </div>
-                      <p className="p-2 font-mono text-xs font-bold text-foreground text-center">{group.title}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Competitive Analysis */}
-            {project.researchData.competitiveAnalysis && (
-              <div className="space-y-3 pt-2">
-                <h3 className="font-mono text-xs font-bold uppercase text-lime">Competitive Analysis</h3>
-                <div
-                  onClick={() => setActiveImage({ src: project.researchData!.competitiveAnalysis!.image, alt: "Competitive Analysis" })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.researchData.competitiveAnalysis.image} alt="Competitive Analysis Audit" fill sizes="100vw" className="object-contain" />
-                  </div>
-                  <p className="p-3 font-mono text-xs text-muted-fg leading-relaxed text-center">{project.researchData.competitiveAnalysis.summary}</p>
-                </div>
-              </div>
-            )}
-
-            {/* Personas Grid */}
-            {project.researchData.personas && project.researchData.personas.length > 0 && (
-              <div className="space-y-3 pt-2">
-                <h3 className="font-mono text-xs font-bold uppercase text-lime">User Personas</h3>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  {project.researchData.personas.map((persona) => (
-                    <div
-                      key={persona.title}
-                      onClick={() => setActiveImage({ src: persona.image, alt: persona.title })}
-                      className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all space-y-2"
-                    >
-                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
-                        <Image src={persona.image} alt={persona.title} fill sizes="50vw" className="object-contain" />
-                      </div>
-                      <p className="p-2 font-mono text-xs font-bold text-foreground text-center">{persona.title}</p>
-                      {persona.summary && <p className="px-2 pb-2 text-xs text-muted-fg text-center">{persona.summary}</p>}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Problem & Goal Statements */}
-            {project.researchData.statements && project.researchData.statements.length > 0 && (
-              <div className="space-y-3 pt-2">
-                <h3 className="font-mono text-xs font-bold uppercase text-lime">Problem Statements</h3>
-                <div className="grid gap-5 sm:grid-cols-2">
-                  {project.researchData.statements.map((stmt) => (
-                    <div
-                      key={stmt.title}
-                      onClick={() => setActiveImage({ src: stmt.image, alt: stmt.title })}
-                      className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                    >
-                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
-                        <Image src={stmt.image} alt={stmt.title} fill sizes="50vw" className="object-contain" />
-                      </div>
-                      <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{stmt.title}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Goal Statement */}
-            {project.researchData.goalStatement && (
-              <div className="space-y-3 pt-2">
-                <h3 className="font-mono text-xs font-bold uppercase text-lime">Product Goal Statement</h3>
-                <div
-                  onClick={() => setActiveImage({ src: project.researchData!.goalStatement!.image, alt: project.researchData!.goalStatement!.title })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.researchData.goalStatement.image} alt={project.researchData.goalStatement.title} fill sizes="100vw" className="object-contain" />
-                  </div>
-                  <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{project.researchData.goalStatement.title}</p>
-                </div>
-              </div>
-            )}
-
-            {/* User Flow & Journey Maps */}
-            <div className="grid gap-5 sm:grid-cols-2 pt-2">
-              {project.researchData.userFlows && (
-                <div
-                  onClick={() => setActiveImage({ src: project.researchData!.userFlows!.image, alt: project.researchData!.userFlows!.title })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
-                    <Image src={project.researchData.userFlows.image} alt={project.researchData.userFlows.title} fill sizes="50vw" className="object-contain" />
-                  </div>
-                  <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{project.researchData.userFlows.title}</p>
-                </div>
-              )}
-              {project.researchData.userJourney && (
-                <div
-                  onClick={() => setActiveImage({ src: project.researchData!.userJourney!.image, alt: project.researchData!.userJourney!.title })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
-                    <Image src={project.researchData.userJourney.image} alt={project.researchData.userJourney.title} fill sizes="50vw" className="object-contain" />
-                  </div>
-                  <p className="p-2 font-mono text-xs font-bold text-center text-muted-fg">{project.researchData.userJourney.title}</p>
-                </div>
-              )}
-            </div>
-          </section>
-        )}
-
-        {/* Wireframes & Visual Evidence */}
-        {project.wireframes && (
-          <section className="space-y-6">
-            <div className="space-y-1">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Wireframes &amp; Layout</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">{project.wireframes.title}</h2>
-              <p className="text-muted-fg text-xs sm:text-sm">{project.wireframes.desc}</p>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2">
-              {project.wireframes.images.map((img) => (
-                <div
-                  key={img.title}
-                  onClick={() => setActiveImage({ src: img.src, alt: img.title })}
-                  className="group relative overflow-hidden rounded-xl border border-border bg-surface p-2 shadow-sm cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg bg-muted">
-                    <Image src={img.src} alt={img.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                  </div>
-                  <p className="p-2 font-mono text-[11px] font-semibold text-foreground text-center">{img.title}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Sydbank 4 Core UI Redesign Blocks (Before vs After) */}
-        {project.sydbankBlocks && project.sydbankBlocks.length > 0 && (
-          <section className="space-y-8">
-            <div className="space-y-1">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Core UI Redesign</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">Interface Transformation (Before vs After)</h2>
-            </div>
-
-            <div className="space-y-8">
-              {project.sydbankBlocks.map((block) => (
-                <div key={block.blockNum} className="rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-8 space-y-4 shadow-glass">
-                  <div>
-                    <span className="font-mono text-xs font-bold uppercase tracking-wider text-lime">{block.blockNum}</span>
-                    <h3 className="font-display text-xl font-bold text-foreground mt-1">{block.title}</h3>
-                  </div>
-
-                  <div className="grid gap-6 sm:grid-cols-2">
-                    {/* Before Image */}
-                    <div
-                      onClick={() => setActiveImage({ src: block.beforeImg, alt: `${block.blockNum} Before` })}
-                      className="rounded-xl border border-border bg-background p-3 space-y-2 cursor-pointer hover:border-lime transition-all"
-                    >
-                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
-                        <Image src={block.beforeImg} alt={`${block.blockNum} Before`} fill sizes="50vw" className="object-contain" />
-                      </div>
-                      <p className="font-mono text-[11px] text-muted-fg leading-relaxed">{block.beforeDesc}</p>
-                    </div>
-
-                    {/* After Image */}
-                    <div
-                      onClick={() => setActiveImage({ src: block.afterImg, alt: `${block.blockNum} After` })}
-                      className="rounded-xl border border-lime/40 bg-background p-3 space-y-2 cursor-pointer hover:border-lime transition-all"
-                    >
-                      <div className="relative aspect-[16/10] w-full overflow-hidden rounded-lg">
-                        <Image src={block.afterImg} alt={`${block.blockNum} After`} fill sizes="50vw" className="object-contain" />
-                      </div>
-                      <p className="font-mono text-[11px] text-lime font-bold leading-relaxed">{block.afterDesc}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        {/* Design System Details */}
-        {project.designSystem && (
-          <section className="space-y-6 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10">
-            <div className="space-y-1">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Design System &amp; Tokens</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">Scalable Visual Infrastructure</h2>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2">
-              {project.designSystem.colorsImage && (
-                <div
-                  onClick={() => setActiveImage({ src: project.designSystem!.colorsImage!, alt: "Color System Palette" })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.designSystem.colorsImage} alt="Color Tokens" fill sizes="50vw" className="object-contain" />
-                  </div>
-                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Color Palette &amp; Contrast Ratios</p>
-                </div>
-              )}
-              {project.designSystem.typographyImage && (
-                <div
-                  onClick={() => setActiveImage({ src: project.designSystem!.typographyImage!, alt: "Typography System" })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.designSystem.typographyImage} alt="Typography Tokens" fill sizes="50vw" className="object-contain" />
-                  </div>
-                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Typography Hierarchy</p>
-                </div>
-              )}
-              {project.designSystem.iconsGridsImage && (
-                <div
-                  onClick={() => setActiveImage({ src: project.designSystem!.iconsGridsImage!, alt: "Icons & Grids System" })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.designSystem.iconsGridsImage} alt="Icons and Grids" fill sizes="50vw" className="object-contain" />
-                  </div>
-                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Icons &amp; Grid Alignment System</p>
-                </div>
-              )}
-              {project.designSystem.componentsImage && (
-                <div
-                  onClick={() => setActiveImage({ src: project.designSystem!.componentsImage!, alt: "Figma Component Tokens" })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.designSystem.componentsImage} alt="Figma Component Tokens" fill sizes="50vw" className="object-contain" />
-                  </div>
-                  <p className="p-2 font-mono text-[11px] font-bold text-center text-muted-fg">Figma Reusable Component Library</p>
-                </div>
-              )}
-            </div>
-
-            {/* AI Image Creation Detail */}
-            {project.designSystem.aiImage && (
-              <div className="pt-4 border-t border-border/60 space-y-3">
-                <h3 className="font-mono text-xs font-bold uppercase text-lime">AI Image Creation &amp; 3D Visual Assets</h3>
-                {project.designSystem.aiDesc && (
-                  <p className="text-xs text-muted-fg leading-relaxed">{project.designSystem.aiDesc}</p>
-                )}
-                <div
-                  onClick={() => setActiveImage({ src: project.designSystem!.aiImage!, alt: "AI Image Generation Process" })}
-                  className="rounded-xl border border-border bg-background p-2 cursor-pointer hover:border-lime transition-all"
-                >
-                  <div className="relative aspect-[16/9] w-full overflow-hidden rounded-lg">
-                    <Image src={project.designSystem.aiImage} alt="AI 3D Visual Creation" fill sizes="100vw" className="object-contain" />
-                  </div>
-                </div>
-              </div>
-            )}
-          </section>
-        )}
-
-        {/* High-Fidelity Screens Gallery: Rendered inside iPhone 14 Pro Device Mockups ONLY for X-Bit */}
-        {project.highFiScreens && project.highFiScreens.length > 0 && (
-          <section className="space-y-6">
-            <div className="space-y-1">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Production Screens</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold">
-                {isXBit ? "Mobile Application Experience (iPhone 14 Pro)" : "Core Screens Breakdown"}
-              </h2>
-            </div>
-
-            {isXBit ? (
-              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
-                {project.highFiScreens.map((screen) => (
-                  <IPhoneMockup
-                    key={screen.label}
-                    src={screen.img}
-                    alt={screen.label}
-                    label={screen.label}
-                    desc={screen.desc}
-                    onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {project.highFiScreens.map((screen) => (
+              <div className="grid gap-6 sm:grid-cols-2">
+                {project.wireframes.images.map((img) => (
                   <div
-                    key={screen.label}
-                    onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
-                    className={`rounded-xl border border-border bg-surface p-5 flex flex-col justify-between space-y-3 ${
-                      screen.img ? "cursor-pointer hover:border-lime transition-all" : ""
-                    }`}
+                    key={img.title}
+                    onClick={() => setActiveImage({ src: img.src, alt: img.title })}
+                    className="group relative overflow-hidden rounded-3xl border border-border/80 bg-white dark:bg-surface p-3 shadow-sm cursor-pointer hover:border-foreground/30 transition-all"
                   >
-                    {screen.img && (
-                      <div className="relative aspect-[16/10] max-h-[200px] w-full overflow-hidden rounded-lg bg-background">
-                        <Image src={screen.img} alt={screen.label} fill sizes="33vw" className="object-contain" />
-                      </div>
-                    )}
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-white">
+                      <Image src={img.src} alt={img.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover group-hover:scale-[1.02] transition-transform duration-500" />
+                    </div>
+                    <p className="p-2.5 text-xs font-semibold text-foreground text-center">{img.title}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Sydbank 4 Core UI Redesign Blocks (Before vs After) */}
+          {project.sydbankBlocks && project.sydbankBlocks.length > 0 && (
+            <div className="space-y-8">
+              <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                Interface Transformation (Before vs After)
+              </h2>
+
+              <div className="space-y-8">
+                {project.sydbankBlocks.map((block) => (
+                  <div key={block.blockNum} className="rounded-3xl border border-border/70 bg-white dark:bg-surface p-6 sm:p-8 space-y-5">
                     <div>
-                      <h3 className="font-display text-base font-bold text-foreground">{screen.label}</h3>
-                      <p className="mt-1 text-xs text-muted-fg leading-relaxed">{screen.desc}</p>
+                      <span className="text-xs font-semibold uppercase tracking-widest text-blue-600 dark:text-blue-400">{block.blockNum}</span>
+                      <h3 className="font-sans text-xl font-bold text-foreground mt-1">{block.title}</h3>
+                    </div>
+
+                    <div className="grid gap-6 sm:grid-cols-2">
+                      <div
+                        onClick={() => setActiveImage({ src: block.beforeImg, alt: `${block.blockNum} Before` })}
+                        className="rounded-2xl border border-border/70 bg-background p-3 space-y-2 cursor-pointer hover:border-foreground/30 transition-colors"
+                      >
+                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-white">
+                          <Image src={block.beforeImg} alt={`${block.blockNum} Before`} fill sizes="50vw" className="object-contain" />
+                        </div>
+                        <p className="text-xs text-foreground/80 leading-relaxed">{block.beforeDesc}</p>
+                      </div>
+
+                      <div
+                        onClick={() => setActiveImage({ src: block.afterImg, alt: `${block.blockNum} After` })}
+                        className="rounded-2xl border border-blue-600/30 bg-background p-3 space-y-2 cursor-pointer hover:border-blue-600 transition-colors"
+                      >
+                        <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl bg-white">
+                          <Image src={block.afterImg} alt={`${block.blockNum} After`} fill sizes="50vw" className="object-contain" />
+                        </div>
+                        <p className="text-xs font-medium text-foreground leading-relaxed">{block.afterDesc}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
               </div>
-            )}
-          </section>
-        )}
+            </div>
+          )}
 
-        {/* Key Design Decisions */}
-        <section className="space-y-6">
-          <div className="space-y-1">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Design Decisions</span>
-            <h2 className="font-display text-2xl sm:text-3xl font-bold">Architectural Rationale</h2>
-          </div>
+          {/* Design System Details */}
+          {project.designSystem && (
+            <div className="space-y-6 rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-10">
+              <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                Design System &amp; Tokens
+              </h2>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {project.keyDecisions.map((decision) => (
-              <div key={decision.title} className="rounded-xl border border-border bg-surface p-5 space-y-2">
-                <div className="flex items-center gap-2">
-                  <CheckCircle2 className="h-4 w-4 text-lime shrink-0" />
-                  <h3 className="font-display text-sm sm:text-base font-bold text-foreground">{decision.title}</h3>
-                </div>
-                <p className="text-xs text-muted-fg leading-relaxed">{decision.body}</p>
+              <div className="grid gap-5 sm:grid-cols-2">
+                {project.designSystem.colorsImage && (
+                  <div
+                    onClick={() => setActiveImage({ src: project.designSystem!.colorsImage!, alt: "Color System Palette" })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.designSystem.colorsImage} alt="Color Tokens" fill sizes="50vw" className="object-contain" />
+                    </div>
+                    <p className="p-2 text-xs font-semibold text-center text-foreground/80">Color Palette &amp; Contrast Ratios</p>
+                  </div>
+                )}
+                {project.designSystem.typographyImage && (
+                  <div
+                    onClick={() => setActiveImage({ src: project.designSystem!.typographyImage!, alt: "Typography System" })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.designSystem.typographyImage} alt="Typography Tokens" fill sizes="50vw" className="object-contain" />
+                    </div>
+                    <p className="p-2 text-xs font-semibold text-center text-foreground/80">Typography Hierarchy</p>
+                  </div>
+                )}
+                {project.designSystem.iconsGridsImage && (
+                  <div
+                    onClick={() => setActiveImage({ src: project.designSystem!.iconsGridsImage!, alt: "Icons & Grids System" })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.designSystem.iconsGridsImage} alt="Icons and Grids" fill sizes="50vw" className="object-contain" />
+                    </div>
+                    <p className="p-2 text-xs font-semibold text-center text-foreground/80">Icons &amp; Grid Alignment System</p>
+                  </div>
+                )}
+                {project.designSystem.componentsImage && (
+                  <div
+                    onClick={() => setActiveImage({ src: project.designSystem!.componentsImage!, alt: "Figma Component Tokens" })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.designSystem.componentsImage} alt="Figma Component Tokens" fill sizes="50vw" className="object-contain" />
+                    </div>
+                    <p className="p-2 text-xs font-semibold text-center text-foreground/80">Figma Reusable Component Library</p>
+                  </div>
+                )}
               </div>
-            ))}
-          </div>
-        </section>
 
-        {/* Key Takeaways */}
-        <section className="rounded-2xl sm:rounded-3xl border border-border bg-surface/50 p-6 sm:p-10 space-y-4">
-          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime">Key Takeaways</span>
-          <h2 className="font-display text-2xl font-bold">What This Project Taught Me</h2>
-          <div className="grid gap-5 lg:grid-cols-2">
-            {project.takeaways.map((takeaway, idx) => (
-              <p key={idx} className="text-xs sm:text-sm leading-relaxed text-muted-fg border-l-2 border-lime pl-3">
-                {takeaway}
-              </p>
-            ))}
-          </div>
-        </section>
-
-        {/* Figma CTA if present */}
-        {project.figmaUrl && (
-          <section className="flex flex-col sm:flex-row items-center justify-between gap-5 rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-10 shadow-glass">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">Interactive Figma Prototype</span>
-              <h2 className="font-display text-xl sm:text-2xl font-bold mt-1">Explore the interactive file directly</h2>
+              {project.designSystem.aiImage && (
+                <div className="pt-4 border-t border-border/60 space-y-3">
+                  <h3 className="text-xs font-semibold uppercase tracking-widest text-muted-fg">AI Image Creation &amp; 3D Visual Assets</h3>
+                  {project.designSystem.aiDesc && (
+                    <p className="text-sm text-foreground/80 leading-relaxed">{project.designSystem.aiDesc}</p>
+                  )}
+                  <div
+                    onClick={() => setActiveImage({ src: project.designSystem!.aiImage!, alt: "AI Image Generation Process" })}
+                    className="rounded-2xl border border-border/70 bg-background p-3 cursor-pointer hover:border-foreground/30 transition-colors"
+                  >
+                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-white">
+                      <Image src={project.designSystem.aiImage} alt="AI 3D Visual Creation" fill sizes="100vw" className="object-contain" />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
-            <a
-              href={project.figmaUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-lime px-7 py-3 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg shadow-lime hover:scale-105 transition-all"
-            >
-              <span>Open in Figma</span>
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </section>
-        )}
+          )}
 
-        {/* Explore Next Projects Section at Bottom of Every Case Study */}
-        <section className="pt-10 border-t border-border/80 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime">Next Case Studies</span>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold mt-1">Explore Other Projects</h2>
+          {/* High-Fidelity Screens Gallery */}
+          {project.highFiScreens && project.highFiScreens.length > 0 && (
+            <div className="space-y-6">
+              <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+                {isXBit ? "Mobile Application Experience" : "Core Screens"}
+              </h2>
+
+              {isXBit ? (
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
+                  {project.highFiScreens.map((screen) => (
+                    <IPhoneMockup
+                      key={screen.label}
+                      src={screen.img}
+                      alt={screen.label}
+                      label={screen.label}
+                      desc={screen.desc}
+                      onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {project.highFiScreens.map((screen) => (
+                    <div
+                      key={screen.label}
+                      onClick={() => screen.img && setActiveImage({ src: screen.img, alt: screen.label })}
+                      className={`rounded-3xl border border-border/70 bg-white dark:bg-surface p-6 flex flex-col justify-between space-y-3 ${
+                        screen.img ? "cursor-pointer hover:border-foreground/30 transition-colors" : ""
+                      }`}
+                    >
+                      {screen.img && (
+                        <div className="relative aspect-[16/10] max-h-[200px] w-full overflow-hidden rounded-2xl bg-white">
+                          <Image src={screen.img} alt={screen.label} fill sizes="33vw" className="object-contain" />
+                        </div>
+                      )}
+                      <div>
+                        <h3 className="font-sans text-base font-bold text-foreground">{screen.label}</h3>
+                        <p className="mt-1 text-xs sm:text-sm text-foreground/80 leading-relaxed">{screen.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
+          )}
+
+          {/* Key Design Decisions */}
+          <div className="space-y-6">
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              Key Design Decisions
+            </h2>
+
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {project.keyDecisions.map((decision) => (
+                <div key={decision.title} className="rounded-3xl border border-border/70 bg-white dark:bg-surface p-6 space-y-2">
+                  <h3 className="font-sans text-base font-bold text-foreground">{decision.title}</h3>
+                  <p className="text-sm text-foreground/80 leading-relaxed">{decision.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Key Takeaways */}
+          <div className="rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-10 space-y-5">
+            <h2 className="font-sans text-2xl font-bold tracking-tight text-foreground">
+              Key Takeaways
+            </h2>
+            <div className="grid gap-6 lg:grid-cols-2">
+              {project.takeaways.map((takeaway, idx) => (
+                <p key={idx} className="text-sm sm:text-base leading-relaxed text-foreground/85 border-l-2 border-blue-600 dark:border-blue-400 pl-4">
+                  {takeaway}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          {/* Figma CTA if present */}
+          {project.figmaUrl && (
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-5 rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-10">
+              <div>
+                <h2 className="font-sans text-xl sm:text-2xl font-bold text-foreground">Interactive Figma File</h2>
+                <p className="text-sm text-foreground/80 mt-1">Explore the design system and screens directly in Figma.</p>
+              </div>
+              <a
+                href={project.figmaUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center rounded-full bg-blue-600 dark:bg-blue-500 px-7 py-3 text-sm font-medium text-white hover:bg-blue-700 transition-colors shrink-0"
+              >
+                Open in Figma
+              </a>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Explore Other Projects (White surface with rounded bottom border) */}
+      <section className="w-full bg-white dark:bg-surface rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-12">
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+              More projects
+            </h2>
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase text-lime hover:underline"
+              className="text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline underline-offset-4"
             >
-              <span>View All Projects</span>
-              <ArrowRight className="h-4 w-4" />
+              View all
             </Link>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {otherProjects.map((other) => (
-              <Link
-                key={other.id}
-                href={other.link}
-                className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-border bg-surface p-5 shadow-glass transition-all duration-300 hover:border-lime hover:shadow-[0_10px_30px_rgba(35,95,230,0.12)] hover:-translate-y-1 space-y-4"
-              >
-                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl bg-muted">
-                  <Image
-                    src={other.image}
-                    alt={other.title}
-                    fill
-                    sizes="50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute top-3 left-3 z-10">
-                    <span className="rounded-full bg-lime px-3 py-1 text-[10px] font-mono font-bold uppercase tracking-wider text-lime-fg shadow-sm">
-                      {other.badge}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <h3 className="font-display text-lg font-bold text-foreground group-hover:text-lime transition-colors flex items-center justify-between">
-                    <span>{other.title}</span>
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </h3>
-                  <p className="text-xs text-muted-fg leading-relaxed line-clamp-2">
-                    {other.subtitle}. {other.shortDescription}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      </main>
+          <ProjectsList projects={otherProjects} />
+        </div>
+      </section>
 
       {/* Lightbox Modal */}
       <Lightbox

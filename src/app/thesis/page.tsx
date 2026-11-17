@@ -2,21 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import {
-  GraduationCap,
-  Download,
-  BookOpen,
-  Sparkles,
-  BarChart3,
-  CheckCircle2,
-  Maximize2,
-  Minimize2,
-  ArrowUpRight,
-  Brain,
-  Gamepad2,
-  Layers,
-  Award,
-} from "lucide-react";
 
 export default function ThesisPage() {
   const [isPdfExpanded, setIsPdfExpanded] = useState(false);
@@ -35,7 +20,7 @@ export default function ThesisPage() {
     {
       label: "Completion Time",
       value: "-50%",
-      description: "Task completion time reduced from 2 full days down to 0.5–1 day.",
+      description: "Task completion time reduced from 2 full days down to 0.5-1 day.",
     },
     {
       label: "Self-Efficacy Boost",
@@ -107,317 +92,237 @@ export default function ThesisPage() {
   ];
 
   return (
-    <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 py-10 sm:py-16 space-y-12">
-      {/* Hero Section */}
-      <section className="relative space-y-6 border-b border-border pb-10">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3.5 py-1 text-xs font-mono font-bold uppercase tracking-wider text-lime shadow-sm">
-            <GraduationCap className="h-4 w-4" /> Master&apos;s Thesis · University of Southern Denmark (SDU)
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-lime/40 bg-lime/10 px-3 py-1 text-xs font-mono font-bold text-lime">
-            <Award className="h-3.5 w-3.5" /> MSc in IT (Web Communication Design)
-          </span>
-        </div>
+    <div>
+      {/* Hero Section (White surface) */}
+      <section className="w-full bg-white dark:bg-surface rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-8">
+          <div className="space-y-3 max-w-4xl">
+            <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
+              Master&apos;s Thesis - University of Southern Denmark (SDU)
+            </p>
+            <h1 className="font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.08]">
+              Gamification in Web Development Education
+            </h1>
+            <p className="text-lg sm:text-xl text-foreground/85 leading-relaxed pt-1">
+              How Game Mechanics Enhance Engagement, Skill Acquisition &amp; Self-Efficacy for Novice Developers.
+            </p>
+          </div>
 
-        <div className="space-y-3">
-          <h1 className="font-display text-3xl sm:text-5xl font-bold tracking-tight text-foreground leading-tight">
-            Gamification in Web Development Education
-          </h1>
-          <p className="font-mono text-sm sm:text-base font-semibold text-lime">
-            How Game Mechanics Enhance Engagement, Skill Acquisition &amp; Self-Efficacy for Novice Developers
+          <p className="max-w-3xl text-base sm:text-lg text-muted-fg leading-relaxed">
+            An empirical research thesis investigating how gamified learning systems bridge the gap between theoretical knowledge and practical front-end engineering, combining a 24-person quantitative survey, a 4-week pre/post coding performance experiment, and qualitative thematic interviews.
           </p>
-        </div>
 
-        <p className="max-w-3xl text-xs sm:text-sm text-foreground/85 leading-relaxed font-medium">
-          An empirical research thesis investigating how gamified learning systems bridge the gap between theoretical knowledge and practical front-end engineering. Combining a 24-person quantitative survey, a 4-week pre/post coding performance experiment, and qualitative thematic interviews.
-        </p>
-
-        {/* Thesis Metadata Bar */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
-          <div className="rounded-xl border border-border bg-surface p-3 space-y-0.5">
-            <span className="font-mono text-[10px] uppercase text-muted-fg font-bold block">Author</span>
-            <span className="font-display text-xs font-bold text-foreground block">Herald Ago</span>
-          </div>
-          <div className="rounded-xl border border-border bg-surface p-3 space-y-0.5">
-            <span className="font-mono text-[10px] uppercase text-muted-fg font-bold block">University</span>
-            <span className="font-display text-xs font-bold text-foreground block">SDU (Denmark)</span>
-          </div>
-          <div className="rounded-xl border border-border bg-surface p-3 space-y-0.5">
-            <span className="font-mono text-[10px] uppercase text-muted-fg font-bold block">Supervisor</span>
-            <span className="font-display text-xs font-bold text-foreground block">Prof. Andrea Valente</span>
-          </div>
-          <div className="rounded-xl border border-border bg-surface p-3 space-y-0.5">
-            <span className="font-mono text-[10px] uppercase text-muted-fg font-bold block">Publication</span>
-            <span className="font-display text-xs font-bold text-lime block">June 2025 · 102 Pages</span>
-          </div>
-        </div>
-
-        {/* Action Buttons */}
-        <div className="flex flex-wrap items-center gap-3 pt-2">
-          <a
-            href="/thesis-herald-ago.pdf"
-            download="Master-Thesis-Herald-Ago-Gamification.pdf"
-            className="group inline-flex items-center gap-2 rounded-full bg-lime px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg transition-all shadow-lime hover:scale-105"
-          >
-            <Download className="h-4 w-4" />
-            <span>Download Full PDF (102 Pages)</span>
-          </a>
-          <a
-            href="#pdf-viewer"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-6 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-foreground hover:border-lime hover:text-lime transition-all"
-          >
-            <BookOpen className="h-4 w-4 text-lime" />
-            <span>Read Online Viewer</span>
-          </a>
-        </div>
-      </section>
-
-      {/* Key Empirical Metrics */}
-      <section className="space-y-4">
-        <div className="flex items-center justify-between">
-          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
-            <BarChart3 className="h-4 w-4" /> Research Highlights
-          </span>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {metrics.map((m, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col justify-between rounded-2xl border border-border bg-surface p-5 shadow-glass hover:border-lime transition-all space-y-3"
-            >
-              <div className="space-y-1">
-                <span className="font-mono text-2xl sm:text-3xl font-bold text-lime">{m.value}</span>
-                <p className="font-mono text-xs font-bold text-foreground">{m.label}</p>
-              </div>
-              <p className="text-[11px] text-muted-fg leading-relaxed font-medium">{m.description}</p>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 border-y border-border/60 py-6 text-sm">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Author</p>
+              <p className="mt-1 font-semibold text-foreground">Herald Ago</p>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Abstract & Research Problem */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border-t border-border pt-10">
-        <div className="lg:col-span-6 space-y-4 flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 sm:p-8 shadow-glass">
-          <div className="space-y-3">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
-              <Brain className="h-4 w-4" /> Abstract
-            </span>
-            <h2 className="font-display text-xl font-bold text-foreground">
-              Connecting Theory to Practice in Tech Education
-            </h2>
-            <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed font-medium">
-              Traditional university pedagogy in programming often relies on passive lectures and rote syntax memorization, creating a disconnect when students attempt to build practical web applications.
-            </p>
-            <p className="text-xs sm:text-sm text-foreground/85 leading-relaxed font-medium">
-              This thesis evaluates how disaggregated game mechanics (such as instant feedback loops, visual progress tracking, daily streaks, and structured challenge quests) impact intrinsic motivation, self-efficacy, and code execution speed.
-            </p>
-          </div>
-          <div className="pt-4 border-t border-border/60 flex items-center gap-2 text-[11px] font-mono text-lime font-bold">
-            <CheckCircle2 className="h-4 w-4 shrink-0" />
-            <span>Validated with ISO 9241-210 &amp; ISO 9126 Human-Centered Frameworks</span>
-          </div>
-        </div>
-
-        <div className="lg:col-span-6 space-y-4 flex flex-col justify-between rounded-2xl border border-border bg-surface p-6 sm:p-8 shadow-glass">
-          <div className="space-y-3">
-            <span className="font-mono text-xs font-bold uppercase tracking-widest text-lime flex items-center gap-2">
-              <Layers className="h-4 w-4" /> Research Methodology
-            </span>
-            <h2 className="font-display text-xl font-bold text-foreground">
-              Mixed-Methods Triangulation
-            </h2>
-            <div className="space-y-2.5 text-xs font-mono">
-              <div className="rounded-xl border border-border/80 bg-background p-3 space-y-1">
-                <div className="flex items-center justify-between text-foreground font-bold">
-                  <span>Phase 1 · Anonymous Survey</span>
-                  <span className="text-lime">N = 24</span>
-                </div>
-                <p className="text-[11px] text-muted-fg font-sans font-medium">
-                  Baseline evaluation of university teaching satisfaction vs. gamification attitudes.
-                </p>
-              </div>
-              <div className="rounded-xl border border-border/80 bg-background p-3 space-y-1">
-                <div className="flex items-center justify-between text-foreground font-bold">
-                  <span>Phase 2 · Pre/Post Coding Task</span>
-                  <span className="text-lime">FreeCodeCamp</span>
-                </div>
-                <p className="text-[11px] text-muted-fg font-sans font-medium">
-                  Controlled HTML/CSS &quot;Build a Survey Form&quot; project before and after a 4-week gamified course.
-                </p>
-              </div>
-              <div className="rounded-xl border border-border/80 bg-background p-3 space-y-1">
-                <div className="flex items-center justify-between text-foreground font-bold">
-                  <span>Phase 3 · Thematic Interviews</span>
-                  <span className="text-lime">Qualitative</span>
-                </div>
-                <p className="text-[11px] text-muted-fg font-sans font-medium">
-                  Note-based in-depth interviews probing emotional responses, dopamine loops, and learning retention.
-                </p>
-              </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">University</p>
+              <p className="mt-1 font-semibold text-foreground">SDU (Denmark)</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Supervisor</p>
+              <p className="mt-1 font-semibold text-foreground">Prof. Andrea Valente</p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Publication</p>
+              <p className="mt-1 font-semibold text-blue-600 dark:text-blue-400">June 2025 - 102 Pages</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Marczewski Player Typologies & Findings */}
-      <section className="space-y-6 border-t border-border pt-10">
-        <div className="space-y-2">
-          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
-            <Gamepad2 className="h-4 w-4" /> Player Types &amp; Findings
-          </span>
-          <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-            How Gamification Mechanics Impact Learner Profiles
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {playerTypes.map((pt, idx) => (
-            <div
-              key={idx}
-              className="rounded-2xl border border-border bg-surface p-6 space-y-3 shadow-glass hover:border-lime transition-all"
-            >
-              <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                <div>
-                  <span className="font-mono text-[10px] font-bold text-lime uppercase tracking-wider">{pt.target}</span>
-                  <h3 className="font-display text-lg font-bold text-foreground">{pt.type}</h3>
-                </div>
-                <span className="rounded-full border border-border bg-background px-2.5 py-1 text-[10px] font-mono font-bold text-foreground">
-                  Profile {idx + 1}
-                </span>
-              </div>
-              <p className="text-xs text-foreground/80 font-medium leading-relaxed">{pt.traits}</p>
-              <div className="pt-2 border-t border-border/40 space-y-1">
-                <span className="font-mono text-[10px] uppercase text-muted-fg font-bold block">Key Game Mechanics:</span>
-                <p className="font-mono text-xs font-semibold text-lime">{pt.gameMechanics}</p>
-              </div>
-              <div className="pt-2 space-y-1">
-                <span className="font-mono text-[10px] uppercase text-muted-fg font-bold block">Empirical Experiment Finding:</span>
-                <p className="text-xs text-muted-fg leading-relaxed font-medium">{pt.keyFinding}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Theoretical Frameworks */}
-      <section className="space-y-6 border-t border-border pt-10">
-        <div className="space-y-2">
-          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
-            <BookOpen className="h-4 w-4" /> Theoretical Foundations
-          </span>
-          <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-            Academic Theories Grounding the UX Research
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {theoreticalFrameworks.map((tf, idx) => (
-            <div
-              key={idx}
-              className="rounded-2xl border border-border bg-surface p-5 space-y-2 shadow-glass"
-            >
-              <div className="flex items-center justify-between">
-                <h3 className="font-display text-base font-bold text-foreground">{tf.name}</h3>
-                <span className="font-mono text-[10px] text-lime font-bold">{tf.author}</span>
-              </div>
-              <p className="font-mono text-xs text-lime font-medium">{tf.focus}</p>
-              <p className="text-xs text-muted-fg leading-relaxed font-medium pt-1 border-t border-border/40">
-                {tf.insight}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Integrated PDF Reader Section */}
-      <section id="pdf-viewer" className="space-y-6 border-t border-border pt-10">
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-          <div className="space-y-1">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
-              <BookOpen className="h-4 w-4" /> Thesis Document
-            </span>
-            <h2 className="font-display text-2xl font-bold tracking-tight text-foreground">
-              Read Master&apos;s Thesis Document Online
-            </h2>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button
-              onClick={() => setIsPdfExpanded(!isPdfExpanded)}
-              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-surface px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider text-foreground hover:border-lime hover:text-lime transition-all"
-            >
-              {isPdfExpanded ? (
-                <>
-                  <Minimize2 className="h-3.5 w-3.5" /> <span>Standard View</span>
-                </>
-              ) : (
-                <>
-                  <Maximize2 className="h-3.5 w-3.5" /> <span>Expand View</span>
-                </>
-              )}
-            </button>
+          <div className="flex flex-wrap items-center gap-4">
             <a
               href="/thesis-herald-ago.pdf"
               download="Master-Thesis-Herald-Ago-Gamification.pdf"
-              className="inline-flex items-center gap-1.5 rounded-full bg-lime px-4 py-2 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg shadow-lime hover:scale-105 transition-all"
+              className="inline-flex items-center rounded-full bg-blue-600 dark:bg-blue-500 px-7 py-3 text-sm font-medium text-white hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
             >
-              <Download className="h-3.5 w-3.5" /> <span>PDF</span>
+              Download PDF (102 pages)
             </a>
-          </div>
-        </div>
-
-        {/* Embedded PDF Viewer Container */}
-        <div
-          className={`relative overflow-hidden rounded-2xl border border-border bg-surface shadow-glass transition-all duration-300 ${
-            isPdfExpanded ? "h-[85vh]" : "h-[650px] sm:h-[750px]"
-          }`}
-        >
-          <iframe
-            src="/thesis-herald-ago.pdf#toolbar=1"
-            title="Herald Ago Master Thesis PDF"
-            className="h-full w-full border-none rounded-2xl"
-          />
-          
-          {/* Fallback & Helper banner */}
-          <div className="absolute bottom-3 left-4 right-4 z-10 hidden sm:flex items-center justify-between rounded-xl border border-border bg-background/95 px-4 py-2.5 backdrop-blur-md shadow-md">
-            <span className="font-mono text-xs text-foreground font-medium">
-              📄 <strong className="text-lime font-semibold">Herald Ago Master Thesis (2025)</strong> · 102 Pages · SDU
-            </span>
             <a
-              href="/thesis-herald-ago.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-1 font-mono text-xs font-bold text-lime hover:underline"
+              href="#pdf-viewer"
+              className="inline-flex items-center rounded-full border border-border bg-background px-7 py-3 text-sm font-medium text-foreground hover:border-foreground/30 transition-colors"
             >
-              <span>Open in New Tab</span>
-              <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              Read online
             </a>
           </div>
         </div>
       </section>
 
-      {/* Footer Call to Action */}
-      <section className="mt-12 flex flex-col items-center justify-center text-center p-8 sm:p-12 rounded-3xl border border-border bg-surface shadow-glass space-y-4">
-        <h3 className="font-display text-xl sm:text-2xl font-bold text-foreground">
-          Interested in Gamification UX or Product Research Collaboration?
-        </h3>
-        <p className="text-xs sm:text-sm text-muted-fg max-w-xl leading-relaxed">
-          I apply empirical research methodologies, WCAG accessibility standards, and front-end engineering to digital products and enterprise software.
-        </p>
-        <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-          <a
-            href="/#contact"
-            className="group inline-flex items-center gap-2 rounded-full bg-lime px-7 py-3 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg transition-all shadow-lime hover:scale-105"
+      {/* Metrics & Abstract (#f8fafc99 background) */}
+      <section className="w-full rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-14">
+          <div className="space-y-6">
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              Research Highlights
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {metrics.map((m, idx) => (
+                <div
+                  key={idx}
+                  className="flex flex-col justify-between rounded-3xl border border-border/70 bg-white dark:bg-surface p-6 space-y-3"
+                >
+                  <div className="space-y-1">
+                    <span className="font-sans text-3xl font-bold text-blue-600 dark:text-blue-400">{m.value}</span>
+                    <p className="text-sm font-bold text-foreground">{m.label}</p>
+                  </div>
+                  <p className="text-xs sm:text-sm text-foreground/80 leading-relaxed">{m.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-6 border-t border-border/60">
+            <div className="lg:col-span-6 rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-9 space-y-4 flex flex-col justify-between">
+              <div className="space-y-3">
+                <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Abstract</p>
+                <h3 className="font-sans text-xl sm:text-2xl font-bold text-foreground">
+                  Connecting Theory to Practice in Tech Education
+                </h3>
+                <p className="text-sm sm:text-base text-foreground/85 leading-relaxed">
+                  Traditional university pedagogy in programming often relies on passive lectures and rote syntax memorization, creating a disconnect when students attempt to build practical web applications.
+                </p>
+                <p className="text-sm sm:text-base text-foreground/85 leading-relaxed">
+                  This thesis evaluates how disaggregated game mechanics (instant feedback loops, visual progress tracking, daily streaks, and structured challenge quests) impact intrinsic motivation, self-efficacy, and code execution speed.
+                </p>
+              </div>
+              <p className="pt-4 border-t border-border/60 text-xs font-medium text-blue-600 dark:text-blue-400">
+                Validated with ISO 9241-210 &amp; ISO 9126 Human-Centered Frameworks
+              </p>
+            </div>
+
+            <div className="lg:col-span-6 rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-9 space-y-4">
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted-fg">Methodology</p>
+              <h3 className="font-sans text-xl sm:text-2xl font-bold text-foreground">
+                Mixed-Methods Triangulation
+              </h3>
+              <div className="space-y-3 text-sm">
+                <div className="rounded-2xl border border-border/70 bg-background p-4 space-y-1">
+                  <div className="flex items-center justify-between font-bold text-foreground">
+                    <span>Phase 1 - Anonymous Survey</span>
+                    <span className="text-blue-600 dark:text-blue-400">N = 24</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-foreground/80">
+                    Baseline evaluation of university teaching satisfaction vs. gamification attitudes.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-border/70 bg-background p-4 space-y-1">
+                  <div className="flex items-center justify-between font-bold text-foreground">
+                    <span>Phase 2 - Pre/Post Coding Task</span>
+                    <span className="text-blue-600 dark:text-blue-400">FreeCodeCamp</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-foreground/80">
+                    Controlled HTML/CSS &quot;Build a Survey Form&quot; project before and after a 4-week gamified course.
+                  </p>
+                </div>
+                <div className="rounded-2xl border border-border/70 bg-background p-4 space-y-1">
+                  <div className="flex items-center justify-between font-bold text-foreground">
+                    <span>Phase 3 - Thematic Interviews</span>
+                    <span className="text-blue-600 dark:text-blue-400">Qualitative</span>
+                  </div>
+                  <p className="text-xs sm:text-sm text-foreground/80">
+                    In-depth interviews probing emotional responses, dopamine loops, and learning retention.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Player Types & Theoretical Frameworks (White surface) */}
+      <section className="w-full bg-white dark:bg-surface rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-14">
+          <div className="space-y-6">
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              Learner Profiles &amp; Findings
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {playerTypes.map((pt, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-3xl border border-border/70 bg-background p-6 sm:p-8 space-y-4"
+                >
+                  <div className="flex items-baseline justify-between border-b border-border/60 pb-3">
+                    <h3 className="font-sans text-xl font-bold text-foreground">{pt.type}</h3>
+                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400">{pt.target}</span>
+                  </div>
+                  <p className="text-sm text-foreground/85 leading-relaxed">{pt.traits}</p>
+                  <div className="space-y-1 text-xs sm:text-sm">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-fg block">Key Mechanics</span>
+                    <p className="font-medium text-foreground">{pt.gameMechanics}</p>
+                  </div>
+                  <div className="space-y-1 text-xs sm:text-sm">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-fg block">Finding</span>
+                    <p className="text-foreground/80 leading-relaxed">{pt.keyFinding}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="space-y-6 pt-6 border-t border-border/60">
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              Theoretical Foundations
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {theoreticalFrameworks.map((tf, idx) => (
+                <div
+                  key={idx}
+                  className="rounded-3xl border border-border/70 bg-background p-6 sm:p-8 space-y-2"
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <h3 className="font-sans text-lg font-bold text-foreground">{tf.name}</h3>
+                    <span className="text-xs font-medium text-blue-600 dark:text-blue-400">{tf.author}</span>
+                  </div>
+                  <p className="text-xs font-medium text-muted-fg">{tf.focus}</p>
+                  <p className="text-sm text-foreground/85 leading-relaxed pt-2 border-t border-border/50">
+                    {tf.insight}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PDF Viewer Section (#f8fafc99 background) */}
+      <section id="pdf-viewer" className="scroll-mt-20 w-full rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
+        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+              Thesis Document
+            </h2>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => setIsPdfExpanded(!isPdfExpanded)}
+                className="rounded-full border border-border bg-white dark:bg-surface px-5 py-2 text-xs font-medium text-foreground hover:border-foreground/30 transition-colors"
+              >
+                {isPdfExpanded ? "Standard view" : "Expand view"}
+              </button>
+              <a
+                href="/thesis-herald-ago.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full bg-blue-600 dark:bg-blue-500 px-5 py-2 text-xs font-medium text-white hover:bg-blue-700 transition-colors"
+              >
+                Open PDF in new tab
+              </a>
+            </div>
+          </div>
+
+          <div
+            className={`relative overflow-hidden rounded-3xl border border-border/80 bg-white dark:bg-surface shadow-md transition-all duration-300 ${
+              isPdfExpanded ? "h-[85vh]" : "h-[650px] sm:h-[750px]"
+            }`}
           >
-            <span>Get in Touch</span>
-            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
-          <Link
-            href="/work"
-            className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-7 py-3 text-xs font-mono font-bold uppercase tracking-wider text-foreground hover:border-lime hover:text-lime transition-all"
-          >
-            <span>Explore Other Case Studies</span>
-          </Link>
+            <iframe
+              src="/thesis-herald-ago.pdf#toolbar=1"
+              title="Herald Ago Master Thesis PDF"
+              className="h-full w-full border-none rounded-3xl"
+            />
+          </div>
         </div>
       </section>
     </div>

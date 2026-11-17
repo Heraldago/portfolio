@@ -24,112 +24,100 @@ export interface SkillItem {
 export const experienceData: ExperienceItem[] = [
   {
     id: "gococo",
-    role: "Product Design Intern",
-    period: "Aug 2026 to Present",
-    company: "GoCoCo",
-    employmentType: "Internship",
-    location: "Barcelona, Spain (Hybrid)",
-    highlights: [
-      "Design mobile onboarding flows and paywalls in Figma for a health app with over 1M users.",
-      "Build and test onboarding variants in Superwall to evaluate conversion against existing designs.",
-      "Track user sessions in Microsoft Clarity to identify drop-off points.",
-      "Map user journeys and personas using qualitative customer interview data in Dovetail."
-    ]
-  },
-  {
-    id: "freelance",
     role: "Digital Product Designer",
-    period: "Oct 2025 to Present",
-    company: "Freelance",
-    employmentType: "Freelance",
-    location: "Remote",
+    period: "May 2026 - Oct 2026",
+    company: "GoCoCo",
+    location: "Barcelona, Spain",
     highlights: [
-      "Design web and mobile platforms with a focus on usability, Figma design systems, and brand consistency.",
-      "Built and maintained accessible web interfaces adhering to WCAG 2.2 AA standards."
+      "Owned onboarding flows and paywall experimentation for a 1M+ user mobile app, migrating legacy screens to the new Figma UI Design System.",
+      "Built and deployed onboarding flows directly within Superwall, using both the platform's visual editor with AI agents and Superwall's new React framework.",
+      "Designed and executed Superwall A/B tests on updated onboarding flows, lifting average conversion by +1.5% and reaching a +4.5% peak conversion increase with a custom winning variant.",
+      "Led user research and funnel analysis, combining user interviews, Microsoft Clarity session replays, and competitor benchmarks to eliminate drop-offs and establish onboarding best practices."
     ]
   },
   {
     id: "naemt",
-    role: "UX/UI Designer",
-    period: "Feb 2025 to Sep 2025",
+    role: "Digital Product Designer",
+    period: "Jan 2024 - Dec 2025",
     company: "næmt.nu",
-    employmentType: "Internship",
-    location: "Odense, Denmark (Hybrid)",
+    location: "Odense, Denmark",
     highlights: [
-      "Designed an e-commerce platform for 30+ products in Figma and implemented it in WordPress.",
-      "Conducted usability reviews and translated user requirements into responsive layouts."
-    ]
-  },
-  {
-    id: "ipupisiciliani",
-    role: "User Experience Designer",
-    period: "Jan 2024 to Jan 2025",
-    company: "I Pupi Siciliani",
-    employmentType: "Contract",
-    location: "Odense, Denmark (Hybrid)",
-    highlights: [
-      "Redesigned the restaurant reservation flow and menu architecture based on customer feedback.",
-      "The platform update contributed to an increase in online bookings and a 31% increase in gross profit year-over-year.",
-      "The business was nominated for Byens Bedste by Ugeavisen Odense."
+      "Delivered client digital products end-to-end, collaborating with cross-functional teams and external stakeholders to align business goals with user experience and frontend execution.",
+      "Designed and built a 0-to-1 e-commerce platform for 30+ products, owning the full lifecycle from user flows and wireframes to high-fidelity UI and site development.",
+      "Redesigned website information architecture (IA) to resolve UX friction and booking confusion reported by clients and stakeholders, supporting measurable business growth (+31% gross profit, +187% YoY net profit) and a Byens Bedste nomination."
     ]
   },
   {
     id: "leadermedica",
-    role: "Digital Designer",
-    period: "Mar 2023 to Jun 2023",
-    company: "LEADER MEDICA SRL",
-    employmentType: "Full-time",
-    location: "Padua, Italy (On-site)",
+    role: "Digital Product Designer Intern",
+    period: "Jan 2023 - Jun 2023",
+    company: "Leader Medica",
+    location: "Padua, Italy",
     highlights: [
-      "Created digital assets using Adobe InDesign and Photoshop, maintained company web pages, and supported visual communication."
+      "Collaborated with internal marketing and product teams to maintain the corporate website and digital channels, producing branded visual assets across digital and print touchpoints."
     ]
   }
 ];
 
 export const educationData: EducationItem[] = [
   {
-    degree: "Master of Science in IT, Web Communication Design",
+    degree: "MSc in IT - Web Communication Design",
     institution: "University of Southern Denmark (SDU)",
     location: "Odense, Denmark",
-    period: "2023 to 2025",
+    period: "2023 - 2025",
     details: "Taught in English. Specialization in interaction design, user research, web technologies, and human-computer interaction."
   },
   {
-    degree: "Bachelor of Arts in Communication Sciences",
-    institution: "University of Ferrara",
+    degree: "BSc in Communication",
+    institution: "University of Ferrara (UniFe)",
     location: "Ferrara, Italy",
-    period: "2019 to 2022",
+    period: "2018 - 2022",
     details: "Focus on digital media, visual communication, semiotics, and web fundamentals."
   }
 ];
 
 export const skillsData: SkillItem[] = [
-  { name: "User research", levelPercentage: 95 },
-  { name: "UI design and prototyping", levelPercentage: 95 },
-  { name: "Design systems (Figma)", levelPercentage: 90 },
-  { name: "WCAG 2.2 accessibility", levelPercentage: 90 },
-  { name: "HTML, CSS, React", levelPercentage: 85 }
+  { name: "Superwall A/B Testing & Paywalls", levelPercentage: 95 },
+  { name: "Onboarding Flows & CRO", levelPercentage: 95 },
+  { name: "UI Design Systems (Figma)", levelPercentage: 95 },
+  { name: "User Research & Usability Testing", levelPercentage: 90 },
+  { name: "Front-end (HTML, CSS, JS, React)", levelPercentage: 85 }
+];
+
+export const skillsTags = [
+  "Superwall A/B Testing",
+  "Paywall Design",
+  "Onboarding Flows",
+  "Conversion & CRO Optimization",
+  "Funnel Friction Analysis",
+  "User Research",
+  "Usability Testing",
+  "UI Design Systems",
+  "Information Architecture (IA)"
 ];
 
 export const toolboxTags = [
-  "Figma",
   "Superwall",
+  "Figma",
   "Microsoft Clarity",
   "Dovetail",
+  "HTML5",
+  "CSS3",
+  "JavaScript",
   "React",
-  "Next.js",
-  "TypeScript",
-  "Tailwind CSS",
-  "WCAG 2.2 AA",
-  "Information architecture"
+  "WordPress",
+  "Web2Wave",
+  "Firebase",
+  "GitHub"
 ];
 
 export const languagesData = [
   { name: "Italian", level: "Native" },
-  { name: "Albanian", level: "Native" },
-  { name: "English", level: "C1 Professional" }
+  { name: "English", level: "C1 Professional" },
+  { name: "Spanish", level: "B1" },
+  { name: "French", level: "B1" }
 ];
 
 export const certificationsData = [
-  { name: "Google UX Design Professional Certificate", issuer: "Google" }
+  { name: "Google UX Design Professional Certificate", issuer: "Coursera (Credential: VNBQ3ZIUS6OU)", date: "2026" }
 ];

@@ -32,9 +32,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ["var(--font-syne)", "Syne", "sans-serif"],
-        sans: ["var(--font-plus-jakarta)", "Plus Jakarta Sans", "sans-serif"],
-        mono: ["var(--font-jetbrains)", "JetBrains Mono", "monospace"],
+        display: ["var(--font-geist-sans)", "Geist", "sans-serif"],
+        sans: ["var(--font-geist-sans)", "Geist", "sans-serif"],
+        mono: ["var(--font-geist-sans)", "Geist", "sans-serif"],
       },
       boxShadow: {
         glass: "0 10px 30px -10px rgba(0, 0, 0, 0.5)",

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Sun, Moon, Menu, X, ArrowUpRight } from "lucide-react";
+import { Sun, Moon, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -14,7 +14,7 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 12);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -34,43 +34,35 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/work", label: "Work & Archive" },
+    { href: "/work", label: "Work" },
     { href: "/thesis", label: "Thesis" },
     { href: "/about", label: "About" },
-    { href: "/resume", label: "CV" },
   ];
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border py-3 shadow-glass"
-          : "bg-transparent py-4 sm:py-5"
+      className={`sticky top-0 z-50 bg-white/60 dark:bg-[#0d0f14]/55 supports-[backdrop-filter]:bg-white/55 supports-[backdrop-filter]:dark:bg-[#0d0f14]/50 backdrop-blur-2xl backdrop-saturate-150 border-b border-white/50 dark:border-white/15 shadow-[0_4px_30px_rgba(0,0,0,0.06),inset_0_-1px_0_rgba(255,255,255,0.4)] dark:shadow-[0_4px_30px_rgba(0,0,0,0.45),inset_0_-1px_0_rgba(255,255,255,0.08)] rounded-b-[2rem] sm:rounded-b-[3rem] transition-[padding] duration-200 ${
+        isScrolled ? "py-3.5" : "py-4 sm:py-5"
       }`}
     >
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-6 sm:px-10 lg:px-16">
-        {/* Direct Logo Image */}
+      <div className="mx-auto flex max-w-6xl items-center justify-between px-5 sm:px-8 lg:px-10">
         <Link
           href="/"
-          className="group flex items-center gap-2.5 transition-opacity hover:opacity-90"
+          className="flex items-center transition-opacity hover:opacity-80"
         >
           <Image
             src="/herald-ago-icon.svg"
             alt="Herald Ago Logo"
-            width={28}
-            height={28}
-            className="h-7 w-7 object-contain shrink-0"
+            width={48}
+            height={48}
+            className="h-12 w-12 object-contain shrink-0"
             priority
           />
-          <span className="font-display font-bold text-base text-foreground tracking-tight flex items-center gap-1.5">
-            Herald Ago
-            <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
-          </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center gap-4">
-          <nav className="flex items-center gap-1.5 rounded-full border border-border bg-surface/90 p-1.5 backdrop-blur-xl shadow-sm">
+          <nav className="flex items-center gap-1 rounded-full p-1 bg-black/[0.04] dark:bg-white/[0.07] border border-black/[0.06] dark:border-white/10 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)] dark:shadow-[inset_0_1px_1px_rgba(255,255,255,0.06)]">
             {navLinks.map((link) => {
               const isActive =
                 link.href === "/"
@@ -80,10 +72,10 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`rounded-full px-4 py-1.5 text-xs font-mono font-bold uppercase tracking-wider transition-all duration-200 ${
+                  className={`px-4 py-1.5 rounded-full text-sm transition-all duration-200 ${
                     isActive
-                      ? "bg-lime text-lime-fg shadow-sm scale-102"
-                      : "text-muted-fg hover:text-lime hover:bg-lime/15 hover:border-lime/40 border border-transparent hover:scale-105"
+                      ? "bg-white/80 dark:bg-white/15 font-semibold text-foreground shadow-[0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] backdrop-blur-md"
+                      : "font-medium text-muted-fg hover:text-foreground hover:bg-white/40 dark:hover:bg-white/[0.06]"
                   }`}
                 >
                   {link.label}
@@ -96,23 +88,14 @@ export default function Header() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground shadow-sm hover:border-lime hover:text-lime transition-all duration-200 hover:scale-105"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.06] dark:border-white/15 bg-white/50 dark:bg-white/10 backdrop-blur-md text-foreground hover:bg-white/80 dark:hover:bg-white/15 transition-all"
           >
             {theme === "dark" ? (
-              <Sun className="h-4 w-4 text-lime" />
+              <Sun className="h-4 w-4 text-blue-400" />
             ) : (
               <Moon className="h-4 w-4 text-foreground" />
             )}
           </button>
-
-          {/* Let's talk CTA */}
-          <a
-            href="/#contact"
-            className="group inline-flex items-center gap-1.5 rounded-full bg-lime px-5 py-2 text-xs font-mono font-bold uppercase tracking-wider text-lime-fg shadow-lime hover:scale-105 transition-all"
-          >
-            <span>Let&apos;s talk</span>
-            <ArrowUpRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-          </a>
         </div>
 
         {/* Mobile Navigation Controls */}
@@ -120,10 +103,10 @@ export default function Header() {
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.06] dark:border-white/15 bg-white/50 dark:bg-white/10 backdrop-blur-md text-foreground"
           >
             {theme === "dark" ? (
-              <Sun className="h-4 w-4 text-lime" />
+              <Sun className="h-4 w-4 text-blue-400" />
             ) : (
               <Moon className="h-4 w-4 text-foreground" />
             )}
@@ -131,7 +114,7 @@ export default function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-foreground"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.06] dark:border-white/15 bg-white/50 dark:bg-white/10 backdrop-blur-md text-foreground"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -140,25 +123,27 @@ export default function Header() {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-border bg-surface px-6 py-5 space-y-3 font-mono text-xs font-bold uppercase">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-foreground hover:text-lime"
-            >
-              {link.label}
-            </Link>
-          ))}
-          <a
-            href="/#contact"
-            onClick={() => setMobileMenuOpen(false)}
-            className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-full bg-lime px-5 py-2.5 text-lime-fg"
-          >
-            <span>Let&apos;s talk</span>
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
+        <div className="md:hidden border-t border-black/5 dark:border-white/10 bg-white/70 dark:bg-[#0d0f14]/70 backdrop-blur-2xl backdrop-saturate-150 px-6 py-5 space-y-1.5 rounded-b-[2rem]">
+          {navLinks.map((link) => {
+            const isActive =
+              link.href === "/"
+                ? pathname === "/"
+                : pathname.startsWith(link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setMobileMenuOpen(false)}
+                className={`block px-4 py-2.5 rounded-full text-sm transition-all ${
+                  isActive
+                    ? "bg-white/80 dark:bg-white/15 font-semibold text-foreground shadow-[0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.2)]"
+                    : "font-medium text-muted-fg hover:text-foreground hover:bg-white/40 dark:hover:bg-white/[0.06]"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </header>

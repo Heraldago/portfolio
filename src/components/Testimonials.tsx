@@ -1,69 +1,48 @@
 "use client";
 
 import Image from "next/image";
-import { Quote, Building2 } from "lucide-react";
 import { testimonialsData } from "@/data/testimonials";
 
 export default function Testimonials() {
   return (
-    <section className="py-16 sm:py-24 border-t border-border bg-surface/30">
-      <div className="mx-auto max-w-5xl px-6 sm:px-10 lg:px-16 space-y-10">
-        <div className="space-y-2">
-          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-lime flex items-center gap-2">
-            <Quote className="h-4 w-4" /> Recommendations
-          </span>
-          <h2 className="font-display text-2xl sm:text-4xl font-bold tracking-tight text-foreground leading-tight">
-            What colleagues and clients say
-          </h2>
-          <p className="text-xs sm:text-sm text-muted-fg leading-relaxed max-w-xl">
-            Feedback from team leaders and clients on design quality, speed, and collaboration.
-          </p>
-        </div>
+    <section className="w-full rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70 py-16 sm:py-24">
+      <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 space-y-10">
+        <h2 className="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
+          Recommendations
+        </h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-stretch">
           {testimonialsData.map((t) => (
             <div
               key={t.id}
-              className="flex flex-col justify-between rounded-2xl sm:rounded-3xl border border-border bg-surface p-6 sm:p-8 shadow-glass hover:border-lime transition-all space-y-6"
+              className="flex flex-col justify-between rounded-3xl border border-border/70 bg-white dark:bg-surface p-7 sm:p-9 space-y-6"
             >
-              <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-border/60 pb-3">
-                  <Quote className="h-6 w-6 text-lime" />
-                  <span className="font-mono text-[10px] font-bold text-muted-fg uppercase tracking-wider">
-                    {t.company}
-                  </span>
-                </div>
-                <blockquote className="font-display text-base sm:text-lg text-foreground font-normal leading-relaxed">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-              </div>
+              <blockquote className="font-sans text-base sm:text-lg text-foreground/85 font-normal leading-relaxed">
+                &ldquo;{t.quote}&rdquo;
+              </blockquote>
 
-              <div className="pt-4 border-t border-border/60 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  {t.image ? (
-                    <div className="relative h-10 w-10 overflow-hidden rounded-xl border border-lime/40 shadow-sm">
-                      <Image src={t.image} alt={t.author} fill className="object-cover" />
-                    </div>
-                  ) : (
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-lime/10 text-lime font-mono font-bold text-base border border-lime/30">
-                      {t.author.charAt(0)}
-                    </div>
-                  )}
-                  <div>
-                    <h3 className="font-display text-sm font-bold text-foreground">
-                      {t.author}
-                    </h3>
-                    <p className="text-[11px] font-mono text-muted-fg">
-                      {t.role} · <strong className="text-lime font-bold">{t.company}</strong>
-                    </p>
-                    <p className="text-[10px] font-mono text-muted-fg/70">
-                      {t.location}
-                    </p>
+              <div className="pt-4 border-t border-border/60 flex items-center gap-3.5">
+                {t.image ? (
+                  <div className="relative h-11 w-11 overflow-hidden rounded-full border border-border/80 shrink-0">
+                    <Image
+                      src={t.image}
+                      alt={t.author}
+                      fill
+                      className={`object-cover ${t.imagePosition || "object-center"}`}
+                    />
                   </div>
-                </div>
-
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-surface-hover border border-border">
-                  <Building2 className="h-4 w-4 text-lime" />
+                ) : (
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 font-sans font-bold text-base border border-border/80 shrink-0">
+                    {t.author.charAt(0)}
+                  </div>
+                )}
+                <div>
+                  <h3 className="font-sans text-sm font-bold text-foreground">
+                    {t.author}
+                  </h3>
+                  <p className="text-xs text-foreground/75">
+                    {t.role}, <span className="font-medium text-blue-600 dark:text-blue-400">{t.company}</span>
+                  </p>
                 </div>
               </div>
             </div>

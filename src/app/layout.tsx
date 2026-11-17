@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Syne, Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
 import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -7,35 +7,11 @@ import Footer from "@/components/Footer";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
-const syne = Syne({
-  subsets: ["latin"],
-  variable: "--font-syne",
-  weight: ["600", "700"],
-  display: "swap",
-  preload: true,
-});
-
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  variable: "--font-plus-jakarta",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  preload: true,
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-jetbrains",
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  preload: true,
-});
-
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.heraldago.com"),
   title: "Herald Ago | Digital Product Designer",
   description:
-    "Digital Product Designer based in Barcelona. MSc in IT from the University of Southern Denmark. Designing mobile onboarding, paywalls, and scalable design systems.",
+    "Digital Product Designer with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
   authors: [{ name: "Herald Ago", url: "https://www.heraldago.com" }],
   keywords: [
     "Herald Ago",
@@ -46,6 +22,8 @@ export const metadata: Metadata = {
     "Mobile Design",
     "Figma",
     "Superwall",
+    "A/B Testing",
+    "CRO",
   ],
   icons: {
     icon: "/herald-ago-icon.svg",
@@ -57,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Herald Ago",
     title: "Herald Ago | Digital Product Designer",
     description:
-      "Digital Product Designer based in Barcelona. MSc in IT from the University of Southern Denmark. Designing mobile onboarding, paywalls, and scalable design systems.",
+      "Digital Product Designer with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
     images: [
       {
         url: "https://www.heraldago.com/metacard.png",
@@ -71,7 +49,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Herald Ago | Digital Product Designer",
     description:
-      "Digital Product Designer based in Barcelona. MSc in IT from the University of Southern Denmark. Designing mobile onboarding, paywalls, and scalable design systems.",
+      "Digital Product Designer with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
     images: ["https://www.heraldago.com/metacard.png"],
   },
 };
@@ -108,7 +86,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${syne.variable} ${plusJakartaSans.variable} ${jetbrainsMono.variable} bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-lime selection:text-lime-fg antialiased text-rendering-optimize`}
+        className={`${GeistSans.variable} ${GeistSans.className} bg-background text-foreground min-h-screen flex flex-col font-sans selection:bg-lime selection:text-lime-fg antialiased text-rendering-optimize`}
       >
         {/* WCAG Skip to Main Content Link */}
         <a href="#main-content" className="skip-to-content">
