@@ -71,92 +71,92 @@ export const projectsData: CaseStudy[] = [
   {
     id: "ungdomskort",
     index: "01",
-    title: "Ungdomskort: Transit Redesign",
-    subtitle: "National Danish Student Travel Pass Overhaul",
-    shortDescription: "Website and mobile app redesign for Denmark’s national student transit service.",
-    badge: "Public Transit UX & Accessibility",
+    title: "Ungdomskort",
+    subtitle: "Website redesign & new student transit app",
+    shortDescription: "Redesigning Denmark's student travel pass website for mobile and designing a companion app with period management and train alerts.",
+    badge: "UX/UI & Prototyping",
     image: "/assets/case-3-DEv2TI_Y.jpg",
-    tags: ["Mobile-First", "WCAG 2.2 AA", "Danish Public Transit", "Heuristic Evaluation"],
+    tags: ["Mobile-First", "User Research", "Usability Testing", "Design System"],
     link: "/ungdomskort",
-    role: "Lead Product Designer & Accessibility Engineer",
-    projectType: "Responsive Web & Mobile Service",
-    tools: ["Figma", "HTML5", "WCAG 2.2 Audit", "Miro"],
+    role: "UX/UI Designer",
+    projectType: "University + Solo Project",
+    tools: ["Figma", "Miro", "Next.js"],
     duration: "4 Months",
-    problem: "Danish students faced extreme cognitive friction and transaction drop-off when applying for and renewing their national transport pass. The existing platform suffered from broken mobile layouts, ambiguous payment step guidance, and severe non-compliance with European accessibility standards (WCAG 2.1/2.2).",
-    solution: "A complete mobile-first redesign of Ungdomskort.dk and companion app flow. Re-architected the multi-step verification and payment funnel into an intuitive 3-step wizard, introduced automated calendar renewal alerts, and established a WCAG 2.2 AA compliant tokenized color and typography system.",
+    problem: "Ungdomskort had no mobile app, no English language support, and a non-responsive website where login text overflowed phone screens. Modifying 30-120 day payment periods was error-prone: overlapping dates triggered red errors instead of adjusting automatically, and 70% of surveyed students were unhappy with existing train delay notifications.",
+    solution: "With Sean and Francesco, we surveyed 31 students, ran think-aloud usability tests, and designed both a responsive website and a new mobile app with English/German support, auto-adjusting period calendars, and train alerts. I then built the Figma design system and coded a live web prototype.",
     metrics: [
-      { label: "WCAG Compliance", value: "100%", description: "Full AA compliance verified with axe-core & manual screen reader audits." },
-      { label: "Checkout Friction", value: "-45%", description: "Reduction in user step completion times during pass renewal." },
-      { label: "Mobile Usability", value: "+92%", description: "Positive feedback rating from 18-25 year old Danish student cohort." }
+      { label: "Surveyed", value: "31", description: "Students polled on mobile usability and train alerts." },
+      { label: "Usability Tests", value: "4", description: "Think-aloud sessions testing period edits and alerts." },
+      { label: "Platforms", value: "2", description: "Redesigned web portal and new mobile app prototype." }
     ],
     processPhases: [
-      { number: "01", phase: "Heuristic Evaluation & Audit", summary: "Audited existing Ungdomskort portal against Nielsen Norman Group heuristics and WCAG 2.2 standards. Identified 14 critical usability blockers including broken contrast ratios and hidden tab focus indicators." },
-      { number: "02", phase: "Empirical User Research", summary: "Conducted contextual inquiries and user interviews with Danish university students. Discovered that 78% attempted pass renewals on smartphones while commuting." },
-      { number: "03", phase: "IA & Flow Simplification", summary: "Rebuilt the 7-stage approval funnel (MitID identity verification, zone selection, payment, delivery) into a clear 3-stage visual progress tracker." },
-      { number: "04", phase: "Accessible Design Tokens", summary: "Crafted high-contrast UI component tokens in Figma matching official Danish transport branding while exceeding strict contrast guidelines." },
-      { number: "05", phase: "Prototyping & Screen Reader Verification", summary: "Built fully interactive responsive prototypes and tested keyboard focus traps, voiceover announcements, and dynamic text resizing." }
+      { number: "01", phase: "Survey & Interviews (Team)", summary: "Surveyed 31 Ungdomskort users (54% used it on mobile or both devices) and ran think-aloud tests on the live site, uncovering broken mobile margins, missing English support, and confusing period edits." },
+      { number: "02", phase: "Personas & Scope (Team)", summary: "Built commuting student personas (such as Odense-Kolding rail commuters) and decided to design both a responsive web portal and a dedicated mobile app." },
+      { number: "03", phase: "Sketching & App-First UI (Team)", summary: "Started with paper sketches and scaled from mobile to desktop using Ungdomskort's blue/grey palette (#026db8) and Kontrapunkt typography." },
+      { number: "04", phase: "Usability Testing (Team)", summary: "Tested the Figma prototypes with 4 experienced Ungdomskort users using think-aloud and Wizard of Oz, catching and removing a redundant 'Add a return' option on single-train searches." },
+      { number: "05", phase: "Design System & Live App (Solo)", summary: "Extended the university project into a reusable Figma design system and coded an interactive Next.js web prototype." }
     ],
     interactivePrototype: {
-      title: "Interactive Prototype Simulator",
-      description: "Click through the core steps of the redesigned Ungdomskort student journey below.",
+      title: "Interactive Prototype",
+      description: "Test the redesigned Ungdomskort web portal prototype below.",
       steps: [
         {
           id: "step-1",
-          title: "Step 1: MitID Authentication",
-          subtitle: "Single Sign-On Verification",
+          title: "Step 1: MitID Login",
+          subtitle: "Mobile-friendly entry",
           image: "/assets/ungscreen-login.png",
-          highlights: ["Automated student status verification", "MitID biometric authentication", "High contrast WCAG 2.2 AA focus indicators"]
+          highlights: ["Responsive layout without horizontal scroll", "MitID login at the top", "Clear typography hierarchy"]
         },
         {
           id: "step-2",
-          title: "Step 2: Zone & Route Selector",
-          subtitle: "Automated Tariff Calculation",
+          title: "Step 2: Search Trips & Alerts",
+          subtitle: "Train delay notifications",
           image: "/assets/ungscreen-search.jpg",
-          highlights: ["Interactive zone map selector", "Instant price calculation", "Visual breakdown of bus/train/metro inclusion"]
+          highlights: ["Star icon for weekly commute trains", "Bell icon for single-trip alerts", "Mute option when classes are off"]
         },
         {
           id: "step-3",
-          title: "Step 3: Web Calendar & Renewal",
-          subtitle: "Frictionless Payment Funnel",
+          title: "Step 3: Period Calendar",
+          subtitle: "30-120 day pass management",
           image: "/assets/ungscreen-web-calendar.png",
-          highlights: ["Visual calendar for pass validity period", "One-click renewal subscription", "Danish MobilePay integration"]
+          highlights: ["Green/red start and end date picker", "Auto-adjusts adjacent periods", "No manual overlap errors"]
         },
         {
           id: "step-4",
-          title: "Step 4: Active Digital Card Pass",
-          subtitle: "Mobile & Offline Travel Pass",
+          title: "Step 4: Digital Youth Card",
+          subtitle: "QR pass & zone map",
           image: "/assets/ungscreen-web-card.png",
-          highlights: ["Live QR code for conductor scanning", "Offline caching capability", "Clear expiration timer badge"]
+          highlights: ["QR code for ticket inspection", "Student photo & validity date", "Interactive travel zone map"]
         },
         {
           id: "step-5",
-          title: "Step 5: Student Notification Hub",
-          subtitle: "Proactive Renewal Alerts",
+          title: "Step 5: Profile & Languages",
+          subtitle: "Multilingual & saved cards",
           image: "/assets/ungscreen-notifications.jpg",
-          highlights: ["Automated 7-day expiration alert", "Direct action links to renew", "Customizable push & SMS triggers"]
+          highlights: ["Dansk, English, and Deutsch support", "Saved Credit/Debit & MobilePay", "Direct link to message center"]
         }
       ]
     },
     researchData: {
       competitiveAnalysis: {
         image: "/assets/ungcompetitive-analysis.jpg",
-        summary: "Evaluated Danish regional transport portals (Rejsekort, DSB, DOT) to benchmark accessibility, zone selectors, and checkout flows."
+        summary: "Evaluated the existing Ungdomskort portal against Danish transport services (DSB, Rejsekort, DOT) on mobile layout, language support, and period editing."
       },
       personas: [
-        { title: "Persona 1: Commuting University Student", image: "/assets/ungpersona-1.jpg", summary: "Needs instant mobile pass renewal while on the train." },
-        { title: "Persona 2: High School Student (First-Time User)", image: "/assets/ungpersona-2.jpg", summary: "Needs clear step guidance for MitID verification and zone boundaries." }
+        { title: "Persona 1: University Commuter", image: "/assets/ungpersona-1.jpg", summary: "International student commuting daily by train between Odense and Kolding." },
+        { title: "Persona 2: First-Time Student", image: "/assets/ungpersona-2.jpg", summary: "Needs clear English guidance on MitID login and travel zones." }
       ],
-      userFlows: { title: "Danish Transport Flow Architecture", image: "/assets/unguser-flow.jpg" },
-      storyboards: { title: "Commuter Journey Storyboards", image: "/assets/ungstoryboards.jpg" }
+      userFlows: { title: "User Flow Architecture", image: "/assets/unguser-flow.jpg" },
+      storyboards: { title: "Commuter Storyboards", image: "/assets/ungstoryboards.jpg" }
     },
     wireframes: {
-      title: "Before vs After Layout Transformations",
-      desc: "Comparing the legacy non-responsive website with the redesigned accessible platform.",
+      title: "Before & After",
+      desc: "Comparing the legacy desktop-only portal with the redesigned web and mobile screens.",
       images: [
-        { title: "Legacy Step 1 (Cluttered)", src: "/assets/ung-step1-original-hd.png" },
-        { title: "Redesigned Web Calendar & Renewal", src: "/assets/ungscreen-web-calendar.png" },
-        { title: "Redesigned Active Digital Card", src: "/assets/ungscreen-web-card.png" },
-        { title: "Redesigned Student Message Center", src: "/assets/ungscreen-web-messages.png" }
+        { title: "Before: Legacy Portal (No Mobile Layout)", src: "/assets/ung-step1-original-hd.png" },
+        { title: "After: Auto-Adjusting Period Calendar", src: "/assets/ungscreen-web-calendar.png" },
+        { title: "After: Active Digital Card & Overview", src: "/assets/ungscreen-web-card.png" },
+        { title: "After: Student Message Center", src: "/assets/ungscreen-web-messages.png" }
       ]
     },
     designSystem: {
@@ -164,20 +164,20 @@ export const projectsData: CaseStudy[] = [
       typographyImage: "/assets/ungtypography.jpg"
     },
     highFiScreens: [
-      { label: "Mobile Login & MitID", desc: "Biometric and MitID single sign-on onboarding.", img: "/assets/ungscreen-login.png" },
-      { label: "Zone & Pass Selector", desc: "Interactive map and automated price calculator.", img: "/assets/ungscreen-search.jpg" },
-      { label: "Notification Hub", desc: "Timely alerts for pass expiration and renewal status.", img: "/assets/ungscreen-notifications.jpg" },
-      { label: "Profile & Student ID", desc: "Digital verification card with offline QR validation.", img: "/assets/ungscreen-profile.jpg" }
+      { label: "MitID Login (Mobile)", desc: "Responsive layout with MitID at the top.", img: "/assets/ungscreen-login.png" },
+      { label: "Search Trips & Alerts", desc: "Star weekly trains or set single-trip alerts.", img: "/assets/ungscreen-search.jpg" },
+      { label: "Push Notifications", desc: "Live delay and cancellation alerts.", img: "/assets/ungscreen-notifications.jpg" },
+      { label: "Profile & Languages", desc: "Switch languages and manage saved cards.", img: "/assets/ungscreen-profile.jpg" }
     ],
     keyDecisions: [
-      { title: "3-Step Guided Wizard", body: "Replaced scattered forms with a linear step progress bar that persists user input across sessions." },
-      { title: "MitID Frictionless Auth", body: "Embedded Danish national digital identity auth directly into step 1 to pre-fill verified student status." },
-      { title: "High-Contrast UI System", body: "Enforced 7:1 contrast ratio for all interactive text and controls to guarantee outdoor readability on mobile screens." },
-      { title: "Automated Expiration Alerts", body: "Added SMS and push notification triggers 7 days prior to pass expiration to prevent unexpected transit fines." }
+      { title: "Auto-Adjusting Period Calendar", body: "Passes must be 30-120 days without overlaps. Instead of throwing red errors, the new calendar adapts adjacent periods automatically." },
+      { title: "3-Screen Period Flow", body: "Following Krug's 'more clicks, less thinking', split period editing into overview, list, and calendar picker so each step is obvious." },
+      { title: "Weekly vs. Single-Trip Alerts", body: "Added a Star icon for recurring daily commute trains and a Bell icon for one-off trips, with a mute toggle for days off." },
+      { title: "Built-In Language Switcher", body: "Added Dansk, English, and Deutsch options directly in Profile so international students no longer rely on browser translation plugins." }
     ],
     takeaways: [
-      "Designing for public sector software requires balancing strict compliance with delightful, modern interaction speed.",
-      "Empirical testing with real commuting students revealed that micro-copy and clear status feedback were just as critical as visual hierarchy."
+      "Usability testing with just 4 real users caught a logical flaw in our trip search ('Add a return' on a one-way alert) that we missed in Figma.",
+      "Starting from mobile constraints made scaling up to the desktop portal straightforward while keeping both platforms consistent."
     ]
   },
   {
