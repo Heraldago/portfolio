@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 const experience = [
   {
     company: "GoCoCo",
-    role: "Digital Product Designer",
+    role: "Product Designer",
     period: "APR 2026 - PRESENT",
     location: "Barcelona, Spain",
     bullets: [
@@ -133,7 +133,8 @@ export default function AboutPage() {
                 After that, I joined{" "}
                 <strong className="font-bold text-foreground">GoCoCo</strong> as a{" "}
                 <strong className="font-bold text-foreground">Product Designer</strong>, a Barcelona-based{" "}
-                <MarkerHighlight delay={850}>startup</MarkerHighlight> building an AI mobile app that helps people with diabetes shop for groceries and manage their diet. There, I worked on implementing the new design system, onboarding, paywalls, and automating design-to-code-to-launch workflows with Claude Code. Overall,{" "}
+                <MarkerHighlight delay={850}>startup</MarkerHighlight> building an AI mobile app that helps people with diabetes shop for groceries and manage their diet. There, I worked on implementing the new design system, onboarding, paywalls, and automating design-to-code-to-launch workflows with Claude Code. Now based in{" "}
+                <strong className="font-bold text-foreground">Padua, Italy</strong>,{" "}
                 <MarkerHighlight delay={1000}>
                   I love designing and building products that help and simplify people&apos;s lives.
                 </MarkerHighlight>

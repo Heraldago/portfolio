@@ -24,7 +24,7 @@ export interface SkillItem {
 export const experienceData: ExperienceItem[] = [
   {
     id: "gococo",
-    role: "Digital Product Designer",
+    role: "Product Designer",
     period: "May 2026 - Oct 2026",
     company: "GoCoCo",
     location: "Barcelona, Spain",
@@ -32,12 +32,12 @@ export const experienceData: ExperienceItem[] = [
       "Owned onboarding flows and paywall experimentation for a 1M+ user mobile app, migrating legacy screens to the new Figma UI Design System.",
       "Built and deployed onboarding flows directly within Superwall, using both the platform's visual editor with AI agents and Superwall's new React framework.",
       "Designed and executed Superwall A/B tests on updated onboarding flows, lifting average conversion by +1.5% and reaching a +4.5% peak conversion increase with a custom winning variant.",
-      "Led user research and funnel analysis, combining user interviews, Microsoft Clarity session replays, and competitor benchmarks to eliminate drop-offs and establish onboarding best practices."
+      "Led user research and funnel analysis, combining user interviews, Microsoft Clarity session replays, funnel analysis, and competitor benchmarks to eliminate drop-offs and establish onboarding best practices."
     ]
   },
   {
     id: "naemt",
-    role: "Digital Product Designer",
+    role: "Product Designer",
     period: "Jan 2024 - Dec 2025",
     company: "næmt.nu",
     location: "Odense, Denmark",
@@ -49,7 +49,7 @@ export const experienceData: ExperienceItem[] = [
   },
   {
     id: "leadermedica",
-    role: "Digital Product Designer Intern",
+    role: "Product Designer Intern",
     period: "Jan 2023 - Jun 2023",
     company: "Leader Medica",
     location: "Padua, Italy",

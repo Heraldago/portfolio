@@ -9,21 +9,25 @@ import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.heraldago.com"),
-  title: "Herald Ago | Digital Product Designer",
+  title: "Herald Ago | Product Designer",
   description:
-    "Digital Product Designer with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
+    "Product Designer based in Padua, Italy with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
   authors: [{ name: "Herald Ago", url: "https://www.heraldago.com" }],
   keywords: [
     "Herald Ago",
-    "Digital Product Designer",
+    "Product Designer",
     "UX UI Designer",
     "Product Design",
     "Design Systems",
+    "UX Research",
+    "WCAG 2.2",
     "Mobile Design",
     "Figma",
     "Superwall",
     "A/B Testing",
     "CRO",
+    "Padua",
+    "Italy",
   ],
   icons: {
     icon: "/herald-ago-icon.svg",
@@ -33,9 +37,9 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.heraldago.com",
     siteName: "Herald Ago",
-    title: "Herald Ago | Digital Product Designer",
+    title: "Herald Ago | Product Designer",
     description:
-      "Digital Product Designer with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
+      "Product Designer based in Padua, Italy with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
     images: [
       {
         url: "https://www.heraldago.com/metacard.png",
@@ -47,9 +51,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Herald Ago | Digital Product Designer",
+    title: "Herald Ago | Product Designer",
     description:
-      "Digital Product Designer with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
+      "Product Designer based in Padua, Italy with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
     images: ["https://www.heraldago.com/metacard.png"],
   },
 };
@@ -65,11 +69,68 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://www.heraldago.com/#person",
+        name: "Herald Ago",
+        jobTitle: "Product Designer",
+        url: "https://www.heraldago.com",
+        email: "mailto:heraldago1@gmail.com",
+        image: "https://www.heraldago.com/assets/profile-pms1FE7T.jpg",
+        description:
+          "Product Designer based in Padua, Italy with 3+ years of international experience across Denmark, Spain, and Italy and an MSc in IT - Web Communication Design (SDU Denmark).",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Padua",
+          addressRegion: "Veneto",
+          addressCountry: "IT",
+        },
+        alumniOf: [
+          {
+            "@type": "CollegeOrUniversity",
+            name: "University of Southern Denmark",
+          },
+          {
+            "@type": "CollegeOrUniversity",
+            name: "University of Ferrara",
+          },
+        ],
+        knowsAbout: [
+          "Product Design",
+          "UX/UI Design",
+          "Design Systems",
+          "User Research",
+          "Conversion Rate Optimization",
+          "A/B Testing",
+          "WCAG 2.2 Accessibility",
+          "Figma",
+          "Superwall",
+        ],
+        knowsLanguage: ["Italian", "English", "Spanish", "French"],
+        sameAs: ["https://www.linkedin.com/in/heraldago/"],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://www.heraldago.com/#website",
+        url: "https://www.heraldago.com",
+        name: "Herald Ago | Product Designer",
+        author: { "@id": "https://www.heraldago.com/#person" },
+      },
+    ],
+  };
+
   return (
     <html lang="en" className="light scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {/* Google tag (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-FD1Y93T0VL"

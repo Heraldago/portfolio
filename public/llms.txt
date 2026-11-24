@@ -1,17 +1,27 @@
-# Herald Ago — Digital Product Designer & Design Engineer
+# Herald Ago - Product Designer
 
-> Portfolio of Herald Ago (MSc in IT). Bridging empirical user research, scalable design token systems, and front-end engineering for accessible, WCAG 2.2 compliant software.
+> Portfolio of Herald Ago, a Product Designer based in Padua, Italy (MSc in IT - Web Communication Design, University of Southern Denmark). 3+ years of international experience across Denmark, Spain, and Italy, combining empirical user research, design systems, CRO/A/B testing, and WCAG 2.2 accessibility.
+
+## Profile
+
+- Role: Product Designer
+- Location: Padua, Italy
+- Education: MSc in IT - Web Communication Design (University of Southern Denmark), BSc in Communication (University of Ferrara)
+- Languages: Italian (Native), English (C1), Spanish (B1), French (B1)
+- Contact: heraldago1@gmail.com
+- LinkedIn: https://www.linkedin.com/in/heraldago/
 
 ## Primary Case Studies
 
-- [Ungdomskort Redesign](https://heraldago.com/ungdomskort/): National Danish student transit pass website and app redesign, WCAG 2.2 AA compliant.
-- [X-Bit Museum Companion App](https://heraldago.com/xbit/): End-to-end mobile app design process completed as part of the Google UX Design Certificate.
-- [I Pupi Siciliani Wine E-Commerce](https://heraldago.com/ipupisiciliani/): End-to-end UX/UI, product photography, and custom WooCommerce build in Odense, Denmark (+187% YoY profit).
-- [Sydbank Enterprise Data Catalog](https://heraldago.com/sydbank/): Empirical 24-person survey and UI redesign reducing task times by 66% at Denmark's 4th largest bank.
-- [Tutora EdTech Platform](https://heraldago.com/tutora/): Tutoring marketplace and design system.
+- [Ungdomskort Redesign](https://www.heraldago.com/ungdomskort): National Danish student transit pass website and app redesign, WCAG 2.2 AA compliant.
+- [X-Bit Museum Companion App](https://www.heraldago.com/xbit): End-to-end mobile app design process completed as part of the Google UX Design Certificate.
+- [I Pupi Siciliani Wine E-Commerce](https://www.heraldago.com/ipupisiciliani): End-to-end UX/UI, product photography, and custom WooCommerce build in Odense, Denmark (+31% gross, +187% YoY net profit).
+- [Sydbank Enterprise Data Catalog](https://www.heraldago.com/sydbank): Empirical 24-person survey and UI redesign reducing task times by 66% at Denmark's 4th largest bank.
+- [Tutora EdTech Platform](https://www.heraldago.com/tutora): Tutoring marketplace and design system.
 
-## Navigation & Work
+## Research & Navigation
 
-- [Complete Project Archive](https://heraldago.com/work/)
-- [About & Bio](https://heraldago.com/about/)
-- [Homepage](https://heraldago.com/)
+- [MSc Thesis: Gamified Coding Pedagogy](https://www.heraldago.com/thesis): Empirical study (N = 24, 4-week experiment) reducing coding task completion time by 50%.
+- [Complete Project Archive](https://www.heraldago.com/work)
+- [About & Resume](https://www.heraldago.com/about)
+- [Homepage](https://www.heraldago.com)
