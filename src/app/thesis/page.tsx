@@ -1,10 +1,46 @@
-"use client";
+import type { Metadata } from "next";
+import ThesisPdfViewer from "@/components/ThesisPdfViewer";
+import { buildPageMetadata, SITE_URL } from "@/lib/seo";
 
-import { useState } from "react";
-import Link from "next/link";
+export const metadata: Metadata = buildPageMetadata({
+  title: "MSc Thesis: Gamification in Web Development Education | Herald Ago",
+  description:
+    "Master's Thesis at University of Southern Denmark (SDU): empirical study (N = 24, 4-week experiment) on how game mechanics reduce coding task completion time by 50%.",
+  path: "/thesis",
+  type: "article",
+});
 
 export default function ThesisPage() {
-  const [isPdfExpanded, setIsPdfExpanded] = useState(false);
+  const thesisJsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+          { "@type": "ListItem", position: 2, name: "MSc Thesis", item: `${SITE_URL}/thesis` },
+        ],
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": `${SITE_URL}/thesis#article`,
+        url: `${SITE_URL}/thesis`,
+        headline: "Gamification in Web Development Education",
+        alternativeHeadline:
+          "How Game Mechanics Enhance Engagement, Skill Acquisition & Self-Efficacy for Novice Developers",
+        description:
+          "Empirical MSc thesis at the University of Southern Denmark (SDU) investigating how gamified learning systems bridge theoretical knowledge and practical front-end engineering.",
+        author: { "@id": `${SITE_URL}/#person` },
+        publisher: {
+          "@type": "CollegeOrUniversity",
+          name: "University of Southern Denmark",
+        },
+        datePublished: "2025-06",
+        numberOfPages: 102,
+        inLanguage: "en",
+      },
+    ],
+  };
 
   const metrics = [
     {
@@ -93,6 +129,10 @@ export default function ThesisPage() {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(thesisJsonLd) }}
+      />
       {/* Hero Section (White surface) */}
       <section className="w-full bg-white dark:bg-surface rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
         <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-8">
@@ -287,44 +327,7 @@ export default function ThesisPage() {
       </section>
 
       {/* PDF Viewer Section (#f8fafc99 background) */}
-      <section id="pdf-viewer" className="scroll-mt-20 w-full rounded-b-[2rem] sm:rounded-b-[3rem] border-b border-border/70">
-        <div className="mx-auto max-w-6xl px-5 sm:px-8 lg:px-10 py-14 sm:py-20 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <h2 className="font-sans text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-              Thesis Document
-            </h2>
-
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setIsPdfExpanded(!isPdfExpanded)}
-                className="rounded-full border border-border bg-white dark:bg-surface px-5 py-2 text-xs font-medium text-foreground hover:border-foreground/30 transition-colors"
-              >
-                {isPdfExpanded ? "Standard view" : "Expand view"}
-              </button>
-              <a
-                href="/thesis-herald-ago.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-blue-600 dark:bg-blue-500 px-5 py-2 text-xs font-medium text-white hover:bg-blue-700 transition-colors"
-              >
-                Open PDF in new tab
-              </a>
-            </div>
-          </div>
-
-          <div
-            className={`relative overflow-hidden rounded-3xl border border-border/80 bg-white dark:bg-surface shadow-md transition-all duration-300 ${
-              isPdfExpanded ? "h-[85vh]" : "h-[650px] sm:h-[750px]"
-            }`}
-          >
-            <iframe
-              src="/thesis-herald-ago.pdf#toolbar=1"
-              title="Herald Ago Master Thesis PDF"
-              className="h-full w-full border-none rounded-3xl"
-            />
-          </div>
-        </div>
-      </section>
+      <ThesisPdfViewer />
     </div>
   );
 }

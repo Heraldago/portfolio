@@ -72,6 +72,7 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  aria-current={isActive ? "page" : undefined}
                   className={`px-4 py-1.5 rounded-full text-sm transition-all duration-200 ${
                     isActive
                       ? "bg-white/80 dark:bg-white/15 font-semibold text-foreground shadow-[0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.2)] backdrop-blur-md"
@@ -114,6 +115,7 @@ export default function Header() {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
             className="flex h-9 w-9 items-center justify-center rounded-full border border-black/[0.06] dark:border-white/15 bg-white/50 dark:bg-white/10 backdrop-blur-md text-foreground"
           >
             {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -134,6 +136,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
+                aria-current={isActive ? "page" : undefined}
                 className={`block px-4 py-2.5 rounded-full text-sm transition-all ${
                   isActive
                     ? "bg-white/80 dark:bg-white/15 font-semibold text-foreground shadow-[0_2px_8px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_2px_8px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.2)]"

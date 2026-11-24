@@ -54,7 +54,14 @@ export default function Lightbox({ src, alt, isOpen, onClose }: LightboxProps) {
             <X className="h-5 w-5" />
           </button>
           <div className="relative max-h-[85vh] w-full min-w-[300px] overflow-auto p-2">
-            <img src={src} alt={alt} className="h-auto w-full max-w-full object-contain rounded-xl" />
+            <Image
+              src={src}
+              alt={alt}
+              width={1600}
+              height={1000}
+              sizes="90vw"
+              className="h-auto w-full max-w-full object-contain rounded-xl"
+            />
           </div>
           <div className="p-4 border-t border-border bg-surface font-mono text-xs text-muted-fg text-center">
             {alt}

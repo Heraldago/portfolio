@@ -28,6 +28,7 @@ export default function Testimonials() {
                       src={t.image}
                       alt={t.author}
                       fill
+                      sizes="44px"
                       className={`object-cover ${t.imagePosition || "object-center"}`}
                     />
                   </div>

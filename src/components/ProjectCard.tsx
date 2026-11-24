@@ -46,7 +46,7 @@ export default function ProjectCard({
                 alt={project.title}
                 fill
                 priority={priority}
-                sizes="(max-width: 768px) 100vw, 60vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 58vw, 660px"
                 className={`object-cover ${project.imagePosition || "object-center"} transition-transform duration-500 ease-out group-hover:scale-[1.02]`}
               />
             </div>

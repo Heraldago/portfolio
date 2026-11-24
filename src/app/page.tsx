@@ -1,11 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
+import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import ProjectsList from "@/components/ProjectsList";
 import MarkerHighlight from "@/components/MarkerHighlight";
 import Testimonials from "@/components/Testimonials";
 import ContactSection from "@/components/ContactSection";
 import { projectsData } from "@/data/projects";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Herald Ago | Product Designer",
+  description:
+    "Product Designer based in Padua, Italy with 3+ years of international experience and an MSc in IT - Web Communication Design (SDU Denmark). Designing digital products that simplify and improve people's lives.",
+  path: "/",
+});
 
 export default function HomePage() {
   const featuredProjects = projectsData.slice(0, 3);

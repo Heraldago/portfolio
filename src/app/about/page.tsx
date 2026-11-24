@@ -2,12 +2,14 @@ import Link from "next/link";
 import Image from "next/image";
 import MarkerHighlight from "@/components/MarkerHighlight";
 import type { Metadata } from "next";
+import { buildPageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "About & Resume | Herald Ago",
   description:
-    "Product Designer with international experience across Denmark, Spain, and Italy. Background, experience, education, and skills.",
-};
+    "Product Designer based in Padua, Italy with international experience across Denmark, Spain, and Italy. Background, experience, education, and skills.",
+  path: "/about",
+});
 
 const experience = [
   {

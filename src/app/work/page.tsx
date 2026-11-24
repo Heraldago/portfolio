@@ -1,5 +1,14 @@
+import type { Metadata } from "next";
 import ProjectsList from "@/components/ProjectsList";
 import { projectsData } from "@/data/projects";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Projects & Case Studies | Herald Ago",
+  description:
+    "Selected UX/UI and product design case studies by Herald Ago: Ungdomskort, X-Bit, I Pupi Siciliani, Sydbank, and Tutora.",
+  path: "/work",
+});
 
 export default function WorkPage() {
   return (
